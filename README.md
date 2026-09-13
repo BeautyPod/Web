@@ -35,6 +35,7 @@ beautypod-site/
 - [ ] **Segunda tarjeta de "Especialista"**: el texto de "Sobre BeautyPod" es un borrador de ejemplo (marcado con `<!-- TODO -->`); reemplázalo con contenido real del negocio.
 - [ ] **Imágenes**: se mantienen las de stock de Unsplash (hotlinked) que ya traía el sitio, tal como se pidió. Para producción se recomienda descargarlas, convertirlas a **WebP** u **AVIF**, y servirlas desde `assets/img/` para no depender de un dominio externo ni de su disponibilidad/rendimiento.
 - [ ] **Favicon**: el de `assets/img/favicon.svg` es un placeholder con los colores de marca; sustitúyelo por el logo real si existe.
+- [ ] **Redes sociales**: los enlaces de Facebook, Instagram y Telegram en el pie de página son de ejemplo (marcados con `<!-- TODO -->`); reemplázalos por las URLs reales de las cuentas del negocio. El de WhatsApp ya usa el número real.
 
 ## Cómo publicarlo en GitHub Pages
 
