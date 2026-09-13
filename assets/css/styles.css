@@ -132,7 +132,11 @@ p { margin: 0 0 var(--space-2); }
   font-weight: 800;
   letter-spacing: -0.02em;
 }
-.section__heading p { color: var(--color-text-muted); }
+.section__heading p {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  color: var(--color-text-muted);
+}
 
 /* =========================================================
    Cabecera / navegación
