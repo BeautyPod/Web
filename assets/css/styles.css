@@ -22,7 +22,7 @@
   /* Tipografía */
   --font-heading: "Cardo", ui-serif, Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --fs-h1: 1.75rem;
+  --fs-h1: 2.0rem;
   --fs-h2: 26px;
   --fs-h3: 16px;
   --fs-body: 1rem;
@@ -582,13 +582,16 @@ p { margin: 0 0 var(--space-2); }
   text-transform: uppercase;
   margin-bottom: var(--space-2);
 }
-.page-hero h1 { font-size: 1.9rem; color: var(--color-text); }
+.page-hero h1 { font-size: 2.0rem; color: var(--color-text); }
 .page-hero h1 em {
   display: block;
   font-style: normal;
   color: var(--color-text);
 }
-.page-hero__lead { color: var(--color-text-soft); max-width: 52ch; }
+.page-hero__lead { 
+  font-size: 0.9rem;
+  
+  color: var(--color-text-soft); max-width: 52ch; }
 .page-hero__actions {
   display: flex;
   flex-direction: column;
@@ -608,6 +611,10 @@ p { margin: 0 0 var(--space-2); }
 @media (min-width: 960px) {
   .page-hero__grid { grid-template-columns: 1.1fr 0.9fr; }
   .page-hero__media img { height: 100%; min-height: 360px; }
+}
+.page-hero__grid--reverse { grid-template-columns: 1fr; }
+@media (min-width: 960px) {
+  .page-hero__grid--reverse { grid-template-columns: 0.9fr 1.1fr; }
 }
 
 /* --- Franja de sección (etiqueta pequeña sobre un h2) --- */
@@ -799,3 +806,84 @@ p { margin: 0 0 var(--space-2); }
 @media (min-width: 600px) {
   .whatsapp-strip__actions { justify-content: flex-end; }
 }
+
+/* =========================================================
+   Página interior — Sobre BeautyPod
+   Reutiliza .page-hero, .card-grid, .card, .professional-card,
+   .check-list y .testimonial-card ya definidos. Solo se añaden
+   modificadores puntuales para el contenido que lo requiere.
+   ========================================================= */
+
+/* Rejilla de 5 columnas (¿Qué nos diferencia?) */
+.card-grid--5 { grid-template-columns: 1fr; }
+@media (min-width: 600px) {
+  .card-grid--5 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 960px) {
+  .card-grid--5 { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* hero centrado */
+.page-hero_content--center {
+  max-width: 640px;
+  margin-inline: auto;
+}
+.page-hero_content--center h1{ 
+  font-size: 2.0rem;
+  text-align: center;
+  color: var(--color-accent);
+}
+.page-hero_content--center p{
+  font-size: 0.9rem;
+  text-align: center;  
+  color: var(--color-text-soft); 
+ }
+ .page-hero_content--center p:last-of-type{
+  max-width: 480px;
+  margin-inline: auto;
+ }
+ .page-hero_content--center span{
+  
+  text-align: center;
+   display: block;
+  color: var(--color-text-muted);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+ }
+
+/* Checklist con etiqueta en negrita + descripción normal */
+.feature-list li { font-weight: 400; color: var(--color-text-soft); }
+.feature-list li strong { color: var(--color-text); font-weight: 700; }
+
+/* Estrellas de valoración dentro de una testimonial-card (opcional) */
+.testimonial-card__stars {
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+}
+
+/* Tarjeta de especialista: la foto no se estira más allá de su tamaño natural,
+   se alinea arriba y su alto lo define su propio ancho (no el del párrafo) */
+.professional-card--specialist {
+  align-items: flex-start;
+}
+.professional-card--specialist .professional-card__media img {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  max-height: 420px;
+}
+@media (min-width: 600px) {
+  .professional-card--specialist .professional-card__media { align-self: flex-start; }
+}
+
+/* Franja de estadísticas / valores en texto centrado (Nuestra misión, ¿Qué nos diferencia?) */
+.card--icon-center .card__title {
+  flex-direction: column;
+  text-align: center;
+}
+.card--icon-center .card__icon { margin: 0 auto var(--space-1); }
+.card--icon-center .card__body { text-align: center; }
