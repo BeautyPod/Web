@@ -25,14 +25,82 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <style>
-  /* Ajustes específicos de esta página: títulos de servicio más grandes
-     y misma tipografía de encabezado en los textos "eyebrow" (azules). */
+  /* Ajustes específicos de esta página: títulos de servicio un poco más
+     grandes, misma tipografía de encabezado en los "eyebrow" (azules),
+     margen de desplazamiento para los anclajes internos y el bloque
+     "antes y después" (sin JavaScript, siguiendo la arquitectura del sitio). */
   #servicios-estetica .card__body h3 {
-    font-size: 1.6em;
+    font-size: 1.3em;
   }
   #contenido .eyebrow {
     font-family: 'Cardo', serif;
     font-size: 1.05em;
+  }
+  #hidratacion-topica,
+  #esmalte,
+  #terapias-antiinflamatorias {
+    scroll-margin-top: 90px;
+  }
+
+  .before-after {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .before-after__frame {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+  }
+  .before-after__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .before-after__img--after {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .before-after__tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: .75em;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .before-after__tag--after {
+    left: auto;
+    right: 12px;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .before-after__checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .before-after__checkbox:checked ~ .before-after__frame .before-after__img--after,
+  .before-after__checkbox:checked ~ .before-after__frame .before-after__tag--after {
+    opacity: 1;
+  }
+  .before-after__label {
+    display: block;
+    width: fit-content;
+    margin: 16px auto 0;
+    cursor: pointer;
+  }
+  .before-after__hint {
+    text-align: center;
+    margin-top: 10px;
+    font-size: .9em;
+    opacity: .8;
   }
 </style>
 
@@ -112,7 +180,7 @@
   <section class="section section--soft" id="servicios-estetica" aria-labelledby="servicios-estetica-title">
     <div class="container">
       <div class="section__heading">
-        <h2 id="servicios-estetica-title">¿Qué buscas para complementar tu servicio?</h2>
+        <h2 id="servicios-estetica-title">Elige el cuidado que necesites</h2>
       </div>
 
       <div class="card-grid card-grid--3">
@@ -125,7 +193,7 @@
           <div class="card__body">
             <h3>Hidratación</h3>
             <p>Tratamientos que devuelven suavidad a la piel de tus pies y previenen la sequedad y las grietas.</p>
-            <a class="card__link" href="#reserva">Conocer más <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="#hidratacion-topica">Conocer más <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -137,7 +205,7 @@
           <div class="card__body">
             <h3>Pedicura</h3>
             <p>Cuidado integral de uñas y piel con un enfoque estético, para unos pies siempre presentables.</p>
-            <a class="card__link" href="#reserva">Conocer más <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="#esmalte">Conocer más <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -149,7 +217,7 @@
           <div class="card__body">
             <h3>Terapia y Masajes</h3>
             <p>Técnicas de relajación y activación pensadas para aliviar la tensión acumulada en tus pies.</p>
-            <a class="card__link" href="#reserva">Conocer más <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="#terapias-antiinflamatorias">Conocer más <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -209,7 +277,7 @@
 
       <div class="professional-grid">
 
-        <article class="professional-card professional-card--compact">
+        <article class="professional-card professional-card--compact" id="hidratacion-topica">
           <div class="professional-card__media">
             <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=500&h=500&q=70"
                  alt="Hidratación tópica de pies" width="500" height="500" loading="lazy">
@@ -231,7 +299,7 @@
           </div>
         </article>
 
-        <article class="professional-card professional-card--compact">
+        <article class="professional-card professional-card--compact" id="esmalte">
           <div class="professional-card__media">
             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=500&h=500&q=70"
                  alt="Esmaltado de uñas" width="500" height="500" loading="lazy">
@@ -242,7 +310,7 @@
           </div>
         </article>
 
-        <article class="professional-card professional-card--compact">
+        <article class="professional-card professional-card--compact" id="terapias-antiinflamatorias">
           <div class="professional-card__media">
             <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=500&h=500&q=70"
                  alt="Terapias antiinflamatorias y de activación en pies" width="500" height="500" loading="lazy">
@@ -275,6 +343,85 @@
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANTES Y DESPUÉS ============ -->
+  <section class="section" aria-labelledby="antes-despues-title">
+    <div class="container container--narrow">
+      <div class="section__heading">
+        <h2 id="antes-despues-title">Antes y después</h2>
+      </div>
+
+      <div class="before-after">
+        <input type="checkbox" id="before-after-toggle" class="before-after__checkbox">
+        <div class="before-after__frame">
+          <img class="before-after__img before-after__img--before"
+               src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&h=800&q=70"
+               alt="Pie antes del tratamiento" width="800" height="800" loading="lazy">
+          <img class="before-after__img before-after__img--after"
+               src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&h=800&q=70"
+               alt="Pie después del tratamiento" width="800" height="800" loading="lazy">
+          <span class="before-after__tag before-after__tag--before" aria-hidden="true">Antes</span>
+          <span class="before-after__tag before-after__tag--after" aria-hidden="true">Después</span>
+        </div>
+        <label for="before-after-toggle" class="before-after__label btn btn--outline">Ver antes y después</label>
+      </div>
+      <p class="before-after__hint">Toca el botón para comparar el resultado de un tratamiento.</p>
+    </div>
+  </section>
+
+  <!-- ============ PREGUNTAS FRECUENTES ============ -->
+  <section class="section section--soft" id="faq" aria-labelledby="faq-estetica-title">
+    <div class="container container--narrow">
+      <div class="section__heading">
+        <h2 id="faq-estetica-title">Preguntas frecuentes</h2>
+      </div>
+
+      <div class="accordion-columns">
+        <div class="accordion">
+          <details class="accordion__item">
+            <summary>¿Necesito cita previa?</summary>
+            <!-- TODO: respuesta pendiente de contenido real -->
+            <p>Pendiente de confirmar.</p>
+          </details>
+
+          <details class="accordion__item">
+            <summary>¿Puedo combinar varios servicios en la misma visita?</summary>
+            <p>Sí, puedes combinar servicios en la misma cita.</p>
+          </details>
+
+          <details class="accordion__item">
+            <summary>¿Qué servicios de estética ofrecen?</summary>
+            <!-- TODO: respuesta pendiente de contenido real -->
+            <p>Pendiente de confirmar.</p>
+          </details>
+
+          <details class="accordion__item">
+            <summary>¿Qué debo hacer antes de acudir a la cita?</summary>
+            <!-- TODO: respuesta pendiente de contenido real -->
+            <p>Pendiente de confirmar.</p>
+          </details>
+        </div>
+
+        <div class="accordion">
+          <details class="accordion__item">
+            <summary>¿Cuánto dura una sesión?</summary>
+            <p>Depende del servicio elegido. Si combinas Servicios Adicionales, la sesión puede extenderse unos 30 minutos más; si incluye masajes, alrededor de 1 hora más.</p>
+          </details>
+
+          <details class="accordion__item">
+            <summary>¿Cuánto cuestan los servicios?</summary>
+            <p>Escríbenos por WhatsApp y te indicamos el precio según el servicio que necesites.</p>
+          </details>
+
+          <details class="accordion__item">
+            <summary>¿Puedo acudir si tengo alguna afección en la piel?</summary>
+            <!-- TODO: respuesta pendiente de contenido real -->
+            <p>Pendiente de confirmar.</p>
+          </details>
+        </div>
       </div>
     </div>
   </section>
