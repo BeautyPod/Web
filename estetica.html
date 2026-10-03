@@ -23,6 +23,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  /* Combos y Paquetes Especiales: 3 tarjetas con la misma proporción,
+     cada una enlazada a WhatsApp con un mensaje predeterminado. */
+  .combo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  @media (min-width: 640px) {
+    .combo-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .combo-card {
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+    transition: transform .2s ease;
+  }
+  .combo-card:hover,
+  .combo-card:focus-visible {
+    transform: translateY(-4px);
+  }
+  .combo-card img {
+    display: block;
+    width: 100%;
+   width: 100%;
+    height: auto;
+  }
+  .combo-cta {
+    text-align: center;
+    margin-top: 24px;
+  }
+</style> 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <style>
   /* Ajustes específicos de esta página: títulos de servicio un poco más
@@ -272,7 +307,8 @@
   <section class="section section--soft" aria-labelledby="detalle-servicios-title">
     <div class="container">
       <div class="section__heading">
-        <h2 id="detalle-servicios-title">¿Qué hacemos como servicios adicionales?</h2>
+        <h2 id="detalle-servicios-title">¿Cuáles son nuestros servicios adicionales?</h2>
+        <p>Ofrecemos una variedad de tratamientos diseñados para mejorar la salud y apariencia de tus pies.</p>
       </div>
 
       <div class="professional-grid">
@@ -284,7 +320,7 @@
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Hidratación tópica</span>
-            <p>Aplicación de productos hidratantes directamente sobre la piel para devolverle suavidad y elasticidad.</p>
+            <p>En BeautyPod la hidratación tópica es personalizada y orientada a la función de la barrera cutánea de cada cliente, no simplemente a “poner crema”: se seleccionan productos y activos según el estado de la piel —xerosis, hiperqueratosis, fisuras o piel conservada— buscando aportar agua, mejorar la flexibilidad, disminuir la pérdida transepidérmica y mantener la integridad del estrato córneo, utilizando activos fisiológicos cuando están clínicamente indicados.</p>
           </div>
         </article>
 
@@ -295,7 +331,7 @@
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Hidratación aparatológica</span>
-            <p>Uso de equipos especializados que favorecen la absorción de los productos y potencian sus resultados.</p>
+            <p>En hidratación aparatológica, BeautyPod plantea un enfoque cosmético asistido y personalizado, donde la aparatología se utiliza como complemento para favorecer la penetración y distribución de activos hidratantes y reparadores, potenciando el protocolo según las necesidades de la piel. No sustituye la hidratación tópica, sino que la optimiza mediante tecnología, siempre después de valorar el estado de la barrera cutánea y evitando su aplicación cuando existan contraindicaciones o alteraciones que requieran manejo clínico.</p>
           </div>
         </article>
 
@@ -306,18 +342,18 @@
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Esmalte</span>
-            <p>Aplicación de esmalte libre de contaminantes, con acabado prolijo y cuidado de la uña.</p>
+            <p>En esmaltado, BeautyPod lo plantea como un servicio cosmético complementario, destinado exclusivamente a uñas sanas y sin alteraciones clínicas aparentes. La prioridad es conservar la integridad de la lámina ungueal y, ante cualquier signo sospechoso de onicopatía, se prioriza la valoración podológica antes que el componente estético.</p>
           </div>
         </article>
 
         <article class="professional-card professional-card--compact" id="terapias-antiinflamatorias">
           <div class="professional-card__media">
             <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=500&h=500&q=70"
-                 alt="Terapias antiinflamatorias y de activación en pies" width="500" height="500" loading="lazy">
+                 alt="Terapias de confort y activación en pies" width="500" height="500" loading="lazy">
           </div>
           <div class="professional-card__body">
-            <span class="eyebrow">Terapias antiinflamatorias y de activación</span>
-            <p>Procedimientos orientados a reducir la inflamación y activar la circulación en la zona tratada.</p>
+            <span class="eyebrow">Terapias de confort y activación</span>
+            <p>En Confort y Activación, BeautyPod ofrece tratamientos estéticos orientados a relajar, revitalizar y mejorar la sensación de bienestar de los pies, mediante técnicas manuales y aparatología seleccionada según las necesidades de cada persona, favoreciendo la sensación de ligereza, descanso y activación local.</p>
           </div>
         </article>
 
@@ -328,7 +364,7 @@
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Masajes manuales de pies</span>
-            <p>Técnica manual dirigida a aliviar la tensión y aportar una sensación de bienestar y relajación.</p>
+            <p>Masaje podal en BeautyPod se enfoca en técnicas manuales que favorecen la relajación, disminuyen la sensación de cansancio y pesadez y proporcionan una experiencia de descanso y bienestar en los pies.</p>
           </div>
         </article>
 
@@ -339,7 +375,7 @@
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Cupping en pies</span>
-            <p>Técnica de ventosas que favorece la circulación y ayuda a liberar la tensión muscular acumulada.</p>
+            <p>Cupping podal es una técnica de bienestar que utiliza ventosas para generar una estimulación mecánica superficial de los tejidos. Puede contribuir a la relajación muscular, disminución de la sensación de tensión y pesadez, sensación de ligereza y bienestar, además de producir una estimulación circulatoria local ayudando a mejorar dolores en la zona plantar.</p>
           </div>
         </article>
 
@@ -347,56 +383,33 @@
     </div>
   </section>
 
-<!-- ============ COMBOS ============ -->
-<section class="section" id="combos-estetica" aria-labelledby="combos-estetica-title">
+<!-- ============ COMBOS Y PAQUETES ESPECIALES ============ -->
+<section class="section section--soft" aria-labelledby="combos-title">
   <div class="container">
     <div class="section__heading">
-      <h2 id="combos-estetica-title">Elige uno de nuestros Combos y Paquetes</h2>
-      <p>¿Prefieres una experiencia completa en una sola visita? Elige el combo que más te convenga.</p>
+      <h2 id="combos-title">Combos y Paquetes Especiales en OFERTA</h2>
+      <p>Puedes elegir el que mejor se adapte a tus necesidades o crear tu propio paquete.</p>
     </div>
 
-    <div class="card-grid card-grid--3">
-
-      <article class="card card--combo">
-        <div class="card__body">
-          <h3>Combo Esencial</h3>
-          <ul class="check-list">
-            <li>Hidratación tópica</li>
-            <li>Esmalte</li>
-          </ul>
-          <p>Ideal si buscas unos pies cuidados y presentables sin una sesión muy larga.</p>
-          <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20el%20COMBO%20ESENCIAL" target="_blank" rel="noopener noreferrer">Reservar este combo</a>
-        </div>
-      </article>
-
-      <article class="card card--combo">
-        <div class="card__body">
-          <h3>Combo Relax</h3>
-          <ul class="check-list">
-            <li>Hidratación aparatológica</li>
-            <li>Masaje manual de pies</li>
-            <li>Esmalte</li>
-          </ul>
-          <p>Perfecto para combinar cuidado y relajación en la misma sesión.</p>
-          <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20el%20COMBO%20RELAX" target="_blank" rel="noopener noreferrer">Reservar este combo</a>
-        </div>
-      </article>
-
-      <article class="card card--combo">
-        <div class="card__body">
-          <h3>Combo Premium</h3>
-          <ul class="check-list">
-            <li>Hidratación aparatológica</li>
-            <li>Cupping en pies</li>
-            <li>Masaje manual</li>
-            <li>Esmalte</li>
-          </ul>
-          <p>La experiencia completa: cuidado, alivio y estética en una sola visita.</p>
-          <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20el%20COMBO%20PREMIUM" target="_blank" rel="noopener noreferrer">Reservar este combo</a>
-        </div>
-      </article>
-
+    <div class="combo-grid">
+      <a class="combo-card" href="https://wa.me/5353719118?text=Hola%2C%20quiero%20reservar%20el%20Combo%20Relax" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/combos/combo-relax.png"
+          
+             width="900" height="506" loading="lazy">
+      </a>
+      <a class="combo-card" href="https://wa.me/5353719118?text=Hola%2C%20quiero%20reservar%20el%20Combo%20Esencial" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/combos/combo-esencial.png"
+             width="900" height="506" loading="lazy">
+      </a>
+      <a class="combo-card" href="https://wa.me/5353719118?text=Hola%2C%20quiero%20reservar%20el%20Combo%20Premium" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/combos/combo-premium.png"
+             width="900" height="506" loading="lazy">
+      </a>
     </div>
+
+    <p class="combo-cta">
+      <a class="card__link" href="https://wa.me/5353719118?text=Hola%2C%20quiero%20crear%20mi%20propio%20paquete" target="_blank" rel="noopener noreferrer">Deseo crear mi propio Paquete <span aria-hidden="true">→</span></a>
+    </p>
   </div>
 </section>
 
@@ -437,42 +450,42 @@
           <details class="accordion__item">
             <summary>¿Necesito cita previa?</summary>
             <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Pendiente de confirmar.</p>
+            <p>Sí, recomendamos reservar cita para garantizar una atención adecuada. Si necesitas una valoración rápida y no tienes cita, puedes acudir y, si hay disponibilidad entre consultas, podremos atenderte. En estos casos se realiza únicamente la valoración y orientación, sin aplicación de tratamientos o servicios.</p>
           </details>
 
           <details class="accordion__item">
             <summary>¿Puedo combinar varios servicios en la misma visita?</summary>
-            <p>Sí, puedes combinar servicios en la misma cita.</p>
+            <p>Sí, algunos servicios pueden combinarse si son compatibles y el tiempo de la cita lo permite. Lo ideal es indicarlo al momento de reservar, para valorar previamente qué servicios pueden realizarse juntos y asignar el tiempo necesario</p>
           </details>
 
           <details class="accordion__item">
             <summary>¿Qué servicios de estética ofrecen?</summary>
             <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Pendiente de confirmar.</p>
+            <p>En BeautyPod contamos con diferentes opciones de Estética Podal, organizadas en categorías de Cuidado e hidratación de la piel, Hidratación aparatológica, Esmaltado y Confort y Activación. Cada categoría incluye diferentes tratamientos y técnicas, que se seleccionan según las necesidades de cada persona.</p>
           </details>
 
           <details class="accordion__item">
             <summary>¿Qué debo hacer antes de acudir a la cita?</summary>
             <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Pendiente de confirmar.</p>
+            <p>Antes de acudir a tu cita en BeautyPod, procura asistir con los pies limpios y secos, sin aplicar cremas, aceites ni productos sobre la zona que será evaluada, y evita cortar o manipular uñas, callosidades o lesiones antes de la consulta. Si presentas algún tratamiento previo, producto utilizado o información relevante sobre la evolución del problema, comunícalo durante la reserva.</p>
           </details>
         </div>
 
         <div class="accordion">
           <details class="accordion__item">
             <summary>¿Cuánto dura una sesión?</summary>
-            <p>Depende del servicio elegido. Si combinas Servicios Adicionales, la sesión puede extenderse unos 30 minutos más; si incluye masajes, alrededor de 1 hora más.</p>
+            <p>La duración depende del servicio o de la combinación elegida. Disponemos de sesiones de 15 minutos, 30 minutos, 1 hora y hasta 1 hora y 30 minutos, procurando que la atención no exceda este último tiempo.</p>
           </details>
 
           <details class="accordion__item">
             <summary>¿Cuánto cuestan los servicios?</summary>
-            <p>Escríbenos por WhatsApp y te indicamos el precio según el servicio que necesites.</p>
+            <p>Contamos con diferentes opciones de atención y cada servicio tiene un precio según las técnicas, productos, tiempo y recursos que requiere. Si una opción supera tu presupuesto, podemos adaptar el servicio, ajustando las técnicas, productos o elementos complementarios para ofrecer una alternativa que se ajuste a tus necesidades y posibilidades. Escríbenos por WhatsApp y te ayudamos a elegir el mejor servicio.</p>
           </details>
 
           <details class="accordion__item">
             <summary>¿Puedo acudir si tengo alguna afección en la piel?</summary>
             <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Pendiente de confirmar.</p>
+            <p>Sí. Puedes acudir si presentas una alteración o lesión en la piel; de hecho, es recomendable solicitar una valoración para determinar su naturaleza y decidir el manejo adecuado. Si la lesión presenta signos de infección, sangrado, dolor intenso o una evolución inusual, se priorizará la valoración médica o derivación correspondiente antes de realizar cualquier servicio estético o podológico.</p>
           </details>
         </div>
       </div>
