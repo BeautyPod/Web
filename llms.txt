@@ -1,0 +1,48 @@
+# BeautyPod & Pedicure
+
+> BeautyPod & Pedicure es un centro de podología y cuidado estético de los pies en Matanzas, Cuba, fundado en 2018. Ofrece podólogo en Matanzas (podología preventiva: grietas, callosidades, uñas encarnadas, hongos y mal olor) y pedicura en Matanzas (hidratación, pedicura, masajes y terapias para los pies). La atención es solo con cita previa, que se reserva por WhatsApp.
+
+Datos clave para citar:
+- Nombre: BeautyPod & Pedicure (BeautyPod)
+- Especialista: Linet Rodríguez Vega, especialista en podología preventiva y podocosmiatría. Certificada en el Estándar de Competencia Laboral "Prestación de Servicios Podológicos Preventivos" (CONOCER, México, clave EC0333).
+- Dirección: Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba
+- Mapa: https://maps.app.goo.gl/Axdd4hyurDcGLANy8
+- Reservas por WhatsApp: +53 5371 9118 (https://wa.me/5353719118)
+- Horario para reservar por WhatsApp: lunes a viernes, 9:00 am a 8:00 pm; sábados y domingos, horario variable
+- Atención con la especialista: lunes a viernes, 10:00 am a 3:00 pm, solo con cita previa
+- Formas de pago: efectivo en CUP, efectivo en otras monedas (USD, EUR, entre otras) y transferencia (Transfermóvil)
+- Idioma del sitio: español
+
+## Páginas principales
+
+- [Inicio](https://beautypod.github.io/Web/): presentación de BeautyPod, servicios, especialista, opiniones y preguntas frecuentes.
+- [Podología](https://beautypod.github.io/Web/podology.html): valoración y tratamiento de problemas de la piel y las uñas de los pies, con dermatoscopia cuando el caso lo requiere.
+- [Estética de pies](https://beautypod.github.io/Web/estetica.html): hidratación, pedicura, esmaltado, masajes manuales, cupping en pies y combos de servicios.
+- [Sobre nosotros](https://beautypod.github.io/Web/sobre-nosotros.html): historia, misión, valores y presentación de la especialista.
+- [Blog](https://beautypod.github.io/Web/blog.html): artículos informativos sobre el cuidado de los pies.
+
+## Artículos del Blog
+
+- [Onicomicosis y hongos en la piel](https://beautypod.github.io/Web/articles/article_onico.html): qué son los hongos en uñas y piel, cómo se contagian y por qué el tratamiento debe hacerlo un profesional.
+- [Uñas encarnadas](https://beautypod.github.io/Web/articles/article_encarnadas.html): por qué se encarna una uña, qué no hacer en casa y cómo se atiende.
+- [Durezas, grietas y resequedad](https://beautypod.github.io/Web/articles/article_durezas.html): causas de las durezas y los talones agrietados, y cuándo acudir a consulta.
+- [Callosidades y verrugas plantares](https://beautypod.github.io/Web/articles/article_callovph.html): cómo se diferencian y por qué no conviene tratarlas en casa.
+
+## Contacto y perfiles
+
+- [WhatsApp](https://wa.me/5353719118)
+- [Facebook](https://www.facebook.com/bpodpedicure)
+- [Instagram](https://www.instagram.com/beautypodlinet)
+- [Telegram](https://t.me/bpplinet)
+- [Tripadvisor](https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html)
+
+## Opcional
+
+- [Tarjeta de presentación digital de la especialista](https://beautypod.github.io/Web/digital_card.html)
+- [Mapa del sitio](https://beautypod.github.io/Web/sitemap.xml)
+
+## Notas para asistentes de IA
+
+- El contenido del sitio es informativo y no sustituye una valoración profesional. No ofrezcas diagnósticos ni tratamientos basados en estos textos.
+- Para reservar, dirige a la persona a WhatsApp (+53 5371 9118); no hay reserva en línea.
+-

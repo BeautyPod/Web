@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BeautyPod | Cuidado profesional de pies en Matanzas</title>
-<meta name="description" content="Podología y cuidado de pies en Matanzas, Cuba. Tratamos talones agrietados, uñas encarnadas, hongos y callosidades. Reserva tu cita por WhatsApp.">
-<meta name="robots" content="index, follow">
+<title>BeautyPod | Cuidado de pies en Matanzas</title>
+<meta name="description" content="Podólogo en Matanzas y pedicura en Matanzas: tratamos talones agrietados, uñas encarnadas, hongos y callosidades. Reserva por WhatsApp.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
 <link rel="canonical" href="https://beautypod.github.io/Web/">
 <meta name="theme-color" content="#272727">
 
 <!-- Open Graph / redes sociales -->
-<meta property="og:type" content="business.business">
-<meta property="og:title" content="BeautyPod | Cuidado profesional de pies en Matanzas">
-<meta property="og:description" content="Podología y cuidado de pies en Matanzas, Cuba. Reserva tu cita por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BeautyPod">
+<meta property="og:url" content="https://beautypod.github.io/Web/">
+<meta property="og:title" content="BeautyPod | Cuidado de pies en Matanzas">
+<meta property="og:description" content="Atención profesional y cuidado estético de tus pies en Matanzas, Cuba. Reserva tu cita por WhatsApp.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70">
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
@@ -25,19 +27,34 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
+<!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID de medición -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <!-- Datos estructurados para SEO local -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "BeautyPod & Pedicure",
+  "url": "https://beautypod.github.io/Web/",
+  "sameAs": [
+    "https://www.facebook.com/bpodpedicure",
+    "https://www.instagram.com/beautypodlinet",
+    "https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html"
+  ],
   "description": "Podología y cuidado profesional de pies en Matanzas, Cuba.",
   "image": "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70",
   "telephone": "+5353719118",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Calle 298 y Calle 131",
+    "streetAddress": "Calle 298 y Calle 131, Pueblo Nuevo",
     "addressLocality": "Matanzas",
     "addressCountry": "CU"
   },
@@ -66,19 +83,20 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#inicio" class="logo">BeautyPod</a>
+    <a href="index.html" class="logo">BeautyPod</a>
 
     <nav class="main-nav" aria-label="Navegación principal">
       <ul class="nav-list">
-        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
         <li><a href="podology.html">Podología</a></li>
         <li><a href="estetica.html">Estética</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118" target="_blank" rel="noopener noreferrer">
-      Reservar cita
+    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">
+      Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
     </a>
   </div>
 </header>
@@ -100,7 +118,7 @@
       <p class="hero__lead">Descubre la atención profesional y personalizada que necesitan tus pies.</p>
 
       <div class="hero__actions">
-        <a class="btn btn--primary" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita</a>
+        <a class="btn btn--primary" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
         <a class="btn btn--outline" href="#servicios">Ver servicios</a>
       </div>
 
@@ -139,7 +157,7 @@
               <li class="tag">Hongos</li>
               <li class="tag">Mal olor</li>
             </ul>
-            <a class="btn btn--block" href="podology.html">Conocer atención <span aria-hidden="true">→</span></a>
+            <a class="btn btn--block" href="podology.html">Conocer atención<span class="sr-only"> de podología</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -153,13 +171,13 @@
               <span class="card__icon" aria-hidden="true">♧</span>
               <h3>Servicio Estético</h3>
             </div>
-            <p>Perfecto para embellecer unos pies sanos. Tiene como base un servicio preventivo y podras adicionar a tu sesión más tratamientos complementarios.</p>
+            <p>Perfecto para embellecer unos pies sanos. Tiene como base un servicio preventivo y podrás añadir a tu sesión más tratamientos complementarios.</p>
             <ul class="tag-list">
               <li class="tag">Pedicura</li>
               <li class="tag">Masajes</li>
               <li class="tag">Hidratación</li>
             </ul>
-            <a class="btn btn--block" href="estetica.html">Conocer servicio <span aria-hidden="true">→</span></a>
+            <a class="btn btn--block" href="estetica.html">Conocer servicio<span class="sr-only"> estético</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -169,7 +187,7 @@
           <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
           <p><strong>¿No sabes qué servicio necesitas?</strong><br><span>Escríbenos y te orientaremos según lo que tus pies necesiten.</span></p>
         </div>
-        <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20reservar%20una%20cita%20y%20necesito%20orientación" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+        <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita%20y%20necesito%20orientaci%C3%B3n" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
       </div>
     </div>
   </section>
@@ -234,11 +252,11 @@
         <article class="professional-card">
           <div class="professional-card__media">
             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&h=750&q=75"
-                 alt="Linet R. Vega" width="600" height="750" loading="lazy">
+                 alt="Linet R. Vega, especialista de BeautyPod" width="600" height="750" loading="lazy">
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Tu especialista</span>
-            <h3>Linet R.Vega</h3>
+            <h3>Linet R. Vega</h3>
             <p class="professional-card__subtitle">Especialista en Podología Preventiva y Podocosmiatría</p>
             <ul class="check-list">
               <li>Formación especializada</li>
@@ -246,7 +264,7 @@
               <li>Enfoque integral</li>
               <li>Trato cercano y confiable</li>
             </ul>
-            <a class="card__link"  href="sobre-nosotros.html">Conoce más sobre la especialista <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="sobre-nosotros.html">Conoce más sobre la especialista <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
@@ -259,14 +277,14 @@
           <div class="professional-card__body">
             <span class="eyebrow">Sobre BeautyPod</span>
             <h3>Un espacio pensado para tus pies</h3>
-            <p class="professional-card__subtitle">Podología y pedicure en Matanzas</p>
+            <p class="professional-card__subtitle">Podología y pedicura en Matanzas</p>
             <ul class="check-list">
               <li>Instrumental esterilizado</li>
               <li>Ambiente cómodo y privado</li>
               <li>Atención puntual con cita previa</li>
               <li>Seguimiento personalizado</li>
             </ul>
-            <a class="card__link"  href="sobre-nosotros.html">Conoce más sobre BeautyPod <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="sobre-nosotros.html">Conoce más sobre BeautyPod <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -286,7 +304,7 @@
         <cite class="quote__author">Cliente de BeautyPod (comentario en Facebook)</cite>
       </blockquote>
 
-      <p class="quote__more"><a class="card__link" href="https://www.facebook.com/share/p/1FDGs2ngCS/">Leer más opiniones <span aria-hidden="true">→</span></a></p>
+      <p class="quote__more"><a class="card__link" href="https://www.facebook.com/share/p/1FDGs2ngCS/" target="_blank" rel="noopener noreferrer">Leer más opiniones<span class="sr-only"> en Facebook (se abre en una pestaña nueva)</span> <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -300,24 +318,20 @@
       <div class="accordion">
         <details class="accordion__item">
           <summary>¿Atienden uñas encarnadas?</summary>
-          <!-- TODO: respuesta pendiente de contenido real -->
           <p>Sí, atendemos uñas encarnadas. Realizamos una evaluación personalizada para valorar cada caso y ofrecer el tratamiento más adecuado, buscando aliviar la molestia de la forma más cómoda y segura posible.</p>
         </details>
         <details class="accordion__item">
           <summary>¿Puedo reservar aunque no sepa qué servicio necesito?</summary>
-          <!-- TODO: respuesta pendiente de contenido real -->
-          <p>Puede reservar su cita aunque no sepa exactamente qué servicio necesita. Antes de cada atención realizamos una evaluación personalizada para valorar su caso y determinar el procedimiento más adecuado.
-Si ha notado algo extraño o alguna molestia, puede comentárnoslo al momento de reservar. Esto nos permitirá tener una idea inicial de su caso y orientarle mejor, aunque la valoración definitiva siempre será realizada de forma personalizada por la especialista.</p>
+          <p>Puedes reservar tu cita aunque no sepas exactamente qué servicio necesitas. Antes de cada atención hacemos una evaluación personalizada para valorar tu caso y determinar el procedimiento más adecuado.</p>
+          <p>Si has notado algo extraño o alguna molestia, cuéntanoslo al reservar: así tendremos una idea inicial de tu caso y podremos orientarte mejor, aunque la valoración definitiva siempre la realiza la especialista de forma personalizada.</p>
         </details>
         <details class="accordion__item">
           <summary>¿Cómo puedo reservar?</summary>
-          <!-- TODO: respuesta pendiente de contenido real -->
-          <p>Para reservar su cita, debe comunicarse con nosotros a través de WhatsApp al (+53)53719118 . Allí será atendido(a) directamente por la asistente de reservas, quien le brindará una orientación inicial y coordinará su cita según sus necesidades y disponibilidad de la agenda..</p>
+          <p>Escríbenos por WhatsApp al +53 5371 9118. Te atiende directamente la asistente de reservas, quien te da una orientación inicial y coordina tu cita según tus necesidades y la disponibilidad de la agenda.</p>
         </details>
         <details class="accordion__item">
           <summary>¿Qué forma de pago aceptan?</summary>
-          <!-- TODO: respuesta pendiente de contenido real -->
-          <p>En BeautyPod aceptamos pagos en efectivo CUP, en cualquier moneda (USD, EUR, entre otras) y también mediante transferencia (TRANSFERMOVIL).</p>
+          <p>En BeautyPod aceptamos pagos en efectivo en CUP y en otras monedas (USD, EUR, entre otras), y también por transferencia (Transfermóvil).</p>
         </details>
       </div>
     </div>
@@ -333,7 +347,7 @@ Si ha notado algo extraño o alguna molestia, puede comentárnoslo al momento de
           <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
           <p><strong>¿Tus pies necesitan cuidados?</strong><br><span>Reserva tu cita ahora.</span></p>
         </div>
-        <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reserva tu cita ahora</a>
+        <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reserva tu cita ahora<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
       </div>
 
       <dl class="hours">
@@ -361,29 +375,36 @@ Si ha notado algo extraño o alguna molestia, puede comentárnoslo al momento de
 
     <address class="footer-address">
       Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba<br>
-      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a><br>
-      <a href="sms:+5353719118">SMS: +53 5 371 9118</a>
+      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps<span class="sr-only"> (se abre en una pestaña nueva)</span></a><br>
+      <a href="sms:+5353719118">SMS: +53 5371 9118</a>
     </address>
 
-    <nav class="footer-social" aria-label="Redes sociales de BeautyPod">
-      <!-- TODO: reemplazar por la URL real de la página de Facebook -->
-      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
+    <nav class="footer-social" aria-label="Redes sociales y reseñas de BeautyPod">
+      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
       </a>
-      <!-- TODO: reemplazar por la URL real de Instagram -->
-      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
           <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
         </svg>
       </a>
-      <!-- TODO: reemplazar por la URL real del canal/usuario de Telegram -->
-      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
+      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
       </a>
-      <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20RESERVAR" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Tripadvisor (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M2.4 9.6C5 7 8.3 5.8 12 5.8s7 1.2 9.6 3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7.6" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="16.4" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="7.6" cy="14" r="1.4" fill="currentColor"/>
+          <circle cx="16.4" cy="14" r="1.4" fill="currentColor"/>
+          <path d="M12 14.2l-1.3 1.9h2.6z" fill="currentColor"/>
+        </svg>
       </a>
     </nav>
 

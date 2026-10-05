@@ -3,135 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Durezas, grietas y resequedad | BeautyPod</title>
-<meta name="description" content="Por qué aparecen las durezas, las grietas en los talones y la resequedad en los pies, y cuándo acudir a un profesional. Artículo BeautyPod, Matanzas, Cuba.">
-<meta name="robots" content="noindex, follow">
-<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Título sin la palabra "Podología"; la palabra clave va en la meta descripción -->
+<title>Durezas, grietas y resequedad en los pies | BeautyPod</title>
+<meta name="description" content="Por qué aparecen las durezas y los talones agrietados, cómo cuidarlos en casa y cuándo acudir a un podólogo en Matanzas. Artículo de BeautyPod, podología y pedicura.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://beautypod.github.io/Web/articles/article_durezas.html">
+<meta name="theme-color" content="#272727">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="BeautyPod">
+<meta property="og:title" content="Durezas, grietas y resequedad en los pies | BeautyPod">
+<meta property="og:description" content="Por qué aparecen las durezas y los talones agrietados, cómo cuidarlos y cuándo acudir a consulta, en Matanzas.">
+<meta property="og:url" content="https://beautypod.github.io/Web/articles/article_durezas.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70">
+<meta property="og:locale" content="es_CU">
+<meta property="article:published_time" content="2026-10-05"> <!-- TODO: ajustar a la fecha real de publicación -->
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID de medición -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Datos estructurados -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Durezas, grietas y resequedad en los pies",
+      "description": "Por qué aparecen las durezas y los talones agrietados, cómo cuidarlos y cuándo acudir a un podólogo en Matanzas.",
+      "inLanguage": "es",
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "mainEntityOfPage": "https://beautypod.github.io/Web/articles/article_durezas.html",
+      "image": "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70",
+      "author": { "@type": "Organization", "name": "BeautyPod" },
+      "publisher": { "@type": "Organization", "name": "BeautyPod" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://beautypod.github.io/Web/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://beautypod.github.io/Web/blog.html" },
+        { "@type": "ListItem", "position": 3, "name": "Durezas, grietas y resequedad" }
+      ]
+    }
+  ]
+}
+</script>
+
 <style>
-  :root{
-    --bp-bg:#1b1b1b; --bp-surface:#242424; --bp-line:#3a3a3a;
-    --bp-accent:#93ade3; --bp-text:#efefef; --bp-muted:#b3b3b3;
-    --bp-serif:'Cardo', Georgia, 'Times New Roman', serif;
-    --bp-sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Estilos propios del artículo, basados en los tokens de styles.css
+     (cuando quieras, se pueden mover a styles.css para centralizar). */
+  .article-back{
+    border-bottom:1px solid var(--color-border);
+    background:var(--color-bg);
   }
-  *{ box-sizing:border-box; }
+  .article-back .container{
+    display:flex;
+    align-items:center;
+    gap:var(--space-4);
+    padding-block:var(--space-2);
+  }
+  .article-back a{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    min-height:44px;
+    color:var(--color-text-soft);
+    text-decoration:none;
+    font-size:var(--fs-small);
+    font-weight:600;
+  }
+  .article-back a:hover{ color:var(--color-accent-hover); }
+  .article-back svg{ width:1.25rem; height:1.25rem; flex:0 0 auto; }
 
-  body.article-body{
-    margin:0; background:var(--bp-bg); color:var(--bp-text);
-    font-family:var(--bp-sans); line-height:1.6;
+  .article-wrap{ padding-block:var(--space-6) var(--space-5); background:var(--color-bg); }
+  .article-header{ text-align:center; margin-bottom:var(--space-6); }
+  .article-header .article-tag{
+    color:var(--color-text-muted);
+    font-size:var(--fs-small);
+    font-weight:600;
+    margin:0 0 var(--space-1);
+  }
+  .article-header h1{
+    color:var(--color-accent);
+    font-weight:400;
+    font-size:clamp(2rem, 6vw, 3rem);
+    margin:0;
+  }
+  .article-intro-note{
+    color:var(--color-text-muted);
+    font-size:var(--fs-small);
+    margin:var(--space-2) 0 0;
   }
 
-  /* Barra superior */
-  .article-topbar{
-    display:flex; align-items:center; gap:1.25rem;
-    padding:1.25rem 1.5rem; border-bottom:1px solid var(--bp-line);
-  }
-  .article-topbar a{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:2.25rem; height:2.25rem; color:var(--bp-text);
-    opacity:.85; transition:opacity .15s ease;
-  }
-  .article-topbar a:hover{ opacity:1; }
-  .article-topbar svg{ width:1.4rem; height:1.4rem; }
-
-  /* Contenedor angosto del texto */
-  .article-wrap{ max-width:52rem; margin:0 auto; padding:2.5rem 1.5rem 2rem; }
-  .article-kicker{
-    font-family:var(--bp-serif); color:var(--bp-accent);
-    font-size:clamp(2.1rem, 6vw, 3.2rem); text-align:center;
-    margin:.5rem 0 2.5rem; font-weight:400; letter-spacing:.01em; line-height:1.15;
-  }
-  .article-section{ margin-bottom:3rem; }
+  .article-section{ margin-bottom:var(--space-6); }
   .article-section h2{
-    font-family:var(--bp-serif); color:var(--bp-accent);
-    font-size:clamp(1.6rem, 4vw, 2.1rem); font-weight:400; margin:0 0 .75rem;
-    line-height:1.2;
+    color:var(--color-accent);
+    font-weight:400;
+    font-size:clamp(1.5rem, 4vw, 2rem);
+    margin:0 0 var(--space-3);
   }
-  .article-section h3{
-    font-family:var(--bp-serif); color:var(--bp-accent);
-    font-size:clamp(1.25rem, 3vw, 1.5rem); font-weight:400;
-    margin:0 0 .75rem; line-height:1.3;
-  }
-  .article-section p{
-    color:var(--bp-text); font-size:1.02rem; max-width:40rem; margin:0 0 .8rem;
-  }
-  .article-section p:last-child{ margin-bottom:0; }
-  .article-section p.wide{ max-width:none; }
+  .article-section p{ max-width:42rem; color:var(--color-text); }
 
-  .article-section ul{ margin:0; padding-left:1.2rem; max-width:40rem; }
-  .article-section li{ margin-bottom:.45rem; }
-
-  hr.divider{ border:none; border-top:1px solid var(--bp-line); margin:3rem 0; }
-
-  /* Imagen + texto */
-  .hero-grid, .compare-grid, .duo-grid{ display:grid; gap:1.75rem; align-items:center; }
-  .hero-grid{ align-items:start; }   /* texto pegado al título, no centrado frente a la imagen */
+  .article-grid{ display:grid; gap:var(--space-5); align-items:center; }
   @media (min-width:760px){
-    .hero-grid{ grid-template-columns:1.1fr 1fr; }
-    .hero-grid.reverse{ grid-template-columns:1fr 1.1fr; }
-    .hero-grid.reverse > :first-child{ order:2; }
-    .compare-grid{ grid-template-columns:1fr 1.1fr; }
-    .duo-grid{ grid-template-columns:1fr 1fr; align-items:start; }
+    .article-grid{ grid-template-columns:1.1fr 1fr; }
+    .article-grid--reverse{ grid-template-columns:1fr 1.1fr; }
   }
-  .hero-grid img, .compare-figure img, .duo-grid img{
-    width:100%; height:auto; border-radius:.25rem; display:block;
+  .article-figure{ margin:0; }
+  .article-figure img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-card);
   }
-  .compare-figure{ margin:0; position:relative; }
-  .compare-figure figcaption{ font-size:.85rem; color:var(--bp-muted); margin-top:.5rem; }
-  .duo-grid img{ margin-bottom:1rem; aspect-ratio:4/3; object-fit:cover; }
+  .article-figure figcaption{
+    font-size:var(--fs-small);
+    color:var(--color-text-muted);
+    margin-top:var(--space-1);
+  }
 
-  /* Título a la izquierda, texto a la derecha */
-  .two-col{ display:grid; gap:0; }
-  @media (min-width:700px){
-    .two-col{ grid-template-columns:.9fr 1.4fr; }
-    .two-col h3{ margin-top:0; }
-  }
-  .two-col .span-full{ grid-column:1 / -1; max-width:none; margin:0; }
 
-  /* Tarjetas informativas */
-  .card-grid{ display:grid; gap:1rem; }
-  @media (min-width:700px){ .card-grid{ grid-template-columns:repeat(3, 1fr); } }
+  .article-list{ margin:0 0 var(--space-3); padding-left:1.25rem; list-style:disc; max-width:42rem; }
+  .article-list li{ margin-bottom:var(--space-1); }
+  .info-grid{ display:grid; gap:var(--space-3); }
+  @media (min-width:700px){ .info-grid{ grid-template-columns:repeat(3,1fr); } }
   .info-card{
-    background:var(--bp-surface); border:1px solid var(--bp-line);
-    border-radius:.5rem; padding:1.25rem;
+    background:var(--color-surface);
+    border:1px solid var(--color-border);
+    border-radius:var(--radius);
+    padding:var(--space-4);
   }
-  .article-section .info-card h4{
-    font-family:var(--bp-serif); color:var(--bp-accent);
-    font-weight:400; font-size:1.2rem; margin:0 0 .5rem;
-  }
-  .article-section .info-card p{ font-size:.95rem; color:var(--bp-muted); margin:0; }
+  .info-card h3{ color:var(--color-text); font-size:1.1rem; margin:0 0 var(--space-1); }
+  .info-card p{ margin:0; font-size:var(--fs-small); color:var(--color-text-soft); }
+  .article-alert{ border-left:4px solid var(--color-accent); padding-left:var(--space-3); }
 
-  /* Recuadro destacado */
-  .callout{
-    background:var(--bp-surface); border:1px solid var(--bp-line);
-    border-left:4px solid var(--bp-accent); border-radius:.5rem; padding:1.5rem;
+  .article-divider{
+    border:0;
+    border-top:1px solid var(--color-border);
+    margin:var(--space-6) 0;
   }
-  .callout h3{ margin-bottom:.75rem; }
-  .callout ul{ list-style:none; padding:0; }
-  .callout li{ position:relative; padding-left:1.6rem; }
-  .callout li::before{ content:"✕"; position:absolute; left:0; color:var(--bp-accent); }
+  .article-links a{ color:var(--color-accent); }
+  .article-links a:hover{ color:var(--color-accent-hover); }
 </style>
 </head>
-<body class="article-body">
 
-  <div class="article-topbar">
-    <a href="../podology.html" aria-label="Volver a Podología">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </a>
-    <a href="../index.html" aria-label="Volver a Inicio">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<!-- ============ CABECERA (igual que en el resto del sitio) ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">BeautyPod</a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../podology.html">Podología</a></li>
+        <li><a href="../estetica.html">Estética</a></li>
+        <li><a href="../blog.html" aria-current="page">Blog</a></li>
+        <li><a href="../sobre-nosotros.html">Sobre nosotros</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">
+      Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
     </a>
   </div>
+</header>
 
-  <main>
-    <div class="article-wrap">
-      <h1 class="article-kicker">Artículo BeautyPod</h1>
+<!-- Flecha de volver al Blog y acceso a Inicio -->
+<div class="article-back">
+  <div class="container">
+    <a href="../blog.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span>Volver al Blog</span>
+    </a>
+    <a href="../index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg>
+      <span>Inicio</span>
+    </a>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <div class="article-wrap">
+    <div class="container container--narrow">
+
+      <header class="article-header">
+        <p class="article-tag">Artículo BeautyPod</p>
+        <h1>Durezas, grietas y resequedad</h1>
+        <p class="article-intro-note">Contenido informativo. No sustituye la valoración de un profesional.</p>
+      </header>
+
       <article>
 
-        <section class="article-section">
-          <h2>Durezas</h2>
-          <div class="hero-grid">
+        <section class="article-section" aria-labelledby="que-son">
+          <div class="article-grid">
             <div>
+              <h2 id="que-son">¿Qué son las durezas?</h2>
               <p>
                 Los pies soportan presión, fricción y poca hidratación todos los días. Cuando la piel pierde
                 humedad se vuelve áspera y gruesa (durezas) y, si el resecamiento continúa, puede agrietarse,
@@ -142,101 +230,123 @@
               </p>
             </div>
             <!-- TODO: sustituir por foto real del caso -->
-            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1000&h=750&q=70" alt="Cuidado profesional de pies con piel seca" loading="lazy" width="1000" height="750">
+            <figure class="article-figure">
+              <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1000&h=750&q=70"
+                   alt="Pies con piel seca durante un cuidado profesional"
+                   width="1000" height="750" fetchpriority="high">
+            </figure>
           </div>
         </section>
 
-        <section class="article-section">
-          <h3>¿Por qué aparecen?</h3>
-          <div class="card-grid">
+        <section class="article-section" aria-labelledby="por-que">
+          <h2 id="por-que">¿Por qué aparecen?</h2>
+          <div class="info-grid">
             <div class="info-card">
-              <h4>Piel seca</h4>
+              <h3>Piel seca</h3>
               <p>El agua muy caliente, los jabones agresivos y la falta de hidratación diaria le quitan elasticidad a la piel.</p>
             </div>
             <div class="info-card">
-              <h4>Calzado y fricción</h4>
+              <h3>Calzado y fricción</h3>
               <p>Caminar descalzo, usar chancletas o sandalias abiertas y los zapatos que rozan favorecen el engrosamiento y las fisuras.</p>
             </div>
             <div class="info-card">
-              <h4>Salud general</h4>
+              <h3>Salud general</h3>
               <p>La diabetes u otras alteraciones de la piel o de la circulación pueden agravar la resequedad y retrasar la cicatrización.</p>
             </div>
           </div>
         </section>
 
-        <hr class="divider">
+        <hr class="article-divider">
 
-        <section class="article-section">
-          <div class="two-col">
-            <h3>Cómo se cuidan y cuándo acudir</h3>
-            <div>
-              <p>
-                El cuidado profesional elimina de forma segura el exceso de piel dura y permite hidratar con el
-                producto adecuado. En casa, lo más útil es hidratar a diario y secar bien entre los dedos.
-              </p>
-            </div>
-            <p class="span-full">
-              Evita cuchillas, tijeras y raspadores para quitar la piel dura: pueden causar heridas e infecciones.
-              Si las grietas sangran, duelen o se enrojecen, o si tienes diabetes, acude a una valoración
-              profesional cuanto antes.
-            </p>
-          </div>
+        <section class="article-section" aria-labelledby="cuidado">
+          <h2 id="cuidado">Cómo se cuidan y cuándo acudir</h2>
+          <p>
+            El cuidado profesional elimina de forma segura el exceso de piel dura y permite hidratar con el
+            producto adecuado. En casa, lo más útil es hidratar a diario y secar bien entre los dedos.
+          </p>
+          <p>
+            Evita cuchillas, tijeras y raspadores para quitar la piel dura: pueden causar heridas e infecciones.
+          </p>
+          <p class="article-alert">
+            Si las grietas sangran, duelen o se enrojecen, o si tienes diabetes, acude a una valoración
+            profesional cuanto antes.
+          </p>
         </section>
+
+        <p class="article-links">
+          Conoce todo lo que tratamos en nuestra página de
+          <a href="../podology.html">podología en BeautyPod</a>
+          o lee más en nuestro <a href="../blog.html">Blog</a>.
+        </p>
 
       </article>
     </div>
+  </div>
 
-    <section class="section" id="reserva" aria-labelledby="cta-title">
-      <div class="container container--narrow">
-        <div class="whatsapp-strip">
-          <div class="whatsapp-strip__info">
-            <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
-            <p><strong id="cta-title">¿Tus talones están secos, duros o agrietados?</strong><br><span>Solicita una valoración y descubre el cuidado adecuado para tus pies.</span></p>
-          </div>
-          <div class="whatsapp-strip__actions">
-            <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20durezas%20y%20grietas%20en%20los%20pies%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener noreferrer">Reservar cita</a>
-          </div>
+  <!-- ============ CTA (RESERVAR / WHATSAPP) ============ -->
+  <section class="section section--soft" id="reserva" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <div class="whatsapp-strip">
+        <div class="whatsapp-strip__info">
+          <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
+          <p><strong id="cta-title">¿Tus talones están secos, duros o agrietados?</strong><br><span>Consulta con nuestro especialista: solicita una valoración y descubre el cuidado adecuado para tus pies.</span></p>
+        </div>
+        <div class="whatsapp-strip__actions">
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20durezas%20y%20grietas%20en%20los%20pies%20y%20quiero%20agendar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener noreferrer">Reservar<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
       </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <p class="logo">BeautyPod</p>
-        <p>Podología y cuidado de pies en Matanzas, Cuba.</p>
-      </div>
-
-      <address class="footer-address">
-        Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba<br>
-        <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a><br>
-        <a href="sms:+5353719118">SMS: +53 5 371 9118</a>
-      </address>
-
-      <nav class="footer-social" aria-label="Redes sociales de BeautyPod">
-        <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
-        </a>
-        <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
-          </svg>
-        </a>
-        <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
-        </a>
-        <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20RESERVAR" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
-        </a>
-      </nav>
-
-      <p class="footer-copy">© 2026 BeautyPod. Todos los derechos reservados.</p>
     </div>
-  </footer>
+  </section>
+
+</main>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="logo">BeautyPod</p>
+      <p>Podología y cuidado de pies en Matanzas, Cuba.</p>
+    </div>
+
+    <address class="footer-address">
+      Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba<br>
+      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps<span class="sr-only"> (se abre en una pestaña nueva)</span></a><br>
+      <a href="sms:+5353719118">SMS: +53 5371 9118</a>
+    </address>
+
+    <nav class="footer-social" aria-label="Redes sociales y reseñas de BeautyPod">
+      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      </a>
+      <!-- Tripadvisor: logotipo propio en SVG, mismo estilo que las otras redes -->
+      <a class="social-icon" href="https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Tripadvisor (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M2.4 9.6C5 7 8.3 5.8 12 5.8s7 1.2 9.6 3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7.6" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="16.4" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="7.6" cy="14" r="1.4" fill="currentColor"/>
+          <circle cx="16.4" cy="14" r="1.4" fill="currentColor"/>
+          <path d="M12 14.2l-1.3 1.9h2.6z" fill="currentColor"/>
+        </svg>
+      </a>
+    </nav>
+
+    <p class="footer-copy">© 2026 BeautyPod. Todos los derechos reservados.</p>
+  </div>
+</footer>
 
 </body>
 </html>

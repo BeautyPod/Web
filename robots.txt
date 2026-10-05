@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.beautypod-matanzas.cu/sitemap.xml
+Sitemap: https://beautypod.github.io/Web/sitemap.xml

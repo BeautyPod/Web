@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Podología en Matanzas | BeautyPod &amp; Pedicure</title>
-<meta name="description" content="Atención podológica profesional en Matanzas: talones agrietados, uñas encarnadas, hongos y callosidades. Valoración personalizada. Reserva por WhatsApp.">
-<meta name="robots" content="index, follow">
-<!-- TODO: reemplazar por el dominio real antes de publicar -->
-<link rel="canonical" href="https://beautypod.github.io/Web/">
+<title>Valoración y cuidado de pies en Matanzas | BeautyPod</title>
+<meta name="description" content="Podólogo en Matanzas: valoración y tratamiento de talones agrietados, uñas encarnadas, hongos, callosidades y verrugas plantares. Reserva por WhatsApp.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://beautypod.github.io/Web/podology.html">
 <meta name="theme-color" content="#272727">
 
-<!-- Open Graph / redes sociales -->
-<meta property="og:type" content="business.business">
-<meta property="og:title" content="Podología en Matanzas | BeautyPod & Pedicure">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BeautyPod">
+<meta property="og:title" content="Valoración y cuidado de pies en Matanzas | BeautyPod">
 <meta property="og:description" content="Atención podológica preventiva: talones agrietados, uñas encarnadas, hongos y callosidades. Reserva tu valoración por WhatsApp.">
+<meta property="og:url" content="https://beautypod.github.io/Web/podology.html">
 <meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&h=630&q=70">
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
@@ -25,24 +25,45 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Datos estructurados para SEO (servicio de podología) -->
+<!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID de medición -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  "name": "BeautyPod & Pedicure — Podología",
-  "description": "Atención podológica preventiva en Matanzas, Cuba.",
+  "name": "BeautyPod & Pedicure",
+  "description": "Atención podológica preventiva en Matanzas, Cuba: valoración y tratamiento de la piel y las uñas de los pies.",
+  "url": "https://beautypod.github.io/Web/podology.html",
   "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&h=630&q=70",
   "telephone": "+5353719118",
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Calle 298 y Calle 131",
+    "streetAddress": "Calle 298 y Calle 131, Pueblo Nuevo",
     "addressLocality": "Matanzas",
     "addressCountry": "CU"
   },
   "hasMap": "https://maps.app.goo.gl/Axdd4hyurDcGLANy8",
+  "sameAs": [
+    "https://www.facebook.com/bpodpedicure",
+    "https://www.instagram.com/beautypodlinet",
+    "https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html"
+  ],
   "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "20:00",
+      "description": "Horario para reservar por WhatsApp"
+    },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -65,13 +86,14 @@
       <ul class="nav-list">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="podology.html" aria-current="page">Podología</a></li>
-         <li><a href="estetica.html">Estética</a></li>
-        <li><a  href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="estetica.html">Estética</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
       </ul>
     </nav>
 
-    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20reservar." target="_blank" rel="noopener noreferrer">
-      Reservar cita
+    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">
+      Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
     </a>
   </div>
 </header>
@@ -84,11 +106,11 @@
       <div class="page-hero__grid">
         <div class="page-hero__content">
           <span class="page-hero__eyebrow">Podología profesional</span>
-          <h1>Podología profesional<em>para el cuidado de tus pies</em></h1>
+          <h1>Podología profesional <em>para el cuidado de tus pies</em></h1>
           <p class="page-hero__lead">Valoramos y tratamos diferentes problemas de la piel y las uñas de los pies, ofreciendo una atención personalizada según las necesidades de cada persona.</p>
 
           <div class="page-hero__actions">
-            <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20solicitar%20una%20valoración" target="_blank" rel="noopener noreferrer">Solicitar valoración</a>
+            <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener noreferrer">Solicitar valoración<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
             <a class="btn btn--outline" href="#problemas-pie">Ver problemas que tratamos</a>
           </div>
         </div>
@@ -116,43 +138,43 @@
           <div class="card__body">
             <h3>Durezas, grietas y sequedad</h3>
             <p>Las grietas, durezas y la sequedad pueden provocar molestias y empeorar cuando no se atienden adecuadamente...</p>
-            <a class="card__link" href="articles/article_durezas.html">Conocer este problema <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="articles/article_durezas.html">Conocer este problema<span class="sr-only">: durezas, grietas y sequedad</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
  
         <article class="card">
           <div class="card__media">
             <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=500&h=350&q=70"
-                 alt="Uña encarnada" width="500" height="350" loading="lazy">
+                 alt="Valoración de un dedo del pie con molestia en la uña" width="500" height="350" loading="lazy">
           </div>
           <div class="card__body">
             <h3>Uñas encarnadas</h3>
             <p>Una uña encarnada puede producir dolor, inflamación y molestias al caminar, a largo plazo puede derivar en infecciones importantes...</p>
-            <a class="card__link" href="articles/article_encarnadas.html">Conocer este problema <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="articles/article_encarnadas.html">Conocer este problema<span class="sr-only">: uñas encarnadas</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="card">
           <div class="card__media">
             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=500&h=350&q=70"
-                 alt="Uñas con alteraciones en su aspecto" width="500" height="350" loading="lazy">
+                 alt="Uñas de los pies durante una valoración" width="500" height="350" loading="lazy">
           </div>
           <div class="card__body">
             <h3>Hongos en uñas y piel</h3>
             <p>No todo lo extraño en tus uñas y piel es hongo, pero un diagnóstico oportuno puede ayudar a que tu tratamiento no sea tan demorado.</p>
-            <a class="card__link" href="articles/article_onico.html">Conocer este problema <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="articles/article_onico.html">Conocer este problema<span class="sr-only">: hongos en uñas y piel</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="card">
           <div class="card__media">
             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&h=350&q=70"
-                 alt="Callosidad en el pie" width="500" height="350" loading="lazy">
+                 alt="Planta del pie durante una valoración" width="500" height="350" loading="lazy">
           </div>
           <div class="card__body">
             <h3>Callosidades y verrugas plantares</h3>
             <p>Las callosidades derivadas de durezas mal atendidas y las verrugas plantares pueden confundirse, el diagnóstico profesional es clave para su tratamiento adecuado.</p>
-            <a class="card__link" href="articles/article_callovph.html">Conocer este problema <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="articles/article_callovph.html">Conocer este problema<span class="sr-only">: callosidades y verrugas plantares</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -203,7 +225,7 @@
             <li>Identificar el estado de la piel y las uñas permite elegir mejor el procedimiento.</li>
             <li>Recibir orientación puede ayudar a evitar que el problema vuelva.</li>
           </ul>
-          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20solicitar%20una%20valoración" target="_blank" rel="noopener noreferrer">Solicitar valoración</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n" target="_blank" rel="noopener noreferrer">Solicitar valoración<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
       </div>
     </div>
@@ -213,7 +235,7 @@
   <section class="section" aria-labelledby="detalle-title">
     <div class="container">
       <div class="section__heading">
-        <span class="eyebrow-strip">Atención profesional en cada detalle</span>
+        <span class="eyebrow-strip" aria-hidden="true">Atención profesional en cada detalle</span>
         <h2 id="detalle-title" class="sr-only">Atención profesional en cada detalle</h2>
       </div>
 
@@ -263,9 +285,9 @@
                  alt="Linet R. Vega, especialista de BeautyPod" width="500" height="500" loading="lazy">
           </div>
           <div class="professional-card__body">
-            <span class="eyebrow">¿Quién cuidará tus pies?</span>
+            <h3 class="eyebrow">¿Quién cuidará tus pies?</h3>
             <p class="professional-card__subtitle">Conoce a nuestra especialista y su enfoque en cada tratamiento.</p>
-            <a class="card__link"  href="sobre-nosotros.html">Conocer más <span aria-hidden="true">→</span></a>
+            <a class="card__link" href="sobre-nosotros.html">Conocer más<span class="sr-only"> sobre la especialista</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -276,7 +298,7 @@
   <section class="section section--soft" aria-labelledby="testimonios-pie-title">
     <div class="container">
       <div class="section__heading">
-        <span class="eyebrow-strip">La experiencia de nuestros clientes</span>
+        <span class="eyebrow-strip" aria-hidden="true">La experiencia de nuestros clientes</span>
         <h2 id="testimonios-pie-title" class="sr-only">La experiencia de nuestros clientes</h2>
       </div>
 
@@ -297,7 +319,7 @@
           <cite>Cliente de BeautyPod</cite>
         </blockquote>
       </div>
-      <p class="testimonial-more"><a class="card__link" href="https://www.facebook.com/share/p/1FDGs2ngCS/">Ver opiniones <span aria-hidden="true">→</span></a></p>
+      <p class="testimonial-more"><a class="card__link" href="https://www.facebook.com/share/p/1FDGs2ngCS/" target="_blank" rel="noopener noreferrer">Ver opiniones<span class="sr-only"> en Facebook (se abre en una pestaña nueva)</span> <span aria-hidden="true">→</span></a></p>
     </div>
   </section>
 
@@ -312,40 +334,33 @@
         <div class="accordion">
           <details class="accordion__item">
             <summary>¿Cuándo debería solicitar una valoración?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Si notas grietas, dureza, cambios en el color o forma de las uñas, dolor al caminar, o simplemente hace tiempo que no revisas el estado de tus pies. No hace falta esperar a que duela mucho — mientras antes se valore, más simple suele ser el tratamiento.</p>
+            <p>Cuando notes grietas, dureza, cambios en el color o la forma de las uñas, dolor al caminar, o simplemente cuando haga tiempo que no revisas el estado de tus pies. No hace falta esperar a que duela mucho: mientras antes se valore, más simple suele ser el tratamiento.</p>
           </details>
           <details class="accordion__item">
             <summary>¿Atienden uñas encarnadas?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
             <p>Sí. Valoramos el grado de la uña encarnada y aplicamos el tratamiento adecuado para aliviar el dolor y prevenir que vuelva a aparecer.</p>
           </details>
           <details class="accordion__item">
             <summary>¿Tratan verrugas plantares?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Sí. Valoramos el grado de la uña encarnada y aplicamos el tratamiento adecuado para aliviar el dolor y prevenir que vuelva a aparecer..</p>
+            <p>Sí. Primero valoramos la lesión para confirmar que se trata de una verruga plantar y no de una callosidad, porque se parecen pero se tratan de forma distinta. Luego aplicamos el procedimiento adecuado y te orientamos para reducir el riesgo de contagio y de que vuelva a aparecer. No se recomienda raspar ni cortar la verruga en casa.</p>
           </details>
           <details class="accordion__item">
             <summary>¿Qué debo hacer antes de acudir a una cita?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
             <p>No es necesario ningún preparativo especial. Solo te pedimos llegar con los pies limpios y, si es posible, contarnos con antelación por WhatsApp qué molestia presentas, para orientarte mejor desde antes de la cita.</p>
           </details>
         </div>
         <div class="accordion">
           <details class="accordion__item">
             <summary>¿Cuánto dura una sesión?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
-            <p> La duración varía según el tratamiento: una valoración simple toma menos tiempo que un tratamiento completo, suele estar entre 15-30 min hasta 1:30 min.</p>
+            <p>La duración varía según el tratamiento: una valoración simple toma menos tiempo que un tratamiento completo, suele estar entre 15 y 30 minutos, y puede llegar hasta 1 hora y 30 minutos.</p>
           </details>
           <details class="accordion__item">
             <summary>¿Puedo acudir si tengo una lesión o alteración en la piel?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
-            <p>Sí, de hecho es justo el motivo para valorarte. Durante la consulta evaluamos el estado de la piel o la lesión para determinar el cuidado más adecuado para tu caso. Si tu caso se va de nuestras manos podemos orientarte a que especialista acudir</p>
+            <p>Sí, de hecho es justo el motivo para valorarte. Durante la consulta evaluamos el estado de la piel o la lesión para determinar el cuidado más adecuado para tu caso. Si tu caso requiere otro especialista, te orientamos sobre a cuál acudir.</p>
           </details>
           <details class="accordion__item">
             <summary>¿La valoración incluye tratamiento?</summary>
-            <!-- TODO: respuesta pendiente de contenido real -->
-            <p>La valoración nos permite determinar qué tienes y que tratamiento necesitas; según el caso, se puede indicar o realizar en la misma cita o programar una siguiente.</p>
+            <p>La valoración nos permite determinar qué tienes y qué tratamiento necesitas; según el caso, se puede indicar o realizar en la misma cita o programar una siguiente.</p>
           </details>
         </div>
       </div>
@@ -361,7 +376,7 @@
           <p><strong id="cta-title">¿Tienes molestias o un problema recurrente en tus pies?</strong><br><span>Solicita una valoración y descubre el cuidado adecuado para tus pies.</span></p>
         </div>
         <div class="whatsapp-strip__actions">
-          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
     
         </div>
       </div>
@@ -380,26 +395,36 @@
 
     <address class="footer-address">
       Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba<br>
-      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps</a><br>
-      <a href="sms:+5353719118">SMS: +53 5 371 9118</a>
+      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps<span class="sr-only"> (se abre en una pestaña nueva)</span></a><br>
+      <a href="sms:+5353719118">SMS: +53 5371 9118</a>
     </address>
 
-    <nav class="footer-social" aria-label="Redes sociales de BeautyPod">
-      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
+    <nav class="footer-social" aria-label="Redes sociales y reseñas de BeautyPod">
+      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
       </a>
-      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
           <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
           <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
         </svg>
       </a>
-      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
+      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
       </a>
-      <a class="social-icon" href="https://wa.me/5353719118" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Tripadvisor (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M2.4 9.6C5 7 8.3 5.8 12 5.8s7 1.2 9.6 3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7.6" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="16.4" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="7.6" cy="14" r="1.4" fill="currentColor"/>
+          <circle cx="16.4" cy="14" r="1.4" fill="currentColor"/>
+          <path d="M12 14.2l-1.3 1.9h2.6z" fill="currentColor"/>
+        </svg>
       </a>
     </nav>
 

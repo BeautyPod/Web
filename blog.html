@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog de cuidado de pies | BeautyPod</title>
+<meta name="description" content="Biblioteca de artículos de BeautyPod: hongos, uñas encarnadas, durezas y verrugas plantares. Consejos de un podólogo en Matanzas y de pedicura en Matanzas.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://beautypod.github.io/Web/blog.html">
+<meta name="theme-color" content="#272727">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BeautyPod">
+<meta property="og:title" content="Blog de cuidado de pies | BeautyPod">
+<meta property="og:description" content="Artículos para entender y cuidar tus pies: hongos, uñas encarnadas, durezas y verrugas plantares.">
+<meta property="og:url" content="https://beautypod.github.io/Web/blog.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID de medición -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog de BeautyPod",
+  "url": "https://beautypod.github.io/Web/blog.html",
+  "inLanguage": "es",
+  "publisher": { "@type": "Organization", "name": "BeautyPod" },
+  "blogPost": [
+    { "@type": "BlogPosting", "headline": "Onicomicosis y hongos en la piel", "url": "https://beautypod.github.io/Web/articles/article_onico.html" },
+    { "@type": "BlogPosting", "headline": "Uñas encarnadas", "url": "https://beautypod.github.io/Web/articles/article_encarnadas.html" },
+    { "@type": "BlogPosting", "headline": "Durezas, grietas y resequedad", "url": "https://beautypod.github.io/Web/articles/article_durezas.html" },
+    { "@type": "BlogPosting", "headline": "Callosidades y verrugas plantares", "url": "https://beautypod.github.io/Web/articles/article_callovph.html" }
+  ]
+}
+</script>
+
+<style>
+  /* Biblioteca del Blog (se puede mover a styles.css) */
+  .library-head { text-align: center; padding-block: var(--space-6) var(--space-4); background: var(--color-bg); }
+  .library-head h1 { color: var(--color-accent); font-weight: 400; font-size: clamp(2rem, 6vw, 3rem); }
+  .library-head p { color: var(--color-text-soft); max-width: 46ch; margin-inline: auto; }
+
+  .library-bar { display: grid; gap: var(--space-3); max-width: 760px; margin: var(--space-4) auto 0; }
+  .search-field { position: relative; }
+  .search-field svg { position: absolute; left: 1rem; top: 50%; width: 1.2rem; height: 1.2rem; transform: translateY(-50%); color: var(--color-text-muted); pointer-events: none; }
+  .search-field input {
+    width: 100%; min-height: 48px; padding: .6rem 1rem .6rem 2.8rem;
+    background: var(--color-surface-alt); color: var(--color-text);
+    border: 1px solid var(--color-border); border-radius: var(--radius-pill);
+    font: inherit;
+  }
+  .search-field input::placeholder { color: var(--color-text-muted); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: center; }
+  .chip {
+    min-height: 40px; padding: .4rem 1rem; cursor: pointer; font: inherit; font-size: var(--fs-small); font-weight: 700;
+    color: var(--color-text); background: var(--color-surface-alt);
+    border: 1px solid var(--color-border); border-radius: var(--radius-pill);
+  }
+  .chip:hover { border-color: var(--color-accent); }
+  .chip[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
+
+  .library-status { color: var(--color-text-muted); font-size: var(--fs-small); margin: 0 0 var(--space-3); }
+
+  .video-grid { display: grid; gap: var(--space-4) var(--space-3); grid-template-columns: 1fr; }
+  @media (min-width: 600px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .vcard { position: relative; display: flex; flex-direction: column; gap: var(--space-2); }
+  .vcard[hidden] { display: none; }
+  .vcard__thumb { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--color-surface-alt); box-shadow: var(--shadow-card); }
+  .vcard__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+  .vcard:hover .vcard__thumb img { transform: scale(1.04); }
+  .vcard__time {
+    position: absolute; right: .5rem; bottom: .5rem; padding: .15rem .5rem;
+    background: rgba(0, 0, 0, .8); color: #fff; border-radius: 6px; font-size: .75rem; font-weight: 700;
+  }
+  .vcard__title { font-size: 1.15rem; line-height: 1.3; margin: 0; }
+  .vcard__title a { color: var(--color-text); text-decoration: none; }
+  .vcard__title a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+  .vcard__title a:hover { color: var(--color-accent-hover); }
+  .vcard__title a:focus-visible { outline: none; }
+  .vcard:focus-within .vcard__thumb { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+  .vcard__meta { color: var(--color-text-muted); font-size: var(--fs-small); margin: 0; }
+  .vcard__text { color: var(--color-text-soft); font-size: var(--fs-small); margin: 0; }
+
+  .vcard--featured { grid-column: 1 / -1; }
+  @media (min-width: 960px) {
+    .vcard--featured { flex-direction: row; align-items: center; gap: var(--space-5); }
+    .vcard--featured .vcard__thumb { flex: 1.5; }
+    .vcard--featured .vcard__body { flex: 1; }
+    .vcard--featured .vcard__title { font-size: 1.8rem; font-family: var(--font-heading); font-weight: 400; color: var(--color-accent); }
+  }
+  .vcard__badge { display: inline-block; margin-bottom: var(--space-1); }
+
+  .vcard--soon .vcard__thumb { display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-3); box-shadow: none; border: 2px dashed var(--color-border); background: transparent; color: var(--color-text-soft); }
+  .library-empty { text-align: center; color: var(--color-text-soft); padding: var(--space-5) 0; }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">BeautyPod</a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="podology.html">Podología</a></li>
+        <li><a href="estetica.html">Estética</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--primary btn--sm" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">
+      Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span>
+    </a>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="library-head" aria-labelledby="blog-title">
+    <div class="container">
+      <h1 id="blog-title">Biblioteca de artículos</h1>
+      <p>Aprende a reconocer y cuidar lo que pasa en tus pies. Lecturas cortas, escritas por nuestra especialista.</p>
+
+      <div class="library-bar">
+        <form class="search-field" role="search" onsubmit="return false">
+          <label for="buscar" class="sr-only">Buscar artículos</label>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          <input id="buscar" type="search" placeholder="Buscar: hongos, uñas, talones…" autocomplete="off">
+        </form>
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por tema" hidden>
+          <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="chip" data-filter="unas" aria-pressed="false">Uñas</button>
+          <button type="button" class="chip" data-filter="piel" aria-pressed="false">Piel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="lista-title">
+    <div class="container">
+      <h2 id="lista-title" class="sr-only">Artículos</h2>
+      <p class="library-status" id="estado" role="status" aria-live="polite">4 artículos</p>
+
+      <div class="video-grid" id="biblioteca">
+
+        <article class="vcard vcard--featured" data-cat="unas piel">
+          <div class="vcard__thumb">
+            <!-- TODO: sustituir por foto real -->
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&h=563&q=70" alt="Valoración profesional de una uña" width="1000" height="563" fetchpriority="high">
+            <span class="vcard__time">3 min</span>
+          </div>
+          <div class="vcard__body">
+            <span class="tag vcard__badge">Destacado · Uñas y piel</span>
+            <h3 class="vcard__title"><a href="articles/article_onico.html">Onicomicosis y hongos en la piel</a></h3>
+            <p class="vcard__text">Qué son, cómo se contagian y por qué el tratamiento debe hacerlo un profesional.</p>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="unas">
+          <div class="vcard__thumb">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&h=450&q=70" alt="Cuidado profesional del dedo del pie" width="800" height="450" loading="lazy">
+            <span class="vcard__time">2 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_encarnadas.html">Uñas encarnadas</a></h3>
+            <p class="vcard__meta">Uñas</p>
+            <p class="vcard__text">Por qué se encarnan, qué no hacer en casa y cómo se atienden.</p>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="piel">
+          <div class="vcard__thumb">
+            <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=800&h=450&q=70" alt="Pies con piel seca durante un cuidado" width="800" height="450" loading="lazy">
+            <span class="vcard__time">2 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_durezas.html">Durezas, grietas y resequedad</a></h3>
+            <p class="vcard__meta">Piel</p>
+            <p class="vcard__text">Qué las causa y cuándo conviene acudir a consulta.</p>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="piel">
+          <div class="vcard__thumb">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&h=450&q=70" alt="Revisión de la planta del pie" width="800" height="450" loading="lazy">
+            <span class="vcard__time">2 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_callovph.html">Callosidades y verrugas plantares</a></h3>
+            <p class="vcard__meta">Piel</p>
+            <p class="vcard__text">Cómo se diferencian y por qué no conviene tratarlas en casa.</p>
+          </div>
+        </article>
+
+        <div class="vcard vcard--soon" data-cat="todos">
+          <div class="vcard__thumb"><p style="margin:0">Próximamente: más artículos</p></div>
+          <div class="vcard__body">
+            <p class="vcard__text">¿Tienes un tema en mente? <a href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20tengo%20una%20sugerencia%20para%20el%20blog" target="_blank" rel="noopener noreferrer" style="color:var(--color-accent)">Cuéntanoslo por WhatsApp<span class="sr-only"> (se abre en una pestaña nueva)</span></a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="library-empty" id="vacio" hidden>No encontramos artículos con esa búsqueda. Prueba con otra palabra.</p>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="reserva" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <div class="whatsapp-strip">
+        <div class="whatsapp-strip__info">
+          <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
+          <p><strong id="cta-title">¿Prefieres que te valoremos en persona?</strong><br><span>Consulta con un podólogo en Matanzas y recibe el cuidado adecuado para tus pies.</span></p>
+        </div>
+        <div class="whatsapp-strip__actions">
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="logo">BeautyPod</p>
+      <p>Podología y cuidado de pies en Matanzas, Cuba.</p>
+    </div>
+
+    <address class="footer-address">
+      Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba<br>
+      <a href="https://maps.app.goo.gl/Axdd4hyurDcGLANy8" target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps<span class="sr-only"> (se abre en una pestaña nueva)</span></a><br>
+      <a href="sms:+5353719118">SMS: +53 5371 9118</a>
+    </address>
+
+    <nav class="footer-social" aria-label="Redes sociales y reseñas de BeautyPod">
+      <a class="social-icon" href="https://www.facebook.com/bpodpedicure" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Facebook (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15 8.5h1.7V5.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3V15h2.7v8h3.1v-8h2.6l.4-2.9h-3v-2c0-.8.2-1.6 1.9-1.6Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.instagram.com/beautypodlinet?stkn=NXRxM3owdnd5Mzd5" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Instagram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://t.me/bpplinet" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Telegram (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M9.78 18.65c-.4 0-.33-.15-.47-.53l-1.18-3.87 9-5.35c.4-.24.06-.35-.22-.14l-11.1 6.98-1.9-.6c-.44-.14-.44-.43.09-.65l16.4-6.32c.36-.16.71.09.57.66l-2.79 13.14c-.2.9-.75 1.11-1.51.7l-4.16-3.07-2 1.93c-.23.23-.42.42-.73.42Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en WhatsApp (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html" target="_blank" rel="noopener noreferrer" aria-label="BeautyPod en Tripadvisor (se abre en una pestaña nueva)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+          <path d="M2.4 9.6C5 7 8.3 5.8 12 5.8s7 1.2 9.6 3.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7.6" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="16.4" cy="14" r="3.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="7.6" cy="14" r="1.4" fill="currentColor"/>
+          <circle cx="16.4" cy="14" r="1.4" fill="currentColor"/>
+          <path d="M12 14.2l-1.3 1.9h2.6z" fill="currentColor"/>
+        </svg>
+      </a>
+    </nav>
+
+    <p class="footer-copy">© 2026 BeautyPod. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="assets/js/blog.js" defer></script>
+</body>
+</html>
