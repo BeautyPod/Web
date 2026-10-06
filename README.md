@@ -79,15 +79,11 @@ Para ver el sitio en tu computadora antes de subirlo, abre la carpeta en VS Code
 ## Pendientes
 
 - [ ] **Dominio propio:** hoy el sitio vive en `beautypod.github.io/Web/`. Al tener dominio, actualizar `canonical`, Open Graph, JSON-LD, `robots.txt` y `sitemap.xml`, y añadirlo en *Settings → Pages → Custom domain*.
-- [ ] **`robots.txt` y `sitemap.xml`:** deben apuntar a `https://beautypod.github.io/Web/` (no a `beautypod-matanzas.cu`). Mientras no haya dominio propio, enviar el sitemap desde Google Search Console.
 - [ ] **Imágenes:** reemplazar las fotos de stock (Unsplash) por fotos reales, descargarlas, convertirlas a WebP y servirlas desde `assets/img/`. Incluye la imagen de compartir (`og:image`, 1200×630).
 - [ ] **Foto de la especialista:** sustituir la de stock por una real.
-- [ ] **Datos a verificar:** "+500 pies cuidados" y "+8 años de experiencia".
-- [ ] **Opiniones:** añadir más testimonios reales (con permiso de los clientes).
-- [ ] **Redes sociales:** comprobar que los enlaces del pie de página sean los reales.
-- [ ] **Google Analytics:** pegar el ID de medición cuando exista (hay un espacio reservado).
-- [ ] **Google Search Console:** verificar la propiedad y enviar el sitemap.
-- [ ] **Favicon:** generarlo a partir de `beautypod-logo.svg` (el actual es provisional).
+- [ ] **Opiniones:** añadir más testimonios reales (con permiso de los clientes). 
+- [ ] **Google Search Console:** verificar la propiedad y enviar el sitemap. Xml. 
+- [ ] **Favicon:** generarlo a partir de `beautypod-logo.svg'.
 - [ ] **`llms.txt`:** actualizar las URLs cuando haya dominio propio.
 - [ ] **Enlaces internos relativos:** usar rutas como `podology.html` en lugar de URLs absolutas para facilitar el cambio de dominio.
 
