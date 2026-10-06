@@ -1,248 +1,652 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tarjeta de presentación | Linet Rodríguez Vega</title>
-<meta name="description" content="Tarjeta de presentación digital de Linet Rodríguez Vega: contacto por WhatsApp, Facebook, teléfono y correo.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0f2440">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta charset="UTF-8">
 
-<style>
-  body {
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 24px;
-    background: #272727;
-  }
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
-  .digital-card {
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 32px 24px;
-    border-radius: 24px;
-    background: linear-gradient(160deg, #1b3a63, #0f2440);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, .25);
-    text-align: center;
-    color: #fff;
-  }
+  <title>Tarjeta de presentación | Linet Rodríguez Vega</title>
 
-  .digital-card__avatar {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    margin: 0 auto 16px;
-    display: block;
-  }
+  <meta
+    name="description"
+    content="Tarjeta de presentación digital de Linet Rodríguez Vega: contacto por WhatsApp, Facebook, teléfono y correo."
+  >
 
-  .digital-card__eyebrow {
-    display: block;
-    font-size: .85em;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    opacity: .75;
-    margin-bottom: 4px;
-  }
+  <meta
+    name="robots"
+    content="index, follow"
+  >
 
-  .digital-card__name {
-    font-size: 1.5em;
-    margin: 0 0 10px;
-  }
+  <meta
+    name="theme-color"
+    content="#0f2440"
+  >
 
-  .digital-card__bio {
-    font-size: .95em;
-    line-height: 1.5;
-    opacity: .9;
-    margin: 0 0 24px;
-  }
 
-  .digital-card__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
+  <!-- ==========================================================
+       FUENTES
+  =========================================================== -->
 
-  .digital-card__btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    padding: 12px 18px;
-    border-radius: 999px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: .95em;
-  }
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-  .digital-card__btn svg {
-    flex-shrink: 0;
-  }
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-  .digital-card__btn--whatsapp {
-    background: #25b26a;
-  }
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap"
+  >
 
-  .digital-card__btn--facebook {
-    background: #1877f2;
-  }
 
-  .digital-card__btn--phone {
-    background: #2b2f36;
-  }
+  <!-- ==========================================================
+       CSS PRINCIPAL
+  =========================================================== -->
 
-  .digital-card__btn--email {
-    background: #8c2340;
-  }
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
 
-  .digital-card__qr {
-    width: 140px;
-    height: 140px;
-    border-radius: 12px;
-    background: #fff;
-    padding: 8px;
-    display: block;
-    margin: 0 auto;
-  }
 
-  .digital-card__qr-label {
-    font-size: .8em;
-    opacity: .75;
-    margin-top: 8px;
-  }
+  <!-- ==========================================================
+       FAVICON
+  =========================================================== -->
 
-  .digital-card__badge {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, .15);
-  }
+  <link
+    rel="icon"
+    href="assets/img/favicon.svg"
+    type="image/svg+xml"
+  >
 
-  .digital-card__badge a {
-    color: #fff;
-    opacity: .8;
-    font-size: .75em;
-    text-decoration: none;
-    line-height: 1.4;
-  }
 
-  .digital-card__badge a:hover,
-  .digital-card__badge a:focus-visible {
-    opacity: 1;
-    text-decoration: underline;
-  }
-</style>
+  <!-- ==========================================================
+       ESTILOS DE ESTA PÁGINA
+  =========================================================== -->
+
+  <style>
+
+    /* ========================================================
+       ESTRUCTURA GENERAL
+    ======================================================== */
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: #272727;
+    }
+
+
+    /* ========================================================
+       CABECERA SECUNDARIA
+       Queda arriba de la tarjeta
+    ======================================================== */
+
+    .site-header {
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+
+    .article-back {
+      width: 100%;
+    }
+
+
+    .article-back .container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+
+    .article-back a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+    }
+
+
+    .article-back svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+
+    /* ========================================================
+       CONTENIDO
+       La tarjeta queda debajo del header
+    ======================================================== */
+
+    #contenido {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 32px 24px;
+    }
+
+
+    /* ========================================================
+       TARJETA DIGITAL
+    ======================================================== */
+
+    .digital-card {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      border-radius: 24px;
+      background: linear-gradient(
+        160deg,
+        #1b3a63,
+        #0f2440
+      );
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, .25);
+      text-align: center;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+
+    /* ========================================================
+       FOTO
+    ======================================================== */
+
+    .digital-card__avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+
+    /* ========================================================
+       TEXTOS
+    ======================================================== */
+
+    .digital-card__eyebrow {
+      display: block;
+      font-size: .85em;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      opacity: .75;
+      margin-bottom: 4px;
+    }
+
+
+    .digital-card__name {
+      font-size: 1.5em;
+      margin: 0 0 10px;
+    }
+
+
+    .digital-card__bio {
+      font-size: .95em;
+      line-height: 1.5;
+      opacity: .9;
+      margin: 0 0 24px;
+    }
+
+
+    /* ========================================================
+       BOTONES
+    ======================================================== */
+
+    .digital-card__buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+
+    .digital-card__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95em;
+      transition:
+        transform .2s ease,
+        opacity .2s ease;
+    }
+
+
+    .digital-card__btn:hover {
+      transform: translateY(-1px);
+      opacity: .92;
+    }
+
+
+    .digital-card__btn:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+
+
+    .digital-card__btn svg {
+      flex-shrink: 0;
+    }
+
+
+    .digital-card__btn--whatsapp {
+      background: #25b26a;
+    }
+
+
+    .digital-card__btn--facebook {
+      background: #1877f2;
+    }
+
+
+    .digital-card__btn--phone {
+      background: #2b2f36;
+    }
+
+
+    .digital-card__btn--email {
+      background: #8c2340;
+    }
+
+
+    /* ========================================================
+       QR
+    ======================================================== */
+
+    .digital-card__qr {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      background: #fff;
+      padding: 8px;
+      display: block;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+
+    .digital-card__qr-label {
+      font-size: .8em;
+      opacity: .75;
+      margin-top: 8px;
+    }
+
+
+    /* ========================================================
+       CERTIFICACIÓN
+    ======================================================== */
+
+    .digital-card__badge {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+    }
+
+
+    .digital-card__badge a {
+      color: #fff;
+      opacity: .8;
+      font-size: .75em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+
+    .digital-card__badge a:hover,
+    .digital-card__badge a:focus-visible {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+
+    /* ========================================================
+       RESPONSIVE
+    ======================================================== */
+
+    @media (max-width: 480px) {
+
+      #contenido {
+        padding: 24px 16px 32px;
+      }
+
+      .digital-card {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .article-back .container {
+        gap: 10px;
+      }
+
+      .article-back a {
+        font-size: .9rem;
+      }
+
+    }
+
+  </style>
+
 </head>
 
+
 <body>
-<!-- ============ CABECERA (igual que en el resto del sitio) ============ -->
-<header class="site-header">
-<!-- Flecha de volver al Blog y acceso a Inicio -->
 
-<main id="contenido">
-  
-  <div class="digital-card">
 
-    <h1 class="sr-only">Tarjeta de presentación digital</h1>
+  <!-- ========================================================
+       CABECERA SECUNDARIA
+       PÁGINA SECUNDARIA DE "SOBRE NOSOTROS"
+  ========================================================= -->
 
-    <img
-      class="digital-card__avatar"
-      src="assets/img/avatar.jpg"
-      alt="Foto de perfil"
-    >
+  <header class="site-header">
 
-    <span class="digital-card__eyebrow">Especialista</span>
+    <div class="article-back">
 
-    <h2 class="digital-card__name">Linet Rodríguez Vega</h2>
+      <div class="container">
 
-    <p class="digital-card__bio">
-      Certificada en el Estándar de Competencia Laboral: Prestación de Servicios Podológicos Preventivos
-    </p>
 
-    <div class="digital-card__buttons">
+        <!-- Volver a Sobre nosotros -->
 
-      <a
-        class="digital-card__btn digital-card__btn--whatsapp"
-        href="https://wa.me/5353719118"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path fill="currentColor" d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"/>
-        </svg>
-        WhatsApp
-      </a>
+        <a href="sobre-nosotros.html">
 
-      <a
-        class="digital-card__btn digital-card__btn--facebook"
-        href="https://www.facebook.com/tpdga.linet.r.vega"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path fill="currentColor" d="M22 12.06C22 6.48 17.52 2 11.94 2 6.36 2 1.88 6.48 1.88 12.06c0 5.02 3.66 9.17 8.44 9.94v-7.03H7.9v-2.91h2.42V9.91c0-2.39 1.42-3.71 3.6-3.71 1.04 0 2.13.19 2.13.19v2.34h-1.2c-1.18 0-1.55.74-1.55 1.49v1.79h2.64l-.42 2.91h-2.22V22c4.78-.77 8.44-4.92 8.44-9.94Z"/>
-        </svg>
-        Facebook
-      </a>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
 
-      <a
-        class="digital-card__btn digital-card__btn--phone"
-        href="sms:+5353719118"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path fill="currentColor" d="M4 4h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H8l-4 4V6c0-1.1.9-2 2-2Zm2 5v2h2V9H6Zm5 0v2h2V9h-2Zm5 0v2h2V9h-2Z"/>
-        </svg>
-        SMS
-      </a>
+            <polyline points="15 18 9 12 15 6"></polyline>
 
-      <a
-        class="digital-card__btn digital-card__btn--email"
-        href="mailto:linetrodveg@gmail.com"
-      >
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path fill="currentColor" d="M4 4h16c.6 0 1 .4 1 1v14c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1Zm1.4 2 6.6 5.5L18.6 6H5.4ZM3 7.2V18h18V7.2l-7.4 6.1a1 1 0 0 1-1.2 0L3 7.2Z"/>
-        </svg>
-        Email
-      </a>
+          </svg>
+
+          <span>
+            Volver a Sobre nosotros
+          </span>
+
+        </a>
+
+
+        <!-- Acceso a Inicio -->
+
+        <a href="index.html">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+
+            <path d="M3 11l9-8 9 8"></path>
+
+            <path d="M5 10v10h14V10"></path>
+
+          </svg>
+
+          <span>
+           Inicio
+          </span>
+
+        </a>
+
+      </div>
 
     </div>
 
-    <img
-      class="digital-card__qr"
-      src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://wa.me/5353719118"
-      alt="Código QR para escribir por WhatsApp"
-      width="140"
-      height="140"
-      loading="lazy"
-    >
+  </header>
 
-    <p class="digital-card__qr-label">
-      Escanea para escribirnos vía WhatsApp
-    </p>
 
-    <div class="digital-card__badge">
-      <a
-        href="https://conocer.gob.mx/conocer/#/renap"
-        target="_blank"
-        rel="noopener noreferrer"
+
+  <!-- ========================================================
+       CONTENIDO PRINCIPAL
+       LA TARJETA ESTÁ DEBAJO DE LA CABECERA
+  ========================================================= -->
+
+  <main id="contenido">
+
+
+    <div class="digital-card">
+
+
+      <!-- ====================================================
+           TÍTULO ACCESIBLE
+      ===================================================== -->
+
+      <h1 class="sr-only">
+        Tarjeta de presentación digital
+      </h1>
+
+
+      <!-- ====================================================
+           FOTO DE PERFIL
+      ===================================================== -->
+
+      <img
+        class="digital-card__avatar"
+        src="assets/img/avatar.jpg"
+        alt="Foto de perfil de Linet Rodríguez Vega"
       >
-        Certificación CONOCER México · Clave EC0333 · Folio 18062921
-      </a>
+
+
+      <!-- ====================================================
+           IDENTIFICACIÓN
+      ===================================================== -->
+
+      <span class="digital-card__eyebrow">
+        Especialista
+      </span>
+
+
+      <h2 class="digital-card__name">
+        Linet Rodríguez Vega
+      </h2>
+
+
+      <p class="digital-card__bio">
+        Certificada en el Estándar de Competencia Laboral:
+        Prestación de Servicios Podológicos Preventivos
+      </p>
+
+
+      <!-- ====================================================
+           BOTONES DE CONTACTO
+      ===================================================== -->
+
+      <div class="digital-card__buttons">
+
+
+        <!-- WhatsApp -->
+
+        <a
+          class="digital-card__btn digital-card__btn--whatsapp"
+          href="https://wa.me/5353719118"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contactar a Linet Rodríguez Vega por WhatsApp"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+          >
+
+            <path
+              fill="currentColor"
+              d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21l4.3-1.3A9.5 9.5 0 1 0 12 2.5Zm5.4 13.6c-.24.66-1.2 1.24-1.86 1.34-.5.08-1.1.11-1.78-.1-.4-.13-.93-.3-1.6-.6-2.8-1.2-4.63-4.06-4.77-4.25-.14-.19-1.14-1.52-1.14-2.9 0-1.37.72-2.05.97-2.33.26-.28.57-.35.76-.35h.55c.17 0 .4-.07.63.48.24.56.8 1.96.88 2.1.08.15.13.32.03.51-.1.19-.15.31-.28.47-.14.17-.3.38-.42.52-.14.16-.29.32-.13.6.17.29.75 1.19 1.6 1.93 1.1.94 2 1.22 2.3 1.36.29.14.46.12.63-.08.17-.19.71-.82.9-1.1.19-.28.37-.24.64-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.68-.16 1.33Z"
+            />
+
+          </svg>
+
+          WhatsApp
+
+        </a>
+
+
+        <!-- Facebook -->
+
+        <a
+          class="digital-card__btn digital-card__btn--facebook"
+          href="https://www.facebook.com/tpdga.linet.r.vega"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Linet Rodríguez Vega en Facebook"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+          >
+
+            <path
+              fill="currentColor"
+              d="M22 12.06C22 6.48 17.52 2 11.94 2 6.36 2 1.88 6.48 1.88 12.06c0 5.02 3.66 9.17 8.44 9.94v-7.03H7.9v-2.91h2.42V9.91c0-2.39 1.42-3.71 3.6-3.71 1.04 0 2.13.19 2.13.19v2.34h-1.2c-1.18 0-1.55.74-1.55 1.49v1.79h2.64l-.42 2.91h-2.22V22c4.78-.77 8.44-4.92 8.44-9.94Z"
+            />
+
+          </svg>
+
+          Facebook
+
+        </a>
+
+
+        <!-- SMS -->
+
+        <a
+          class="digital-card__btn digital-card__btn--phone"
+          href="sms:+5353719118"
+          aria-label="Enviar SMS a Linet Rodríguez Vega"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+          >
+
+            <path
+              fill="currentColor"
+              d="M4 4h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H8l-4 4V6c0-1.1.9-2 2-2Zm2 5v2h2V9H6Zm5 0v2h2V9h-2Zm5 0v2h2V9h-2Z"
+            />
+
+          </svg>
+
+          SMS
+
+        </a>
+
+
+        <!-- Email -->
+
+        <a
+          class="digital-card__btn digital-card__btn--email"
+          href="mailto:linetrodveg@gmail.com"
+          aria-label="Enviar correo electrónico a Linet Rodríguez Vega"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+          >
+
+            <path
+              fill="currentColor"
+              d="M4 4h16c.6 0 1 .4 1 1v14c0 .6-.4 1-1 1H4c-.6 0-1-.4-1-1V5c0-.6.4-1 1-1Zm1.4 2 6.6 5.5L18.6 6H5.4ZM3 7.2V18h18V7.2l-7.4 6.1a1 1 0 0 1-1.2 0L3 7.2Z"
+            />
+
+          </svg>
+
+          Email
+
+        </a>
+
+
+      </div>
+
+
+      <!-- ====================================================
+           QR
+      ===================================================== -->
+
+      <img
+        class="digital-card__qr"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&amp;data=https://wa.me/5353719118"
+        alt="Código QR para escribir por WhatsApp"
+        width="140"
+        height="140"
+        loading="lazy"
+      >
+
+
+      <p class="digital-card__qr-label">
+        Escanea para escribirnos vía WhatsApp
+      </p>
+
+
+      <!-- ====================================================
+           CERTIFICACIÓN
+      ===================================================== -->
+
+      <div class="digital-card__badge">
+
+        <a
+          href="https://conocer.gob.mx/conocer/#/renap"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Certificación CONOCER México · Clave EC0333 · Folio 18062921
+        </a>
+
+      </div>
+
+
     </div>
 
-  </div>
-</main>
+  </main>
+
 
 </body>
+
 </html>
