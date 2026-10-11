@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda de productos para el cuidado de pies | BeautyPod</title>
+<meta name="description" content="Productos recomendados por BeautyPod para el cuidado de tus pies en Matanzas. Elige el que necesitas y pídelo directo por WhatsApp.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://beautypod.github.io/Web/tienda.html">
+<meta name="theme-color" content="#272727">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BeautyPod">
+<meta property="og:title" content="Tienda de productos | BeautyPod">
+<meta property="og:description" content="Productos para el cuidado de tus pies. Pídelos directo por WhatsApp.">
+<meta property="og:url" content="https://beautypod.github.io/Web/tienda.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-L20STJ4RYY');
+</script>
+
+<style>
+  /* Tienda (se puede mover a styles.css) */
+  .shop-head { text-align: center; padding-block: var(--space-6) var(--space-4); background: var(--color-bg); }
+  .shop-head h1 { color: var(--color-accent); font-weight: 400; font-size: clamp(2rem, 6vw, 3rem); }
+  .shop-head p { color: var(--color-text-soft); max-width: 46ch; margin-inline: auto; }
+
+  .shop-bar { display: grid; gap: var(--space-3); max-width: 760px; margin: var(--space-4) auto 0; }
+  .search-field { position: relative; }
+  .search-field svg { position: absolute; left: 1rem; top: 50%; width: 1.2rem; height: 1.2rem; transform: translateY(-50%); color: var(--color-text-muted); pointer-events: none; }
+  .search-field input {
+    width: 100%; min-height: 48px; padding: .6rem 1rem .6rem 2.8rem;
+    background: var(--color-surface-alt); color: var(--color-text);
+    border: 1px solid var(--color-border); border-radius: var(--radius-pill); font: inherit;
+  }
+  .search-field input::placeholder { color: var(--color-text-muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: center; }
+  .chip {
+    min-height: 40px; padding: .4rem 1rem; cursor: pointer; font: inherit; font-size: var(--fs-small); font-weight: 700;
+    color: var(--color-text); background: var(--color-surface-alt);
+    border: 1px solid var(--color-border); border-radius: var(--radius-pill);
+  }
+  .chip:hover { border-color: var(--color-accent); }
+  .chip[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
+
+  .shop-status { color: var(--color-text-muted); font-size: var(--fs-small); margin: 0 0 var(--space-3); }
+
+  .product-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+  @media (min-width: 600px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1200px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .product { display: flex; flex-direction: column; background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); }
+  .product[hidden] { display: none; }
+  .product__media { position: relative; aspect-ratio: 1 / 1; background: var(--color-surface); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .product__media img { width: 100%; height: 100%; object-fit: cover; }
+  .product__placeholder { font-family: var(--font-heading); font-size: 3.5rem; color: var(--color-accent); opacity: .6; }
+  .product__badge { position: absolute; top: .6rem; left: .6rem; }
+  .product__body { padding: var(--space-3); display: flex; flex-direction: column; gap: var(--space-1); flex: 1; }
+  .product__cat { color: var(--color-text-muted); font-size: .75rem; font-weight: 700; margin: 0; }
+  .product__title { font-size: 1.05rem; line-height: 1.3; margin: 0; }
+  .product__summary { color: var(--color-text-soft); font-size: var(--fs-small); margin: 0; }
+  .product__price { font-size: 1.4rem; font-weight: 800; margin: var(--space-1) 0 0; }
+  .product__price small { font-size: .75rem; font-weight: 600; color: var(--color-text-muted); }
+  .product__stock { font-size: .8rem; font-weight: 700; color: var(--color-accent-hover); margin: 0; }
+  .product__stock--out { color: var(--color-text-muted); }
+
+  .product__more { border-top: 1px solid var(--color-border); margin-top: var(--space-1); padding-top: var(--space-1); }
+  .product__more summary { cursor: pointer; font-size: var(--fs-small); font-weight: 700; color: var(--color-accent); min-height: 36px; display: flex; align-items: center; }
+  .product__more ul { margin: var(--space-1) 0 0; padding-left: 1.1rem; list-style: disc; color: var(--color-text-soft); font-size: var(--fs-small); }
+  .product__more li { margin-bottom: .3rem; }
+  .product__more p { color: var(--color-text-soft); font-size: var(--fs-small); margin: var(--space-1) 0 0; }
+
+  .product__actions { margin-top: auto; padding-top: var(--space-2); }
+  .product__actions .btn { width: 100%; }
+  .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+
+  .shop-empty { text-align: center; color: var(--color-text-soft); padding: var(--space-5) 0; }
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<header class="site-header">
+  <div id="site-header"></div>
+  <noscript>
+    <nav aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="podology.html">Podología</a>
+      <a href="estetica.html">Estética</a>
+      <a href="sobre-nosotros.html">Sobre nosotros</a>
+    </nav>
+  </noscript>
+</header>
+
+<!-- Volver a inicio (siempre visible, aunque falle el menú) -->
+<div class="article-back">
+  <div class="container">
+    <a href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"></path></svg>
+      Volver al inicio
+    </a>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <section class="shop-head" aria-labelledby="tienda-title">
+    <div class="container">
+      <h1 id="tienda-title">Tienda BeautyPod</h1>
+      <p>Productos que usamos y recomendamos para el cuidado de tus pies. Elige el que necesitas y pídelo directo por WhatsApp.</p>
+
+      <div class="shop-bar">
+        <form class="search-field" role="search" onsubmit="return false">
+          <label for="buscar" class="sr-only">Buscar productos</label>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          <input id="buscar" type="search" placeholder="Buscar: crema, talones, uñas…" autocomplete="off">
+        </form>
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="lista-title">
+    <div class="container">
+      <h2 id="lista-title" class="sr-only">Productos</h2>
+      <p class="shop-status" id="estado" role="status" aria-live="polite"></p>
+      <div class="product-grid" id="productos"></div>
+      <p class="shop-empty" id="vacio" hidden>No encontramos productos con esa búsqueda. Prueba con otra palabra o pregúntanos por WhatsApp.</p>
+      <noscript><p class="shop-empty">Activa JavaScript para ver los productos, o escríbenos por <a href="https://wa.me/5353719118" style="color:var(--color-accent)">WhatsApp</a>.</p></noscript>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="consulta" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <div class="whatsapp-strip">
+        <div class="whatsapp-strip__info">
+          <span class="whatsapp-strip__icon" aria-hidden="true">◔</span>
+          <p><strong id="cta-title">¿No sabes cuál te conviene?</strong><br><span>Cuéntanos qué molestia tienes y te recomendamos el producto adecuado.</span></p>
+        </div>
+        <div class="whatsapp-strip__actions">
+          <a class="btn btn--whatsapp" id="cta-wa" href="#" target="_blank" rel="noopener noreferrer">Pedir recomendación<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer><div id="site-footer"></div></footer>
+
+<script src="assets/js/components.js"></script>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN DE LA TIENDA — AQUÍ EDITAS TODO
+   ---------------------------------------------------------------------
+   1) WHATSAPP_NUMERO: número con código de país, sin + ni espacios.
+   2) MENSAJE: texto que llega al WhatsApp. {producto} se sustituye solo.
+   3) Cada producto puede tener su propio "link". Si lo dejas vacío (""),
+      se genera automáticamente con el número y el mensaje de arriba.
+   4) "stock": true = disponible, false = agotado (el botón se desactiva).
+   5) "imagen": ruta de la foto (ej. assets/img/productos/crema.webp).
+      Si no existe, se muestra un marcador con la inicial.
+   Los productos de abajo son EJEMPLOS: cambia nombres, textos y precios.
+   ===================================================================== */
+const WHATSAPP_NUMERO = "5353719118";
+const MENSAJE = "[PW] Hola, quiero pedir: {producto}";
+const MENSAJE_CONSULTA = "[PW] Hola, necesito que me recomienden un producto para mis pies";
+const MONEDA = "CUP";
+
+const PRODUCTOS = [
+  {
+    nombre: "Serum BioRegenerador Epidermico",
+    categoria: "Talones",
+    destacado: true,
+    resumen: "Tratamiento para talones agrietados y secos. Hidrata y regenera la piel.",
+    precio: 1500,
+    stock: true,
+    imagen: "assets/img/productos/crema-talones.webp",
+    detalles: [
+      "Ideal para talones secos, ásperos o agrietados",
+      "Aplicar 1 vez al día sobre el pie limpio y ligeramente húmedo",
+      "No aplicar entre los dedos"
+    ],
+    explicacion: "Complemento perfecto del cuidado en casa: mantiene los resultados entre una cita y otra.",
+    link: ""
+  },
+  {
+    nombre: "Formula ELAN",
+    categoria: "Uñas",
+    resumen: "Tratamiento para hongos en las uñas resistente.",
+    precio: 2500,
+    stock: true,
+    imagen: "assets/img/productos/lima.webp",
+    detalles: [
+      "Uso 1 vez al dia sobre la uña limpia y seca",
+      "No usar en callosidades profundas ni verrugas",
+      "No usar en uñas no diagnosticadas"
+    ],
+    explicacion: "Si la dureza duele o sangra, mejor valoración profesional.",
+    link: ""
+  },
+  {
+    nombre: "Desinfectante de calzado",
+    categoria: "Higiene",
+    resumen: "Higiene diaria para prevenir el mal olor en los pies.",
+    precio: 1000,
+    stock: true,
+    imagen: "assets/img/productos/antiseptico.webp",
+    detalles: [
+      "Para uso exclusivo en calzado cerrado",
+      "Aplicar en calzado después de cada uso y dejar secar",
+      "Útil en deportistas y en quienes usan calzado cerrado"
+    ],
+    explicacion: "Adecuado para personas en tratamiento de hongos, sudoración excesiva o mal olor.",
+    link: ""
+  },
+  {
+    nombre: "Talco antimicótico",
+    categoria: "Talones",
+    resumen: "Ayuda a prevenir y tratar el hongo en la piel del pie.",
+    precio: 800,
+    stock: false,
+    imagen: "assets/img/productos/talco.webp",
+    detalles: [
+      "Aplicar a diario en el calzado",
+      "Ayuda a prevenir la humedad y la propagación de hongos y bacterias",
+      "Excelente sinergia con el desinfectante de calzado",
+      "Aplicar antes de ponerse el calzado"
+    ],
+    explicacion: "Muy recomendado durante un tratamiento antifúngico.",
+    link: ""
+  }
+];
+/* ===================== FIN DE LA CONFIGURACIÓN ===================== */
+
+(function () {
+  var grid = document.getElementById('productos');
+  var chipsBox = document.getElementById('chips');
+  var input = document.getElementById('buscar');
+  var estado = document.getElementById('estado');
+  var vacio = document.getElementById('vacio');
+
+  function waLink(texto) {
+    return 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(texto);
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function norm(s) {
+    return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function precio(p) {
+    return typeof p === 'number' ? p.toLocaleString('es-CU') + ' <small>' + MONEDA + '</small>' : esc(p);
+  }
+
+  /* Pintar productos */
+  PRODUCTOS.forEach(function (p, i) {
+    var href = p.link && p.link.trim() ? p.link : waLink(MENSAJE.replace('{producto}', p.nombre));
+    var disp = p.stock !== false;
+    var el = document.createElement('article');
+    el.className = 'product';
+    el.setAttribute('data-cat', norm(p.categoria || ''));
+    el.setAttribute('data-text', norm([p.nombre, p.categoria, p.resumen, p.explicacion].join(' ')));
+    el.innerHTML =
+      '<div class="product__media">' +
+        '<span class="product__placeholder" aria-hidden="true">' + esc((p.nombre || '?').charAt(0)) + '</span>' +
+        (p.imagen ? '<img src="' + esc(p.imagen) + '" alt="' + esc(p.nombre) + '" width="600" height="600" loading="lazy" style="position:absolute;inset:0">' : '') +
+        (p.destacado ? '<span class="tag product__badge">Más pedido</span>' : '') +
+      '</div>' +
+      '<div class="product__body">' +
+        '<p class="product__cat">' + esc(p.categoria) + '</p>' +
+        '<h3 class="product__title">' + esc(p.nombre) + '</h3>' +
+        '<p class="product__summary">' + esc(p.resumen) + '</p>' +
+        '<p class="product__price">' + precio(p.precio) + '</p>' +
+        '<p class="product__stock' + (disp ? '' : ' product__stock--out') + '">' + (disp ? 'Disponible' : 'Agotado por ahora') + '</p>' +
+        '<details class="product__more"><summary>Ver explicación y modo de uso</summary>' +
+          (p.detalles && p.detalles.length ? '<ul>' + p.detalles.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul>' : '') +
+          (p.explicacion ? '<p>' + esc(p.explicacion) + '</p>' : '') +
+        '</details>' +
+        '<div class="product__actions">' +
+          '<a class="btn btn--primary" href="' + esc(href) + '" target="_blank" rel="noopener noreferrer"' + (disp ? '' : ' aria-disabled="true" tabindex="-1"') + '>' +
+            (disp ? 'Pedir por WhatsApp' : 'No disponible') +
+            '<span class="sr-only"> ' + esc(p.nombre) + ' (se abre en una pestaña nueva)</span></a>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(el);
+  });
+
+  /* Botón de consulta general */
+  document.getElementById('cta-wa').href = waLink(MENSAJE_CONSULTA);
+
+  /* Filtros por categoría */
+  var cats = [];
+  PRODUCTOS.forEach(function (p) { if (p.categoria && cats.indexOf(p.categoria) < 0) cats.push(p.categoria); });
+  var filtro = 'todos';
+  if (cats.length > 1) {
+    chipsBox.hidden = false;
+    var todos = [{ k: 'todos', t: 'Todos' }].concat(cats.map(function (c) { return { k: norm(c), t: c }; }));
+    chipsBox.innerHTML = todos.map(function (c, i) {
+      return '<button type="button" class="chip" data-filter="' + esc(c.k) + '" aria-pressed="' + (i === 0) + '">' + esc(c.t) + '</button>';
+    }).join('');
+    chipsBox.addEventListener('click', function (e) {
+      var b = e.target.closest('.chip'); if (!b) return;
+      filtro = b.getAttribute('data-filter');
+      chipsBox.querySelectorAll('.chip').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      aplicar();
+    });
+  }
+
+  function aplicar() {
+    var q = norm(input.value.trim());
+    var n = 0;
+    grid.querySelectorAll('.product').forEach(function (el) {
+      var ok = (filtro === 'todos' || el.getAttribute('data-cat') === filtro) &&
+               (!q || el.getAttribute('data-text').indexOf(q) > -1);
+      el.hidden = !ok;
+      if (ok) n++;
+    });
+    estado.textContent = n + (n === 1 ? ' producto' : ' productos');
+    vacio.hidden = n !== 0;
+  }
+  input.addEventListener('input', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>

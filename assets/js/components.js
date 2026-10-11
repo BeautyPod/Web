@@ -54,6 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
                   Blog
                 </a>
               </li>
+              
+              <li>
+                <a href="tienda.html">
+                  Tienda
+                </a>
+              </li>
 
               <li>
                 <a href="sobre-nosotros.html">
