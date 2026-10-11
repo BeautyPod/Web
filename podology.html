@@ -74,6 +74,21 @@
   ]
 }
 </script>
+
+<style>
+  /* FAQ + botón redondo de la tienda, lado a lado (se puede mover a styles.css) */
+  .faq-layout { display: grid; gap: var(--space-5); align-items: center; }
+  .faq-layout .accordion { margin-top: 0; }
+  .store-badge { display: block; order: -1; width: min(260px, 70vw); margin-inline: auto; border-radius: 50%; transition: transform .25s ease, filter .25s ease; }
+  .store-badge img { width: 100%; height: auto; border-radius: 50%; box-shadow: var(--shadow-card); }
+  .store-badge:hover, .store-badge:focus-visible { transform: scale(1.05) rotate(-2deg); filter: brightness(1.06); }
+  .store-badge:hover img { box-shadow: var(--shadow-card-hover); }
+  @media (min-width: 960px) {
+    #faq .container { max-width: var(--container-max); }
+    .faq-layout { grid-template-columns: 1fr 320px; gap: var(--space-6); align-items: start; }
+    .store-badge { order: 0; width: 300px; position: sticky; top: 7rem; margin-top: var(--space-4); }
+  }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -166,23 +181,6 @@
   </section>
 
   
-    <!-- ============ TIENDA ============ -->
-  <section class="section" id="tienda" aria-labelledby="tienda-title">
-    <div class="container">
-      <div class="section__heading">
-        <h2 id="tienda-title">Productos para tus pies</h2>
-        <p>Los que usamos y recomendamos. Pídelos directo por WhatsApp.</p>
-      </div>
-
-      <div class="whatsapp-strip">
-        <div class="whatsapp-strip__info">
-          <span class="whatsapp-strip__icon" aria-hidden="true">♧</span>
-          <p><strong>Cuidado en casa, entre una cita y otra</strong><br><span>Cremas, antisépticos y accesorios, cada uno con su explicación y modo de uso.</span></p>
-        </div>
-        <a class="btn btn--whatsapp" href="tienda.html">Ver la tienda <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ ¿CÓMO CUIDAMOS TUS PIES? ============ -->
   <section class="section" aria-labelledby="proceso-title">
@@ -326,14 +324,14 @@
     </div>
   </section>
 
-  <!-- ============ PREGUNTAS FRECUENTES ============ -->
+  <!-- ============ PREGUNTAS FRECUENTES + BOTÓN TIENDA ============ -->
   <section class="section" id="faq" aria-labelledby="faq-pie-title">
-    <div class="container container--narrow">
+    <div class="container">
       <div class="section__heading">
         <h2 id="faq-pie-title">Preguntas frecuentes</h2>
       </div>
 
-      <div class="accordion-columns">
+      <div class="faq-layout">
         <div class="accordion">
           <details class="accordion__item">
             <summary>¿Cuándo debería solicitar una valoración?</summary>
@@ -351,8 +349,6 @@
             <summary>¿Qué debo hacer antes de acudir a una cita?</summary>
             <p>No es necesario ningún preparativo especial. Solo te pedimos llegar con los pies limpios y, si es posible, contarnos con antelación por WhatsApp qué molestia presentas, para orientarte mejor desde antes de la cita.</p>
           </details>
-        </div>
-        <div class="accordion">
           <details class="accordion__item">
             <summary>¿Cuánto dura una sesión?</summary>
             <p>La duración varía según el tratamiento: una valoración simple toma menos tiempo que un tratamiento completo, suele estar entre 15 y 30 minutos, y puede llegar hasta 1 hora y 30 minutos.</p>
@@ -366,6 +362,10 @@
             <p>La valoración nos permite determinar qué tienes y qué tratamiento necesitas; según el caso, se puede indicar o realizar en la misma cita o programar una siguiente.</p>
           </details>
         </div>
+
+        <a class="store-badge" href="tienda.html" aria-label="Entra a nuestra Tienda BeautyPod">
+          <img src="assets/img/tienda-boton.webp" alt="Entra a nuestra Tienda BeautyPod" width="600" height="600" loading="lazy">
+        </a>
       </div>
     </div>
   </section>
@@ -380,7 +380,6 @@
         </div>
         <div class="whatsapp-strip__actions">
           <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
-    
         </div>
       </div>
     </div>
