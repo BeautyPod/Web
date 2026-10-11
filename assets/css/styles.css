@@ -613,9 +613,9 @@ p { margin: 0 0 var(--space-2); }
   font-style: normal;
   color: var(--color-text);
 }
-.page-hero__lead { 
+.page-hero__lead {
   font-size: 0.9rem;
-  
+
   color: var(--color-text-soft); max-width: 52ch; }
 .page-hero__actions {
   display: flex;
@@ -853,22 +853,22 @@ p { margin: 0 0 var(--space-2); }
   max-width: 640px;
   margin-inline: auto;
 }
-.page-hero_content--center h1{ 
+.page-hero_content--center h1{
   font-size: 2.0rem;
   text-align: center;
   color: var(--color-accent);
 }
 .page-hero_content--center p{
   font-size: 0.9rem;
-  text-align: center;  
-  color: var(--color-text-soft); 
+  text-align: center;
+  color: var(--color-text-soft);
  }
  .page-hero_content--center p:last-of-type{
   max-width: 480px;
   margin-inline: auto;
  }
  .page-hero_content--center span{
-  
+
   text-align: center;
    display: block;
   color: var(--color-text-muted);
@@ -993,6 +993,29 @@ p { margin: 0 0 var(--space-2); }
 #hidratacion-topica,
 #esmalte,
 #terapias-antiinflamatorias { scroll-margin-top: 7rem; }
+
+/* Estética: servicios adicionales -> 3 cards arriba y 3 abajo.
+   Se limita a esta sección (aria-labelledby) para no afectar a otras
+   páginas que también usan .professional-grid. */
+.section[aria-labelledby="detalle-servicios-title"] .professional-grid {
+  grid-template-columns: 1fr;               /* móvil: 1 por fila */
+}
+@media (min-width: 600px) {
+  .section[aria-labelledby="detalle-servicios-title"] .professional-grid {
+    grid-template-columns: repeat(2, 1fr);  /* tablet: 2 por fila */
+  }
+}
+@media (min-width: 960px) {
+  .section[aria-labelledby="detalle-servicios-title"] .professional-grid {
+    grid-template-columns: repeat(3, 1fr);  /* escritorio: 3 + 3 */
+  }
+}
+/* Párrafo de las cards con letra más pequeña */
+.section[aria-labelledby="detalle-servicios-title"] .professional-card__body p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-text-soft);
+}
 
 /* =========================================================
    Blog y artículos
