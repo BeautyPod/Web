@@ -88,6 +88,16 @@
     .faq-layout { grid-template-columns: 1fr 320px; gap: var(--space-6); align-items: start; }
     .store-badge { order: 0; width: 300px; position: sticky; top: 7rem; margin-top: var(--space-4); }
   }
+
+  /* Frase "Conoce todos nuestros artículos…": a todo el ancho y separada de las cards
+     (se puede mover a styles.css) */
+  .section__more {
+    width: 100%;
+    margin: var(--space-6) 0 0;
+    text-align: center;
+  }
+  .section__more a { color: var(--color-accent); font-weight: 600; }
+  .section__more a:hover { color: var(--color-accent-hover); }
 </style>
 </head>
 <body>
@@ -177,10 +187,14 @@
           </div>
         </article>
       </div>
+
+      <p class="section__more">
+        Conoce todos nuestros artículos sobre los problemas de los pies en el <a href="blog.html">Blog de BeautyPod</a>.
+      </p>
     </div>
   </section>
 
-  
+
 
   <!-- ============ ¿CÓMO CUIDAMOS TUS PIES? ============ -->
   <section class="section" aria-labelledby="proceso-title">
