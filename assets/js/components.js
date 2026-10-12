@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
               alt=""
               width="42"
               height="42"
+              loading="eager"
+              decoding="sync"
+              fetchpriority="high"
               style="display:inline-block; width:42px; height:42px; object-fit:contain; vertical-align:middle; margin-right:8px;"
             >
             BeautyPod
