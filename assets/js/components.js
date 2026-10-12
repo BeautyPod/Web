@@ -4,6 +4,7 @@
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  const assetPrefix = window.location.pathname.includes("/articles/") ? "../" : "";
 
   // ==========================================================
   // HEADER
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <a href="index.html" class="logo">
             <img
-              src="assets/img/beautypod-logo.svg"
+              src="${assetPrefix}assets/img/beautypod-logo.svg"
               alt=""
               width="42"
               height="42"
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "
           >
             <img
-              src="assets/img/beautypod-logo.svg"
+              src="${assetPrefix}assets/img/beautypod-logo.svg"
               alt=""
               width="42"
               height="42"
