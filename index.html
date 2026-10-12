@@ -81,7 +81,8 @@
   ]
 }
 </script>
-</head>
+  <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
@@ -105,9 +106,9 @@
       <img
         src="assets/img/hero.webp"
         alt=""
-        width="1600" height="900"
-        loading="lazy"
-        decoding="sync"
+        width="1600" height="899"
+        loading="eager"
+        decoding="async"
         fetchpriority="high">
     </div>
     <div class="container hero__content">
@@ -141,10 +142,9 @@
           <div class="card__media">
             <img src="assets/img/quiro.webp"
                  alt="Atención profesional de los pies"        
-        width="1600" height="900"
+        width="1026" height="845"
         loading="lazy"
-        decoding="sync"
-        fetchpriority="high">
+        decoding="async" srcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <div class="card__title">
@@ -167,10 +167,9 @@
           <div class="card__media">
             <img src="assets/img/estetica.webp"
                  alt="Cuidado especializado de los pies"  
-        width="1600" height="900"
+        width="1088" height="837"
         loading="lazy"
-        decoding="sync"
-        fetchpriority="high">
+        decoding="async" srcset="assets/img/estetica-400.webp 400w, assets/img/estetica-600.webp 600w, assets/img/estetica.webp 1088w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <div class="card__title">
@@ -258,10 +257,9 @@
         <article class="professional-card">
           <div class="professional-card__media">
             <img src="assets/img/linet.webp"
-                 alt="Linet R. Vega, especialista de BeautyPod" width="1600" height="900"
+                 alt="Linet R. Vega, especialista de BeautyPod" width="905" height="1207"
         loading="lazy"
-        decoding="sync"
-        fetchpriority="high">
+        decoding="async" srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Tu especialista</span>
@@ -281,10 +279,9 @@
         <article class="professional-card">
           <div class="professional-card__media">
             <img src="assets/img/local.webp"
-                 alt="Espacio de atención de BeautyPod" width="1600" height="900"
+                 alt="Espacio de atención de BeautyPod" width="768" height="1364"
         loading="lazy"
-        decoding="sync"
-        fetchpriority="high">
+        decoding="async" srcset="assets/img/local-400.webp 400w, assets/img/local-600.webp 600w, assets/img/local.webp 768w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Sobre BeautyPod</span>

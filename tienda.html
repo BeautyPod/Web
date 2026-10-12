@@ -66,7 +66,7 @@
 
   .product { display: flex; flex-direction: column; background: var(--color-surface-alt); border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); }
   .product[hidden] { display: none; }
-  .product__media { position: relative; aspect-ratio: 1 / 1; background: var(--color-surface); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .product__media { position: relative; aspect-ratio: 4 / 3; background: var(--color-surface); display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .product__media img { width: 100%; height: 100%; object-fit: cover; }
   .product__placeholder { font-family: var(--font-heading); font-size: 3.5rem; color: var(--color-accent); opacity: .6; }
   .product__badge { position: absolute; top: .6rem; left: .6rem; }
@@ -185,6 +185,8 @@ const PRODUCTOS = [
     precio: 1500,
     stock: true,
     imagen: "assets/img/serum-antigrietas.webp",
+    imagenAncho: 912,
+    imagenAlto: 1280,
     detalles: [
       "Ideal para talones secos, ásperos o agrietados",
       "Aplicar 1 vez al día sobre el pie limpio y ligeramente húmedo",
@@ -200,6 +202,8 @@ const PRODUCTOS = [
     precio: 2500,
     stock: true,
     imagen: "assets/img/eLAN.webp",
+    imagenAncho: 1024,
+    imagenAlto: 1536,
     detalles: [
       "Uso 1 vez al dia sobre la uña limpia y seca",
       "No usar en callosidades profundas ni verrugas",
@@ -215,6 +219,8 @@ const PRODUCTOS = [
     precio: 1000,
     stock: true,
     imagen: "assets/img/desinfectante-calzado.webp",
+    imagenAncho: 912,
+    imagenAlto: 1216,
     detalles: [
       "Para uso exclusivo en calzado cerrado",
       "Aplicar en calzado después de cada uso y dejar secar",
@@ -260,6 +266,15 @@ const PRODUCTOS = [
   function norm(s) {
     return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
+  function responsiveImageSet(src, width) {
+    var parts = src.split('/');
+    var filename = parts.pop().replace(/\.webp$/i, '');
+    var stem = filename.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    var directory = parts.length ? parts.join('/') + '/' : '';
+    return directory + stem + '-400.webp 400w, ' +
+           directory + stem + '-600.webp 600w, ' +
+           src + ' ' + width + 'w';
+  }
   function precio(p) {
     return typeof p === 'number' ? p.toLocaleString('es-CU') + ' <small>' + MONEDA + '</small>' : esc(p);
   }
@@ -275,7 +290,7 @@ const PRODUCTOS = [
     el.innerHTML =
       '<div class="product__media">' +
         '<span class="product__placeholder" aria-hidden="true">' + esc((p.nombre || '?').charAt(0)) + '</span>' +
-        (p.imagen ? '<img src="' + esc(p.imagen) + '" alt="' + esc(p.nombre) + '" width="600" height="600" loading="lazy" style="position:absolute;inset:0">' : '') +
+        (p.imagen ? '<img src="' + esc(p.imagen) + '" srcset="' + esc(responsiveImageSet(p.imagen, p.imagenAncho)) + '" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px" alt="' + esc(p.nombre) + '" width="' + p.imagenAncho + '" height="' + p.imagenAlto + '" loading="lazy" decoding="async" style="position:absolute;inset:0">' : '') +
         (p.destacado ? '<span class="tag product__badge">Más pedido</span>' : '') +
       '</div>' +
       '<div class="product__body">' +
