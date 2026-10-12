@@ -60,7 +60,7 @@ Web/
 
 ## Información del negocio
 
-- **Ubicación:** BeautyPod & Pedicure, Calle 298 y Calle 131, Matanzas
+- **Ubicación:** BeautyPod, Calle 298 y Calle 131, Matanzas
 - **Reservas (mensaje/WhatsApp):** lunes a viernes, 9:00 am – 8:00 pm; sábados y domingos, horario variable
 - **Atención con la especialista (solo con cita previa):** lunes a viernes, 10:00 am – 3:00 pm
 - **Pagos:** efectivo (CUP y otras monedas) y transferencia (Transfermóvil)
@@ -79,13 +79,8 @@ Para ver el sitio en tu computadora antes de subirlo, abre la carpeta en VS Code
 ## Pendientes
 
 - [ ] **Dominio propio:** hoy el sitio vive en `beautypod.github.io/Web/`. Al tener dominio, actualizar `canonical`, Open Graph, JSON-LD, `robots.txt` y `sitemap.xml`, y añadirlo en *Settings → Pages → Custom domain*.
-- [ ] **Imágenes:** reemplazar las fotos de stock (Unsplash) por fotos reales, descargarlas, convertirlas a WebP y servirlas desde `assets/img/`. Incluye la imagen de compartir (`og:image`, 1200×630).
-- [ ] **Foto de la especialista:** sustituir la de stock por una real.
 - [ ] **Opiniones:** añadir más testimonios reales (con permiso de los clientes). 
-- [ ] **Google Search Console:** verificar la propiedad y enviar el sitemap. Xml. 
-- [ ] **Favicon:** generarlo a partir de `beautypod-logo.svg'.
 - [ ] **`llms.txt`:** actualizar las URLs cuando haya dominio propio.
-- [ ] **Enlaces internos relativos:** usar rutas como `podology.html` en lugar de URLs absolutas para facilitar el cambio de dominio.
 
 ## Créditos
 
