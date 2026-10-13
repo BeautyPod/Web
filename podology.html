@@ -9,6 +9,12 @@
 <link rel="canonical" href="https://beautypod.github.io/Web/podology.html">
 <meta name="theme-color" content="#272727">
 
+<!-- Imagen principal (LCP): se descarga cuanto antes (mismos srcset y sizes que el <img>) -->
+<link rel="preload" as="image"
+      imagesrcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w"
+      imagesizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px"
+      fetchpriority="high">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BeautyPod">
 <meta property="og:title" content="Valoración y cuidado de pies en Matanzas | BeautyPod">
@@ -18,20 +24,30 @@
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<!-- Fuentes: se cargan sin bloquear el renderizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Google Analytics 4:  ID de medición G-L20STJ4RYY -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
+<!-- Google Analytics 4: ID de medición G-L20STJ4RYY
+     La librería se descarga cuando la página ya terminó de cargar -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-L20STJ4RYY');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY';
+      document.head.appendChild(s);
+    }, 1);
+  });
 </script>
 
 <script type="application/ld+json">
@@ -98,7 +114,9 @@
   }
   .section__more a { color: var(--color-accent); font-weight: 600; }
   .section__more a:hover { color: var(--color-accent-hover); }
-</style>
+</style>
+</head>
+
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
@@ -124,10 +142,13 @@
         </div>
         <div class="page-hero__media" aria-hidden="true">
           <img src="assets/img/quiro.webp"
-               alt="" width="1026" height="845"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high" srcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+               alt=""
+               width="1026" height="845"
+               loading="eager"
+               decoding="async"
+               fetchpriority="high"
+               srcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w"
+               sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
         </div>
       </div>
     </div>
@@ -144,9 +165,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/griet.webp"
-                 alt="Talón agrietado y piel seca" width="1006" height="826"
-        loading="lazy"
-        decoding="async" srcset="assets/img/griet-400.webp 400w, assets/img/griet-600.webp 600w, assets/img/griet.webp 1006w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Talón agrietado y piel seca"
+                 width="1006" height="826"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/griet-400.webp 400w, assets/img/griet-600.webp 600w, assets/img/griet.webp 1006w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Durezas, grietas y sequedad</h3>
@@ -154,13 +178,16 @@
             <a class="card__link" href="articles/article_durezas.html">Conocer este problema<span class="sr-only">: durezas, grietas y sequedad</span> <span aria-hidden="true">→</span></a>
           </div>
         </article>
- 
+
         <article class="card">
           <div class="card__media">
             <img src="assets/img/encarn.webp"
-                 alt="Valoración de un dedo del pie con molestia en la uña" width="720" height="1280"
-        loading="lazy"
-        decoding="async" srcset="assets/img/encarn-400.webp 400w, assets/img/encarn-600.webp 600w, assets/img/encarn.webp 720w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Valoración de un dedo del pie con molestia en la uña"
+                 width="720" height="1280"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/encarn-400.webp 400w, assets/img/encarn-600.webp 600w, assets/img/encarn.webp 720w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Uñas encarnadas</h3>
@@ -172,9 +199,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/mico2.webp"
-                 alt="Uñas de los pies durante una valoración" width="960" height="1280"
-        loading="lazy"
-        decoding="async" srcset="assets/img/mico2-400.webp 400w, assets/img/mico2-600.webp 600w, assets/img/mico2.webp 960w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Uñas de los pies durante una valoración"
+                 width="960" height="1280"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/mico2-400.webp 400w, assets/img/mico2-600.webp 600w, assets/img/mico2.webp 960w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Hongos en uñas y piel</h3>
@@ -185,10 +215,13 @@
 
         <article class="card">
           <div class="card__media">
-            <img src="assets/img/callos y vph juntos.webp"
-                 alt="Planta del pie durante una valoración" width="1600" height="1280"
-        loading="lazy"
-        decoding="async" srcset="assets/img/callos-y-vph-juntos-400.webp 400w, assets/img/callos-y-vph-juntos-600.webp 600w, assets/img/callos%20y%20vph%20juntos.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/callos%20y%20vph%20juntos.webp"
+                 alt="Planta del pie durante una valoración"
+                 width="1600" height="1280"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/callos-y-vph-juntos-400.webp 400w, assets/img/callos-y-vph-juntos-600.webp 600w, assets/img/callos%20y%20vph%20juntos.webp 1600w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Callosidades y verrugas plantares</h3>
@@ -203,8 +236,6 @@
       </p>
     </div>
   </section>
-
-
 
   <!-- ============ ¿CÓMO CUIDAMOS TUS PIES? ============ -->
   <section class="section" aria-labelledby="proceso-title">
@@ -239,9 +270,12 @@
       <div class="split-block">
         <div class="split-block__media" aria-hidden="true">
           <img src="assets/img/solicitarvalorac.webp"
-               alt="" width="1400" height="933"
-        loading="lazy"
-        decoding="async" srcset="assets/img/solicitarvalorac-400.webp 400w, assets/img/solicitarvalorac-600.webp 600w, assets/img/solicitarvalorac.webp 1400w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+               alt=""
+               width="1400" height="933"
+               loading="lazy"
+               decoding="async"
+               srcset="assets/img/solicitarvalorac-400.webp 400w, assets/img/solicitarvalorac-600.webp 600w, assets/img/solicitarvalorac.webp 1400w"
+               sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
         </div>
         <div class="split-block__content">
           <span class="split-block__eyebrow">¿Cuándo deberías consultar?</span>
@@ -309,9 +343,12 @@
         <article class="professional-card professional-card--compact">
           <div class="professional-card__media">
             <img src="assets/img/linet.webp"
-                 alt="Linet R. Vega, especialista de BeautyPod" width="905" height="1207"
-        loading="lazy"
-        decoding="async" srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Linet R. Vega, especialista de BeautyPod"
+                 width="905" height="1207"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">¿Quién cuidará tus pies?</h3>
@@ -322,31 +359,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ ANTES Y DESPUÉS ============ -->
-  <section class="section" aria-labelledby="antes-despues-title">
-    <div class="container container--narrow">
-      <div class="section__heading">
-        <h2 id="antes-despues-title">Antes y después</h2>
-      </div>
-        <div class="before-after">
-        <input type="checkbox" id="before-after-toggle" class="before-after__checkbox">
-        <div class="before-after__frame">
-          <img class="before-after__img before-after__img--before"
-               src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&h=800&q=70"
-               alt="Pie antes del tratamiento" width="800" height="800" loading="lazy">
-          <img class="before-after__img before-after__img--after"
-               src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&h=800&q=70"
-               alt="Pie después del tratamiento" width="800" height="800" loading="lazy">
-          <span class="before-after__tag before-after__tag--before" aria-hidden="true">Antes</span>
-          <span class="before-after__tag before-after__tag--after" aria-hidden="true">Después</span>
-        </div>
-        <label for="before-after-toggle" class="before-after__label btn btn--outline">Ver antes y después</label>
-      </div>
-      <p class="before-after__hint">Toca el botón para comparar el resultado de un tratamiento.</p>
-    </div>
-  </section>
- 
 
   <!-- ============ TESTIMONIOS ============ -->
   <section class="section section--soft" aria-labelledby="testimonios-pie-title">
@@ -417,9 +429,13 @@
         </div>
 
         <a class="store-badge" href="tienda.html" aria-label="Entra a nuestra Tienda BeautyPod">
-          <img src="assets/img/tienda-boton.webp" alt="Entra a nuestra Tienda BeautyPod" width="600" height="600"
-        loading="lazy"
-        decoding="async" srcset="assets/img/tienda-boton-400.webp 400w, assets/img/tienda-boton-600.webp 600w, assets/img/tienda-boton.webp 600w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+          <img src="assets/img/tienda-boton.webp"
+               alt="Entra a nuestra Tienda BeautyPod"
+               width="600" height="600"
+               loading="lazy"
+               decoding="async"
+               srcset="assets/img/tienda-boton-400.webp 400w, assets/img/tienda-boton.webp 600w"
+               sizes="(max-width: 600px) 70vw, 300px">
         </a>
       </div>
     </div>
@@ -439,7 +455,6 @@
       </div>
     </div>
   </section>
-
 
 </main>
 <footer><div id="site-footer"></div></footer>

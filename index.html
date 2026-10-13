@@ -6,13 +6,11 @@
 <title>BeautyPod | Cuidado de pies en Matanzas</title>
 <meta name="description" content="Podólogo en Matanzas y pedicura en Matanzas: tratamos talones agrietados, uñas encarnadas, hongos y callosidades. Reserva por WhatsApp.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-
-
-<meta name="google-site-verification" content="google2fcfd2d2203d5d6a.html">
-
-
 <link rel="canonical" href="https://beautypod.github.io/Web/">
 <meta name="theme-color" content="#272727">
+
+<!-- Imagen principal (LCP): se descarga cuanto antes -->
+<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
 
 <!-- Open Graph / redes sociales -->
 <meta property="og:type" content="website">
@@ -24,20 +22,30 @@
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<!-- Fuentes: se cargan sin bloquear el renderizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Google Analytics 4:  ID de medición G-L20STJ4RYY -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
+<!-- Google Analytics 4: ID de medición G-L20STJ4RYY
+     La librería se descarga cuando la página ya terminó de cargar -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-L20STJ4RYY');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY';
+      document.head.appendChild(s);
+    }, 1);
+  });
 </script>
 
 <!-- Datos estructurados para SEO local -->
@@ -81,8 +89,8 @@
   ]
 }
 </script>
-  <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
-
+</head>
+
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
@@ -93,6 +101,7 @@
     <nav aria-label="Principal">
       <a href="podology.html">Podología</a>
       <a href="estetica.html">Estética</a>
+      <a href="blog.html">Blog</a>
       <a href="sobre-nosotros.html">Sobre nosotros</a>
     </nav>
   </noscript>
@@ -141,10 +150,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/quiro.webp"
-                 alt="Atención profesional de los pies"        
-        width="1026" height="845"
-        loading="lazy"
-        decoding="async" srcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Atención profesional de los pies"
+                 width="1026" height="845"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/quiro-400.webp 400w, assets/img/quiro-600.webp 600w, assets/img/quiro.webp 1026w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <div class="card__title">
@@ -166,10 +177,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/estetica.webp"
-                 alt="Cuidado especializado de los pies"  
-        width="1088" height="837"
-        loading="lazy"
-        decoding="async" srcset="assets/img/estetica-400.webp 400w, assets/img/estetica-600.webp 600w, assets/img/estetica.webp 1088w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Cuidado especializado de los pies"
+                 width="1088" height="837"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/estetica-400.webp 400w, assets/img/estetica-600.webp 600w, assets/img/estetica.webp 1088w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <div class="card__title">
@@ -257,9 +270,12 @@
         <article class="professional-card">
           <div class="professional-card__media">
             <img src="assets/img/linet.webp"
-                 alt="Linet R. Vega, especialista de BeautyPod" width="905" height="1207"
-        loading="lazy"
-        decoding="async" srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Linet R. Vega, especialista de BeautyPod"
+                 width="905" height="1207"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Tu especialista</span>
@@ -275,13 +291,15 @@
           </div>
         </article>
 
-        
         <article class="professional-card">
           <div class="professional-card__media">
             <img src="assets/img/local.webp"
-                 alt="Espacio de atención de BeautyPod" width="768" height="1364"
-        loading="lazy"
-        decoding="async" srcset="assets/img/local-400.webp 400w, assets/img/local-600.webp 600w, assets/img/local.webp 768w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Espacio de atención de BeautyPod"
+                 width="768" height="1364"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/local-400.webp 400w, assets/img/local-600.webp 600w, assets/img/local.webp 768w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <span class="eyebrow">Sobre BeautyPod</span>
@@ -299,8 +317,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- ============ TESTIMONIOS ============ -->
   <section class="section" id="testimonios" aria-labelledby="testimonios-title">

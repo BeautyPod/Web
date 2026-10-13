@@ -18,19 +18,30 @@
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Fuentes: se cargan sin bloquear el renderizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
+<!-- Google Analytics 4: ID de medición G-L20STJ4RYY
+     La librería se descarga cuando la página ya terminó de cargar -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-L20STJ4RYY');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY';
+      document.head.appendChild(s);
+    }, 1);
+  });
 </script>
 
 <style>
@@ -103,6 +114,7 @@
       <a href="index.html">Inicio</a>
       <a href="podology.html">Podología</a>
       <a href="estetica.html">Estética</a>
+      <a href="blog.html">Blog</a>
       <a href="sobre-nosotros.html">Sobre nosotros</a>
     </nav>
   </noscript>
@@ -137,8 +149,6 @@
   </section>
 
   <!-- ============ CTA (CONSULTAR / WHATSAPP) ============ -->
- 
-
   <section class="section" id="consulta" aria-labelledby="cta-title">
     <div class="container container--narrow">
       <div class="whatsapp-strip">
@@ -147,7 +157,7 @@
           <p><strong id="cta-title">¿No sabes cuál te conviene?</strong><br><span>Cuéntanos qué molestia tienes y te podremos ayudar.</span></p>
         </div>
         <div class="whatsapp-strip__actions">
-          <a class="btn btn--whatsapp" id="cta-wa" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola,%20quiero%20saber%20más%20sobre%20el%20producto" target="_blank" rel="noopener noreferrer">Pedir recomendación<span class="sr-only"> por WhatsApp</span></a>
+          <a class="btn btn--whatsapp" id="cta-wa" href="https://wa.me/5353719118" target="_blank" rel="noopener noreferrer">Pedir recomendación<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
       </div>
     </div>
@@ -169,7 +179,8 @@
    4) "stock": true = disponible, false = agotado (el botón se desactiva).
    5) "imagen": ruta de la foto (ej. assets/img/productos/crema.webp).
       Si no existe, se muestra un marcador con la inicial.
-   Los productos de abajo son EJEMPLOS: cambia nombres, textos y precios.
+   6) Para cada imagen se esperan también las versiones reducidas
+      nombre-400.webp y nombre-600.webp (en minúsculas, con guiones).
    ===================================================================== */
 const WHATSAPP_NUMERO = "5353719118";
 const MENSAJE = "[PW] Hola, quiero pedir: {producto}";
@@ -178,7 +189,7 @@ const MONEDA = "CUP";
 
 const PRODUCTOS = [
   {
-    nombre: "Serum BioRegenerador Epidermico",
+    nombre: "Sérum BioRegenerador Epidérmico",
     categoria: "Talones",
     destacado: true,
     resumen: "Tratamiento para talones agrietados y secos. Hidrata y regenera la piel.",
@@ -196,7 +207,7 @@ const PRODUCTOS = [
     link: ""
   },
   {
-    nombre: "Formula ELAN",
+    nombre: "Fórmula ELAN",
     categoria: "Uñas",
     resumen: "Tratamiento para hongos en las uñas resistente.",
     precio: 2500,
@@ -205,7 +216,7 @@ const PRODUCTOS = [
     imagenAncho: 1024,
     imagenAlto: 1536,
     detalles: [
-      "Uso 1 vez al dia sobre la uña limpia y seca",
+      "Uso 1 vez al día sobre la uña limpia y seca",
       "No usar en callosidades profundas ni verrugas",
       "No usar en uñas no diagnosticadas"
     ],

@@ -9,6 +9,9 @@
 <link rel="canonical" href="https://beautypod.github.io/Web/estetica.html">
 <meta name="theme-color" content="#272727">
 
+<!-- Imagen principal (LCP): se descarga cuanto antes -->
+<link rel="preload" as="image" href="assets/img/EsteticaHero.webp" fetchpriority="high">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BeautyPod">
 <meta property="og:title" content="Estética de pies en Matanzas | BeautyPod">
@@ -18,20 +21,30 @@
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<!-- Fuentes: se cargan sin bloquear el renderizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Google Analytics 4:  ID de medición G-L20STJ4RYY -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
-<script>XXXXXXXXXX
+<!-- Google Analytics 4: ID de medición G-L20STJ4RYY
+     La librería se descarga cuando la página ya terminó de cargar -->
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-L20STJ4RYY');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY';
+      document.head.appendChild(s);
+    }, 1);
+  });
 </script>
 
 <script type="application/ld+json">
@@ -74,13 +87,14 @@
   ]
 }
 </script>
-  <link rel="preload" as="image" href="assets/img/EsteticaHero.webp" fetchpriority="high">
-
+</head>
+
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
 <header class="site-header">
-  <div id="site-header"></div></header>
+  <div id="site-header"></div>
+</header>
 
 <main id="contenido">
 
@@ -99,10 +113,11 @@
         </div>
         <div class="page-hero__media" aria-hidden="true">
           <img src="assets/img/EsteticaHero.webp"
-               alt="" width="1448" height="1086"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high">
+               alt=""
+               width="1448" height="1086"
+               loading="eager"
+               decoding="async"
+               fetchpriority="high">
         </div>
       </div>
     </div>
@@ -120,9 +135,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/Hidratac.webp"
-                 alt="Hidratación de pies" width="1536" height="1024"
-        loading="lazy"
-        decoding="async" srcset="assets/img/hidratac-400.webp 400w, assets/img/hidratac-600.webp 600w, assets/img/Hidratac.webp 1536w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Hidratación de pies"
+                 width="1536" height="1024"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/hidratac-400.webp 400w, assets/img/hidratac-600.webp 600w, assets/img/Hidratac.webp 1536w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Hidratación</h3>
@@ -134,9 +152,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/estetica.webp"
-                 alt="Pedicura profesional" width="1088" height="837"
-        loading="lazy"
-        decoding="async" srcset="assets/img/estetica-400.webp 400w, assets/img/estetica-600.webp 600w, assets/img/estetica.webp 1088w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Pedicura profesional"
+                 width="1088" height="837"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/estetica-400.webp 400w, assets/img/estetica-600.webp 600w, assets/img/estetica.webp 1088w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Pedicura</h3>
@@ -148,9 +169,12 @@
         <article class="card">
           <div class="card__media">
             <img src="assets/img/masaje.webp"
-                 alt="Terapia y masajes de pies" height="933"
-        loading="lazy"
-        decoding="async" width="1400" srcset="assets/img/masaje-400.webp 400w, assets/img/masaje-600.webp 600w, assets/img/masaje.webp 1400w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Terapia y masajes de pies"
+                 width="1400" height="933"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/masaje-400.webp 400w, assets/img/masaje-600.webp 600w, assets/img/masaje.webp 1400w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="card__body">
             <h3>Terapias y Masajes</h3>
@@ -219,9 +243,12 @@
         <article class="professional-card professional-card--compact" id="hidratacion-topica">
           <div class="professional-card__media">
             <img src="assets/img/Hidratac.webp"
-                 alt="Hidratación tópica de pies" width="1536" height="1024"
-        loading="lazy"
-        decoding="async" srcset="assets/img/hidratac-400.webp 400w, assets/img/hidratac-600.webp 600w, assets/img/Hidratac.webp 1536w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Hidratación tópica de pies"
+                 width="1536" height="1024"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/hidratac-400.webp 400w, assets/img/hidratac-600.webp 600w, assets/img/Hidratac.webp 1536w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Hidratación tópica</h3>
@@ -232,9 +259,12 @@
         <article class="professional-card professional-card--compact">
           <div class="professional-card__media">
             <img src="assets/img/Hidratapa1.webp"
-                 alt="Hidratación aparatológica de pies" width="722" height="1600"
-        loading="lazy"
-        decoding="async" srcset="assets/img/hidratapa1-400.webp 400w, assets/img/hidratapa1-600.webp 600w, assets/img/Hidratapa1.webp 722w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Hidratación aparatológica de pies"
+                 width="722" height="1600"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/hidratapa1-400.webp 400w, assets/img/hidratapa1-600.webp 600w, assets/img/Hidratapa1.webp 722w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Hidratación aparatológica</h3>
@@ -244,10 +274,13 @@
 
         <article class="professional-card professional-card--compact" id="esmalte">
           <div class="professional-card__media">
-            <img src="assets/img/Perdicura pies3.webp"
-                 alt="Esmaltado de uñas" width="1230" height="922"
-        loading="lazy"
-        decoding="async" srcset="assets/img/perdicura-pies3-400.webp 400w, assets/img/perdicura-pies3-600.webp 600w, assets/img/Perdicura%20pies3.webp 1230w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/Perdicura%20pies3.webp"
+                 alt="Esmaltado de uñas"
+                 width="1230" height="922"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/perdicura-pies3-400.webp 400w, assets/img/perdicura-pies3-600.webp 600w, assets/img/Perdicura%20pies3.webp 1230w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Esmalte</h3>
@@ -258,9 +291,12 @@
         <article class="professional-card professional-card--compact" id="terapias-antiinflamatorias">
           <div class="professional-card__media">
             <img src="assets/img/hidratapa2.webp"
-                 alt="Terapias de masaje aparatológico en pies" width="722" height="1600"
-        loading="lazy"
-        decoding="async" srcset="assets/img/hidratapa2-400.webp 400w, assets/img/hidratapa2-600.webp 600w, assets/img/hidratapa2.webp 722w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Terapias de masaje aparatológico en pies"
+                 width="722" height="1600"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/hidratapa2-400.webp 400w, assets/img/hidratapa2-600.webp 600w, assets/img/hidratapa2.webp 722w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Terapias masajes aparatológicos</h3>
@@ -271,9 +307,12 @@
         <article class="professional-card professional-card--compact">
           <div class="professional-card__media">
             <img src="assets/img/masaje.webp"
-                 alt="Masajes manuales de pies" width="1400" height="933"
-        loading="lazy"
-        decoding="async" srcset="assets/img/masaje-400.webp 400w, assets/img/masaje-600.webp 600w, assets/img/masaje.webp 1400w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Masajes manuales de pies"
+                 width="1400" height="933"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/masaje-400.webp 400w, assets/img/masaje-600.webp 600w, assets/img/masaje.webp 1400w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Masajes manuales de pies</h3>
@@ -284,9 +323,12 @@
         <article class="professional-card professional-card--compact">
           <div class="professional-card__media">
             <img src="assets/img/cupp.webp"
-                 alt="Cupping en pies" width="1080" height="864"
-        loading="lazy"
-        decoding="async" srcset="assets/img/cupp-400.webp 400w, assets/img/cupp-600.webp 600w, assets/img/cupp.webp 1080w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+                 alt="Cupping en pies"
+                 width="1080" height="864"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/cupp-400.webp 400w, assets/img/cupp-600.webp 600w, assets/img/cupp.webp 1080w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
             <h3 class="eyebrow">Cupping en pies</h3>
@@ -311,46 +353,72 @@
     </div>
   </section>
 
-<!-- ============ COMBOS Y PAQUETES ESPECIALES ============ -->
-<section class="section section--soft" aria-labelledby="combos-title">
-  <div class="container">
-    <div class="section__heading">
-      <h2 id="combos-title">Combos y paquetes especiales en oferta</h2>
-      <p>Puedes elegir el que mejor se adapte a tus necesidades o crear tu propio paquete.</p>
+  <!-- ============ COMBOS Y PAQUETES ESPECIALES ============ -->
+  <section class="section section--soft" aria-labelledby="combos-title">
+    <div class="container">
+      <div class="section__heading">
+        <h2 id="combos-title">Combos y paquetes especiales en oferta</h2>
+        <p>Puedes elegir el que mejor se adapte a tus necesidades o crear tu propio paquete.</p>
+      </div>
+
+      <div class="combo-grid">
+        <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Relax" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/combo-relax.webp"
+               alt="Combo Relax: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               srcset="assets/img/combo-relax-400.webp 400w, assets/img/combo-relax-600.webp 600w, assets/img/combo-relax.webp 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+        </a>
+        <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Esencial" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/combo-esencial.webp"
+               alt="Combo Esencial: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               srcset="assets/img/combo-esencial-400.webp 400w, assets/img/combo-esencial-600.webp 600w, assets/img/combo-esencial.webp 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+        </a>
+        <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Premium" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/combo-premium.webp"
+               alt="Combo Premium: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               srcset="assets/img/combo-premium-400.webp 400w, assets/img/combo-premium-600.webp 600w, assets/img/combo-premium.webp 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+        </a>
+      </div>
+
+      <p class="combo-cta">
+        <a class="card__link" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20crear%20mi%20propio%20paquete" target="_blank" rel="noopener noreferrer">Deseo crear mi propio paquete<span class="sr-only"> (se abre en una pestaña nueva)</span> <span aria-hidden="true">→</span></a>
+      </p>
     </div>
+  </section>
 
-    <div class="combo-grid">
-      <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Relax" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/combo-relax.webp"
-             alt="Combo Relax: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
-             width="1600" height="900"
-        loading="lazy"
-        decoding="async" srcset="assets/img/combo-relax-400.webp 400w, assets/img/combo-relax-600.webp 600w, assets/img/combo-relax.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
-      </a>
-      <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Esencial" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/combo-esencial.webp"
-             alt="Combo Esencial: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
-             width="1600" height="900"
-        loading="lazy"
-        decoding="async" srcset="assets/img/combo-esencial-400.webp 400w, assets/img/combo-esencial-600.webp 600w, assets/img/combo-esencial.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
-      </a>
-      <a class="combo-card" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20el%20Combo%20Premium" target="_blank" rel="noopener noreferrer">
-        <img src="assets/img/combo-premium.webp"
-             alt="Combo Premium: paquete de servicios en oferta. Reservar por WhatsApp (se abre en una pestaña nueva)"
-             width="1600" height="900"
-        loading="lazy"
-        decoding="async" srcset="assets/img/combo-premium-400.webp 400w, assets/img/combo-premium-600.webp 600w, assets/img/combo-premium.webp 1600w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
-      </a>
-    </div>
+  <!-- ============ ANTES Y DESPUÉS (DESACTIVADO) ============
+       Estaba con fotos de stock de Unsplash, que no son resultados reales de BeautyPod,
+       y el HTML tenía etiquetas de cierre sobrantes. Cuando tengas fotos reales (con
+       permiso de la clienta), copia el bloque de abajo dentro de una <section>, cambia
+       las dos URL por tus imágenes en assets/img/ y quita estos comentarios.
 
-    <p class="combo-cta">
-      <a class="card__link" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20crear%20mi%20propio%20paquete" target="_blank" rel="noopener noreferrer">Deseo crear mi propio paquete<span class="sr-only"> (se abre en una pestaña nueva)</span> <span aria-hidden="true">→</span></a>
-    </p>
-  </div>
-</section>
-
-
-    
+        <div class="before-after">
+          <input type="checkbox" id="before-after-toggle" class="before-after__checkbox">
+          <div class="before-after__frame">
+            <img class="before-after__img before-after__img--before"
+                 src="assets/img/ANTES.webp"
+                 alt="Pie antes del tratamiento" width="800" height="800" loading="lazy">
+            <img class="before-after__img before-after__img--after"
+                 src="assets/img/DESPUES.webp"
+                 alt="Pie después del tratamiento" width="800" height="800" loading="lazy">
+            <span class="before-after__tag before-after__tag--before" aria-hidden="true">Antes</span>
+            <span class="before-after__tag before-after__tag--after" aria-hidden="true">Después</span>
+          </div>
+          <label for="before-after-toggle" class="before-after__label btn btn--outline">Ver antes y después</label>
+        </div>
+        <p class="before-after__hint">Toca el botón para comparar el resultado de un tratamiento.</p>
+  -->
 
   <!-- ============ PREGUNTAS FRECUENTES ============ -->
   <section class="section section--soft" id="faq" aria-labelledby="faq-estetica-title">
@@ -402,12 +470,9 @@
     </div>
   </section>
 
-
-
 </main>
 <footer><div id="site-footer"></div></footer>
 
 <script src="assets/js/components.js"></script>
-
 </body>
 </html>

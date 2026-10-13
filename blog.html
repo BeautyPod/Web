@@ -9,6 +9,12 @@
 <link rel="canonical" href="https://beautypod.github.io/Web/blog.html">
 <meta name="theme-color" content="#272727">
 
+<!-- Imagen principal (LCP): se descarga cuanto antes (mismos srcset y sizes que el <img>) -->
+<link rel="preload" as="image"
+      imagesrcset="assets/img/mico2-400.webp 400w, assets/img/mico2-600.webp 600w, assets/img/mico2.webp 960w"
+      imagesizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px"
+      fetchpriority="high">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BeautyPod">
 <meta property="og:title" content="Blog de cuidado de pies | BeautyPod">
@@ -18,20 +24,30 @@
 <meta property="og:locale" content="es_CU">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<!-- Fuentes: se cargan sin bloquear el renderizado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700;800&display=swap"></noscript>
+
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-<!-- Google Analytics 4:  ID de medición G-L20STJ4RYY -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY"></script>
+<!-- Google Analytics 4: ID de medición G-L20STJ4RYY
+     La librería se descarga cuando la página ya terminó de cargar -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-L20STJ4RYY');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-L20STJ4RYY';
+      document.head.appendChild(s);
+    }, 1);
+  });
 </script>
 
 <script type="application/ld+json">
@@ -46,7 +62,11 @@
     { "@type": "BlogPosting", "headline": "Onicomicosis y hongos en la piel", "url": "https://beautypod.github.io/Web/articles/article_onico.html" },
     { "@type": "BlogPosting", "headline": "Uñas encarnadas", "url": "https://beautypod.github.io/Web/articles/article_encarnadas.html" },
     { "@type": "BlogPosting", "headline": "Durezas, grietas y resequedad", "url": "https://beautypod.github.io/Web/articles/article_durezas.html" },
-    { "@type": "BlogPosting", "headline": "Callosidades y verrugas plantares", "url": "https://beautypod.github.io/Web/articles/article_callovph.html" }
+    { "@type": "BlogPosting", "headline": "Callosidades y verrugas plantares", "url": "https://beautypod.github.io/Web/articles/article_callovph.html" },
+    { "@type": "BlogPosting", "headline": "Riesgos de los antifúngicos orales", "url": "https://beautypod.github.io/Web/articles/article_antifungicos.html" },
+    { "@type": "BlogPosting", "headline": "¿Cremas para onicomicosis?", "url": "https://beautypod.github.io/Web/articles/article_cremas.html" },
+    { "@type": "BlogPosting", "headline": "Talones agrietados desde adentro", "url": "https://beautypod.github.io/Web/articles/article_talones.html" },
+    { "@type": "BlogPosting", "headline": "¿No se quitan los hongos?", "url": "https://beautypod.github.io/Web/articles/article_hongos_recurrentes.html" }
   ]
 }
 </script>
@@ -112,13 +132,15 @@
 
   .vcard--soon .vcard__thumb { display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-3); box-shadow: none; border: 2px dashed var(--color-border); background: transparent; color: var(--color-text-soft); }
   .library-empty { text-align: center; color: var(--color-text-soft); padding: var(--space-5) 0; }
-</style>
+</style>
+</head>
 
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
 <header class="site-header">
-  <div id="site-header"></div></header>
+  <div id="site-header"></div>
+</header>
 
 <main id="contenido">
 
@@ -145,17 +167,20 @@
   <section class="section" aria-labelledby="lista-title">
     <div class="container">
       <h2 id="lista-title" class="sr-only">Artículos</h2>
-      <p class="library-status" id="estado" role="status" aria-live="polite">4 artículos</p>
+      <p class="library-status" id="estado" role="status" aria-live="polite">8 artículos</p>
 
       <div class="video-grid" id="biblioteca">
 
         <article class="vcard vcard--featured" data-cat="unas piel">
           <div class="vcard__thumb">
-         
-            <img src="assets/img/mico2.webp" alt="Valoración profesional de una uña" width="960" height="1280"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high" srcset="assets/img/mico2-400.webp 400w, assets/img/mico2-600.webp 600w, assets/img/mico2.webp 960w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/mico2.webp"
+                 alt="Valoración profesional de una uña"
+                 width="960" height="1280"
+                 loading="eager"
+                 decoding="async"
+                 fetchpriority="high"
+                 srcset="assets/img/mico2-400.webp 400w, assets/img/mico2-600.webp 600w, assets/img/mico2.webp 960w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">3 min</span>
           </div>
           <div class="vcard__body">
@@ -167,9 +192,13 @@
 
         <article class="vcard" data-cat="unas">
           <div class="vcard__thumb">
-            <img src="assets/img/encarn.webp" alt="Cuidado profesional del dedo del pie" width="720" height="1280"
-        loading="lazy"
-        decoding="async" srcset="assets/img/encarn-400.webp 400w, assets/img/encarn-600.webp 600w, assets/img/encarn.webp 720w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/encarn.webp"
+                 alt="Cuidado profesional del dedo del pie"
+                 width="720" height="1280"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/encarn-400.webp 400w, assets/img/encarn-600.webp 600w, assets/img/encarn.webp 720w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
@@ -181,9 +210,13 @@
 
         <article class="vcard" data-cat="piel">
           <div class="vcard__thumb">
-            <img src="assets/img/griet.webp" alt="Pies con piel seca durante un cuidado" width="1006" height="826"
-        loading="lazy"
-        decoding="async" srcset="assets/img/griet-400.webp 400w, assets/img/griet-600.webp 600w, assets/img/griet.webp 1006w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/griet.webp"
+                 alt="Pies con piel seca durante un cuidado"
+                 width="1006" height="826"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/griet-400.webp 400w, assets/img/griet-600.webp 600w, assets/img/griet.webp 1006w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
@@ -195,9 +228,13 @@
 
         <article class="vcard" data-cat="piel">
           <div class="vcard__thumb">
-            <img src="assets/img/pie-2.webp" alt="Revisión de la planta del pie" width="960" height="960"
-        loading="lazy"
-        decoding="async" srcset="assets/img/pie-2-400.webp 400w, assets/img/pie-2-600.webp 600w, assets/img/pie-2.webp 960w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/pie-2.webp"
+                 alt="Revisión de la planta del pie"
+                 width="960" height="960"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/pie-2-400.webp 400w, assets/img/pie-2-600.webp 600w, assets/img/pie-2.webp 960w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
@@ -207,41 +244,49 @@
           </div>
         </article>
 
-
-                <article class="vcard" data-cat="uñas">
+        <article class="vcard" data-cat="unas">
           <div class="vcard__thumb">
-            <img src="assets/img/antifungicos_orales.webp" alt="Tratamientos para las uñas con hongos" width="739" height="415"
-        loading="lazy"
-        decoding="async" srcset="assets/img/antifungicos-orales-400.webp 400w, assets/img/antifungicos-orales-600.webp 600w, assets/img/antifungicos_orales.webp 739w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/antifungicos_orales.webp"
+                 alt="Tratamientos para las uñas con hongos"
+                 width="739" height="415"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/antifungicos-orales-400.webp 400w, assets/img/antifungicos-orales-600.webp 600w, assets/img/antifungicos_orales.webp 739w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
-            <h3 class="vcard__title"><a href="articles/article_antifungicos.html">Riesgos de los Antifungicos orales</a></h3>
+            <h3 class="vcard__title"><a href="articles/article_antifungicos.html">Riesgos de los antifúngicos orales</a></h3>
             <p class="vcard__meta">Uñas</p>
             <p class="vcard__text">Los riesgos y precauciones al usar antifúngicos por vía oral.</p>
           </div>
         </article>
 
-          <article class="vcard" data-cat="uñas">
+        <article class="vcard" data-cat="unas piel">
           <div class="vcard__thumb">
-            <img src="assets/img/nistatina.webp" alt="Cremas en Onicomicosis" width="241" height="161"
-        loading="lazy"
-        decoding="async">
+            <img src="assets/img/nistatina.webp"
+                 alt="Cremas en Onicomicosis"
+                 width="241" height="161"
+                 loading="lazy"
+                 decoding="async">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
             <h3 class="vcard__title"><a href="articles/article_cremas.html">¿Cremas para onicomicosis?</a></h3>
             <p class="vcard__meta">Uñas y piel</p>
-            <p class="vcard__text">Por que no son eficaces las cremas en onicomicosis.</p>
+            <p class="vcard__text">Por qué no son eficaces las cremas en onicomicosis.</p>
           </div>
         </article>
 
-
-           <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel">
           <div class="vcard__thumb">
-            <img src="assets/img/griet2.webp" alt="Calcañales agrietados" width="960" height="1280"
-        loading="lazy"
-        decoding="async" srcset="assets/img/griet2-400.webp 400w, assets/img/griet2-600.webp 600w, assets/img/griet2.webp 960w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/griet2.webp"
+                 alt="Calcañales agrietados"
+                 width="960" height="1280"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/griet2-400.webp 400w, assets/img/griet2-600.webp 600w, assets/img/griet2.webp 960w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
@@ -251,12 +296,13 @@
           </div>
         </article>
 
-
-                   <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel">
           <div class="vcard__thumb">
-            <img src="assets/img/talones1.webp" alt="Calcañales con grietas por hongos" width="385" height="255"
-        loading="lazy"
-        decoding="async" srcset="assets/img/talones1-400.webp 400w, assets/img/talones1.webp 385w" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <img src="assets/img/talones1.webp"
+                 alt="Calcañales con grietas por hongos"
+                 width="385" height="255"
+                 loading="lazy"
+                 decoding="async">
             <span class="vcard__time">2 min</span>
           </div>
           <div class="vcard__body">
