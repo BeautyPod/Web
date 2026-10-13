@@ -10,7 +10,11 @@
 <meta name="theme-color" content="#272727">
 
 <!-- Imagen principal (LCP): se descarga cuanto antes -->
-<link rel="preload" as="image" href="assets/img/EsteticaHero.webp" fetchpriority="high">
+<link rel="preload" as="image"
+      href="assets/img/EsteticaHero.webp"
+      imagesrcset="assets/img/EsteticaHero-600.webp 600w, assets/img/EsteticaHero-900.webp 900w, assets/img/EsteticaHero.webp 1448w"
+      imagesizes="(max-width: 959px) calc(100vw - 2rem), 45vw"
+      fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BeautyPod">
@@ -115,6 +119,8 @@
           <img src="assets/img/EsteticaHero.webp"
                alt=""
                width="1448" height="1086"
+               srcset="assets/img/EsteticaHero-600.webp 600w, assets/img/EsteticaHero-900.webp 900w, assets/img/EsteticaHero.webp 1448w"
+               sizes="(max-width: 959px) calc(100vw - 2rem), 45vw"
                loading="eager"
                decoding="async"
                fetchpriority="high">

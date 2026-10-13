@@ -17,10 +17,13 @@ Sitio web estático (HTML + CSS, con JavaScript solo donde aporta valor) de **Be
 | `estetica.html` | Servicios estéticos (hidratación, pedicura, terapia y masajes) |
 | `sobre-nosotros.html` | Sobre BeautyPod y la especialista |
 | `digital_card.html` | Tarjeta de presentación digital de la especialista |
-| `articulo_1.html` – `articulo_4.html` | Blog: onicomicosis y hongos en piel; durezas, grietas y resequedad; uñas encarnadas; callosidades y verrugas plantares |
+| `blog.html` | Listado del blog y artículos |
+| `articles/` | Ocho artículos sobre hongos, uñas encarnadas, durezas, grietas, callosidades y cuidado de los pies |
+| `tienda.html` | Productos y recomendaciones |
 | `robots.txt` | Reglas para buscadores |
 | `sitemap.xml` | Mapa del sitio |
 | `llms.txt` | Resumen del sitio para asistentes de IA y modelos de lenguaje |
+| `google2fcfd2d2203d5d6a.html` | Verificación de Google Search Console |
 
 > Los nombres de archivo deben coincidir con los enlaces del menú y del sitemap. Si renombras uno, actualiza ambos.
 
@@ -33,16 +36,33 @@ Web/
 ├── estetica.html
 ├── sobre-nosotros.html
 ├── digital_card.html
-├── articulo_1.html … articulo_4.html
+├── blog.html
+├── tienda.html
+├── google2fcfd2d2203d5d6a.html
 ├── robots.txt
 ├── sitemap.xml
 ├── llms.txt
+├── articles/
+│   ├── article_antifungicos.html
+│   ├── article_callovph.html
+│   ├── article_cremas.html
+│   ├── article_durezas.html
+│   ├── article_encarnadas.html
+│   ├── article_hongos_recurrentes.html
+│   ├── article_onico.html
+│   └── article_talones.html
 ├── assets/
 │   ├── css/
-│   │   └── styles.css      # Única hoja de estilos: variables + componentes
+│   │   └── styles.css
+│   ├── js/
+│   │   ├── blog.js
+│   │   └── components.js
 │   └── img/
 │       ├── beautypod-logo.svg
-│       └── favicon.svg
+│       ├── favicon.svg
+│       ├── hero.webp, hero-600.webp, hero-900.webp
+│       ├── EsteticaHero.webp, EsteticaHero-600.webp, EsteticaHero-900.webp
+│       └── imágenes de servicios y artículos (WebP/JPG)
 └── README.md
 ```
 
@@ -53,7 +73,7 @@ Web/
 - **Mobile-first:** estilos base para móvil y `@media (min-width)` para tablet y escritorio.
 - **Tipografías:** Cardo e Inter, con *system serif* y *system sans-serif* como respaldo.
 - **JavaScript mínimo:** solo si aporta un valor real; el sitio funciona sin él.
-- **Rendimiento:** imágenes con `width`/`height`, `loading="lazy"` fuera de la primera pantalla y `fetchpriority="high"` en la imagen principal.
+- **Rendimiento:** imágenes con `width`/`height`, `srcset` responsivo, `loading="lazy"` fuera de la primera pantalla y preload con `fetchpriority="high"` para los heroes.
 - **SEO técnico y de contenido:** `title` y `meta description` únicos por página, Open Graph, `canonical`, datos estructurados `LocalBusiness` (JSON-LD), `alt` en imágenes, URLs limpias y descriptivas.
 - **Accesibilidad:** enlace "Saltar al contenido", foco visible, navegación por teclado, contraste suficiente, enlaces y botones con nombre claro, iconos decorativos con `aria-hidden`.
 - **Seguridad:** sin formularios propios ni backend (el contacto es un enlace a WhatsApp) y enlaces externos con `rel="noopener noreferrer"`.

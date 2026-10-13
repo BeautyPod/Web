@@ -10,7 +10,11 @@
 <meta name="theme-color" content="#272727">
 
 <!-- Imagen principal (LCP): se descarga cuanto antes -->
-<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
+<link rel="preload" as="image"
+      href="assets/img/hero.webp"
+      imagesrcset="assets/img/hero-600.webp 600w, assets/img/hero-900.webp 900w, assets/img/hero.webp 1600w"
+      imagesizes="100vw"
+      fetchpriority="high">
 
 <!-- Open Graph / redes sociales -->
 <meta property="og:type" content="website">
@@ -116,6 +120,8 @@
         src="assets/img/hero.webp"
         alt=""
         width="1600" height="899"
+        srcset="assets/img/hero-600.webp 600w, assets/img/hero-900.webp 900w, assets/img/hero.webp 1600w"
+        sizes="100vw"
         loading="eager"
         decoding="async"
         fetchpriority="high">
