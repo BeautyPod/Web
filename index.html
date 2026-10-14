@@ -65,16 +65,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "BeautyPod & Pedicure",
+  "@type": "HealthAndBeautyLocalBusiness",
+  "@id": "https://beautypod.github.io/Web/#negocio",
+  "name": "BeautyPod",
   "url": "https://beautypod.github.io/Web/",
-  "sameAs": [
-    "https://www.facebook.com/bpodpedicure",
-    "https://www.instagram.com/beautypodlinet",
-    "https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html"
-  ],
-  "description": "Podología preventiva y pedicura en Matanzas, Cuba.",
-  "image": "https://images.unsplash.com/photo-1519415943484-9fa1873496d4?auto=format&fit=crop&w=1200&h=630&q=70",
+   "description": "Podología preventiva y pedicura en Matanzas, Cuba.",
+  "image": "https://beautypod.github.io/Web/assets/img/og/og-index.jpg",
+  "logo": "https://beautypod.github.io/Web/assets/img/beauty-podlogo.svg",
   "telephone": "+5353719118",
   "priceRange": "$$",
   "address": {
@@ -83,22 +80,40 @@
     "addressLocality": "Matanzas",
     "addressCountry": "CU"
   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 23.0425,
+    "longitude": -81.5769
+  },
   "hasMap": "https://maps.app.goo.gl/Axdd4hyurDcGLANy8",
-  "openingHoursSpecification": [
-    {
+   "areaServed"  {
+   "@type": "City",
+  "name": "Matanzas"
+  },
+  "employee" {
+  "@type": "Person", 
+  "name": "Linet R. Vega"
+  "jobTitle": "Especialista en Podología Preventiva"
+  },
+  "OpeningHoursSpecificationforWhatsappAssistant": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
       "opens": "09:00",
       "closes": "20:00",
       "description": "Horario para reservar por WhatsApp"
-    },
-    {
+   }, 
+    "OpeningHoursSpecificationforLocal": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
       "opens": "10:00",
       "closes": "15:00",
       "description": "Atención con la especialista, solo con cita previa"
-    }
+    },
+     "sameAs": [
+    "https://www.facebook.com/bpodpedicure",
+    "https://www.instagram.com/beautypodlinet",
+    "https://www.tripadvisor.com/Attraction_Review-g663510-d28549168-Reviews-Beautypod_Podologia_y_Pedicura-Matanzas_Matanzas_Province_Cuba.html"
+
   ]
 }
 </script>
