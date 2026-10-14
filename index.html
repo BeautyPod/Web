@@ -95,19 +95,25 @@
   "name": "Linet R. Vega"
   "jobTitle": "Especialista en Podología Preventiva"
   },
-  "OpeningHoursSpecificationforWhatsappAssistant": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00",
-      "closes": "20:00",
-      "description": "Horario para reservar por WhatsApp"
-   }, 
-    "OpeningHoursSpecificationforLocal": {
+  "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
       "opens": "10:00",
       "closes": "15:00",
-      "description": "Atención con la especialista, solo con cita previa"
+      "description": "Horario del Local, solo con cita previa"
+   }, 
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "reservas",
+      "telephone": "+5353719118",
+      "availableLanguage": "es",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "20:00"
+        "description": "Horario de reservas por WhatsApp"
+      }
     },
      "sameAs": [
     "https://www.facebook.com/bpodpedicure",
