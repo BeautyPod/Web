@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog de cuidado de pies | BeautyPod</title>
-<meta name="description" content="Biblioteca de artículos de BeautyPod: hongos, uñas encarnadas, durezas y verrugas plantares. Consejos de un podólogo en Matanzas y de pedicura en Matanzas.">
+<meta name="description" content="Artículos de BeautyPod: hongos, uñas encarnadas, durezas, verrugas y calzado para entrenar. Consejos de un podólogo en Matanzas y de pedicura en Matanzas.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://beautypod.github.io/Web/blog.html">
 <meta name="theme-color" content="#272727">
@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BeautyPod">
 <meta property="og:title" content="Blog de cuidado de pies | BeautyPod">
-<meta property="og:description" content="Artículos para entender y cuidar tus pies: hongos, uñas encarnadas, durezas y verrugas plantares.">
+<meta property="og:description" content="Artículos para entender y cuidar tus pies: hongos, uñas encarnadas, durezas, verrugas plantares y calzado para entrenar.">
 <meta property="og:url" content="https://beautypod.github.io/Web/blog.html">
 <meta property="og:image" content="https://beautypod.github.io/Web/assets/img/og/og-blog.jpg">
 <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blog de cuidado de pies | BeautyPod">
-<meta name="twitter:description" content="Artículos para entender y cuidar tus pies: hongos, uñas encarnadas, durezas y verrugas plantares.">
+<meta name="twitter:description" content="Artículos para entender y cuidar tus pies: hongos, uñas encarnadas, durezas, verrugas plantares y calzado para entrenar.">
 <meta name="twitter:image" content="https://beautypod.github.io/Web/assets/img/og/og-blog.jpg">
 
 
@@ -74,7 +74,10 @@
     { "@type": "BlogPosting", "headline": "Riesgos de los antifúngicos orales", "url": "https://beautypod.github.io/Web/articles/article_antifungicos.html" },
     { "@type": "BlogPosting", "headline": "¿Cremas para onicomicosis?", "url": "https://beautypod.github.io/Web/articles/article_cremas.html" },
     { "@type": "BlogPosting", "headline": "Talones agrietados desde adentro", "url": "https://beautypod.github.io/Web/articles/article_talones.html" },
-    { "@type": "BlogPosting", "headline": "¿No se quitan los hongos?", "url": "https://beautypod.github.io/Web/articles/article_hongos_recurrentes.html" }
+    { "@type": "BlogPosting", "headline": "¿No se quitan los hongos?", "url": "https://beautypod.github.io/Web/articles/article_hongos_recurrentes.html" },
+    { "@type": "BlogPosting", "headline": "Podología y GYM: tipo de zapatilla para hipertrofia", "url": "https://beautypod.github.io/Web/articles/article_zapatillas_hipertrofia.html" },
+    { "@type": "BlogPosting", "headline": "Podología y GYM: tipo de zapatilla para running y caminatas", "url": "https://beautypod.github.io/Web/articles/article_zapatillas_running.html" },
+    { "@type": "BlogPosting", "headline": "Podología y GYM: riesgos de entrenar con zapatillas amortiguadas, viejas o sin calzado", "url": "https://beautypod.github.io/Web/articles/article_zapatillas_riesgos.html" }
   ]
 }
 </script>
@@ -161,12 +164,13 @@
         <form class="search-field" role="search" onsubmit="return false">
           <label for="buscar" class="sr-only">Buscar artículos</label>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-          <input id="buscar" type="search" placeholder="Buscar: hongos, uñas, talones…" autocomplete="off">
+          <input id="buscar" type="search" placeholder="Buscar: hongos, uñas, talones, zapatillas…" autocomplete="off">
         </form>
         <div class="chips" id="chips" role="group" aria-label="Filtrar por tema" hidden>
           <button type="button" class="chip" data-filter="todos" aria-pressed="true">Todos</button>
           <button type="button" class="chip" data-filter="unas" aria-pressed="false">Uñas</button>
           <button type="button" class="chip" data-filter="piel" aria-pressed="false">Piel</button>
+          <button type="button" class="chip" data-filter="gym" aria-pressed="false">Podología y GYM</button>
         </div>
       </div>
     </div>
@@ -175,11 +179,11 @@
   <section class="section" aria-labelledby="lista-title">
     <div class="container">
       <h2 id="lista-title" class="sr-only">Artículos</h2>
-      <p class="library-status" id="estado" role="status" aria-live="polite">8 artículos</p>
+      <p class="library-status" id="estado" role="status" aria-live="polite">11 artículos</p>
 
       <div class="video-grid" id="biblioteca">
 
-        <article class="vcard vcard--featured" data-cat="unas piel">
+        <article class="vcard vcard--featured" data-cat="unas piel" data-keywords="hongos uñas onicomicosis micosis pie de atleta tiña contagio dermatofitos podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/mico2.webp"
                  alt="Valoración profesional de una uña"
@@ -195,10 +199,68 @@
             <span class="tag vcard__badge">Destacado · Uñas y piel</span>
             <h3 class="vcard__title"><a href="articles/article_onico.html">Onicomicosis y hongos en la piel</a></h3>
             <p class="vcard__text">Qué son, cómo se contagian y por qué el tratamiento debe hacerlo un profesional.</p>
+            <span hidden>hongos uñas onicomicosis micosis pie de atleta tiña contagio dermatofitos podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="unas">
+        <article class="vcard" data-cat="gym" data-keywords="zapatillas hipertrofia gym gimnasio entrenar pesas sentadilla zancadas tobillo esguince caña alta pronación pronacion supinación supinacion arco pie plano calzado halterofilia peso muerto podologia podología">
+          <div class="vcard__thumb">
+            <img src="assets/img/zapatilla-alta-hipertrofia.webp"
+                 alt="Esquema de una zapatilla alta estructurada para entrenar hipertrofia"
+                 width="800" height="600"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/zapatilla-alta-hipertrofia-400.webp 400w, assets/img/zapatilla-alta-hipertrofia-600.webp 600w, assets/img/zapatilla-alta-hipertrofia-800.webp 800w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <span class="vcard__time">6 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_zapatillas_hipertrofia.html">Zapatilla para hipertrofia</a></h3>
+            <p class="vcard__meta">Podología y GYM</p>
+            <p class="vcard__text">Qué aporta una caña alta estructurada al tobillo y cómo elegir el calzado para entrenar con pesas.</p>
+            <span hidden>zapatillas hipertrofia gym gimnasio entrenar pesas sentadilla zancadas tobillo esguince caña alta pronación pronacion supinación supinacion arco pie plano calzado halterofilia peso muerto podologia podología</span>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="gym" data-keywords="zapatillas running correr caminar caminatas marcha neutra estabilidad control pronación pronacion sobrepronación sobrepronacion arco pisada amortiguación amortiguacion tobillo calzado deportivo podologia podología">
+          <div class="vcard__thumb">
+            <img src="assets/img/zapatilla_running_partes.webp"
+                 alt="Esquema de una zapatilla de running con sus partes clave"
+                 width="800" height="600"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/zapatilla-running-partes-400.webp 400w, assets/img/zapatilla-running-partes-600.webp 600w, assets/img/zapatilla-running-partes-800.webp 800w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <span class="vcard__time">6 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_zapatillas_running.html">Zapatilla para running y caminatas</a></h3>
+            <p class="vcard__meta">Podología y GYM</p>
+            <p class="vcard__text">Neutra, estabilidad o control: cómo elegir según tu pisada y por qué la pronación no es enemiga, pero debes controlarla.</p>
+            <span hidden>zapatillas running correr caminar caminatas marcha neutra estabilidad control pronación pronacion sobrepronación sobrepronacion arco pisada amortiguación amortiguacion tobillo calzado deportivo podologia podología</span>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="gym" data-keywords="zapatillas amortiguadas viejas desgastadas descalzo sin calzado suela blanda mediasuela desgaste cambiar zapatillas entrenar gym gimnasio riesgos lesiones talón talon calzado podologia podología">
+          <div class="vcard__thumb">
+            <img src="assets/img/tres_extremos_calzado.webp"
+                 alt="Tres riesgos del calzado al entrenar: muy amortiguado, sin calzado y desgastado"
+                 width="800" height="600"
+                 loading="lazy"
+                 decoding="async"
+                 srcset="assets/img/tres-extremos-calzado-400.webp 400w, assets/img/tres-extremos-calzado-600.webp 600w, assets/img/tres-extremos-calzado-800.webp 800w"
+                 sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
+            <span class="vcard__time">7 min</span>
+          </div>
+          <div class="vcard__body">
+            <h3 class="vcard__title"><a href="articles/article_zapatillas_riesgos.html">Riesgos del calzado al entrenar</a></h3>
+            <p class="vcard__meta">Podología y GYM</p>
+            <p class="vcard__text">Zapatillas muy amortiguadas, desgastadas o entrenar descalza: qué riesgos tienen.</p>
+            <span hidden>zapatillas amortiguadas viejas desgastadas descalzo sin calzado suela blanda mediasuela desgaste cambiar zapatillas entrenar gym gimnasio riesgos lesiones talón talon calzado podologia podología</span>
+          </div>
+        </article>
+
+        <article class="vcard" data-cat="unas" data-keywords="uña encarnada uñas encarnadas onicocriptosis dolor dedo gordo infección infeccion cortar uñas podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/encarn.webp"
                  alt="Cuidado profesional del dedo del pie"
@@ -213,10 +275,11 @@
             <h3 class="vcard__title"><a href="articles/article_encarnadas.html">Uñas encarnadas</a></h3>
             <p class="vcard__meta">Uñas</p>
             <p class="vcard__text">Por qué se encarnan, qué no hacer en casa y cómo se atienden.</p>
+            <span hidden>uña encarnada uñas encarnadas onicocriptosis dolor dedo gordo infección infeccion cortar uñas podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel" data-keywords="durezas grietas resequedad piel seca talones callos hidratación hidratacion podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/griet.webp"
                  alt="Pies con piel seca durante un cuidado"
@@ -231,10 +294,11 @@
             <h3 class="vcard__title"><a href="articles/article_durezas.html">Durezas, grietas y resequedad</a></h3>
             <p class="vcard__meta">Piel</p>
             <p class="vcard__text">Qué las causa y cuándo conviene acudir a consulta.</p>
+            <span hidden>durezas grietas resequedad piel seca talones callos hidratación hidratacion podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel" data-keywords="callosidades callos verrugas plantares VPH papiloma ojo de gallo podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/pie-2.webp"
                  alt="Revisión de la planta del pie"
@@ -249,10 +313,11 @@
             <h3 class="vcard__title"><a href="articles/article_callovph.html">Callosidades y verrugas plantares</a></h3>
             <p class="vcard__meta">Piel</p>
             <p class="vcard__text">Cómo se diferencian y por qué no conviene tratarlas en casa.</p>
+            <span hidden>callosidades callos verrugas plantares VPH papiloma ojo de gallo podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="unas">
+        <article class="vcard" data-cat="unas" data-keywords="antifúngicos antifungicos orales terbinafina itraconazol fluconazol hígado higado hepatotoxicidad pastillas hongos uñas podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/antifungicos_orales.webp"
                  alt="Tratamientos para las uñas con hongos"
@@ -267,10 +332,11 @@
             <h3 class="vcard__title"><a href="articles/article_antifungicos.html">Riesgos de los antifúngicos orales</a></h3>
             <p class="vcard__meta">Uñas</p>
             <p class="vcard__text">Los riesgos y precauciones al usar antifúngicos por vía oral.</p>
+            <span hidden>antifúngicos antifungicos orales terbinafina itraconazol fluconazol hígado higado hepatotoxicidad pastillas hongos uñas podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="unas piel">
+        <article class="vcard" data-cat="unas piel" data-keywords="cremas onicomicosis nistatina clotrimazol tópico topico hongos uñas esmalte podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/nistatina.webp"
                  alt="Cremas en Onicomicosis"
@@ -283,10 +349,11 @@
             <h3 class="vcard__title"><a href="articles/article_cremas.html">¿Cremas para onicomicosis?</a></h3>
             <p class="vcard__meta">Uñas y piel</p>
             <p class="vcard__text">Por qué no son eficaces las cremas en onicomicosis.</p>
+            <span hidden>cremas onicomicosis nistatina clotrimazol tópico topico hongos uñas esmalte podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel" data-keywords="talones agrietados calcañales calcanares grietas piel seca talones secos podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/griet2.webp"
                  alt="Calcañales agrietados"
@@ -301,10 +368,11 @@
             <h3 class="vcard__title"><a href="articles/article_talones.html">Talones agrietados desde adentro</a></h3>
             <p class="vcard__meta">Piel</p>
             <p class="vcard__text">Conoce más acerca de los talones agrietados.</p>
+            <span hidden>talones agrietados calcañales calcanares grietas piel seca talones secos podologia podología</span>
           </div>
         </article>
 
-        <article class="vcard" data-cat="piel">
+        <article class="vcard" data-cat="piel" data-keywords="hongos recurrentes pie de atleta micosis reinfección reinfeccion zapatos humedad tratamiento podologia podología">
           <div class="vcard__thumb">
             <img src="assets/img/talones1.webp"
                  alt="Calcañales con grietas por hongos"
@@ -317,6 +385,7 @@
             <h3 class="vcard__title"><a href="articles/article_hongos_recurrentes.html">¿No se quitan los hongos?</a></h3>
             <p class="vcard__meta">Piel</p>
             <p class="vcard__text">Conoce más acerca de los hongos, por qué aparecen y por qué son difíciles de tratar.</p>
+            <span hidden>hongos recurrentes pie de atleta micosis reinfección reinfeccion zapatos humedad tratamiento podologia podología</span>
           </div>
         </article>
 
