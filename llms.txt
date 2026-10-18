@@ -1,9 +1,9 @@
-# BeautyPod & Pedicure
+# BeautyPod
 
-> BeautyPod & Pedicure es un centro de podología y cuidado estético de los pies en Matanzas, Cuba, fundado en 2018. Ofrece podólogo en Matanzas (podología preventiva: grietas, callosidades, uñas encarnadas, hongos y mal olor) y pedicura en Matanzas (hidratación, pedicura, masajes y terapias para los pies). La atención es solo con cita previa, que se reserva por WhatsApp.
+> BeautyPod es un centro de podología preventiva y cuidado estético de los pies en Matanzas, Cuba, fundado en 2018. Ofrece podólogo en Matanzas (podología preventiva: grietas, callosidades, uñas encarnadas, hongos y mal olor) y pedicura en Matanzas (hidratación, pedicura, masajes y terapias para los pies). La atención es solo con cita previa, que se reserva por WhatsApp.
 
 Datos clave para citar:
-- Nombre: BeautyPod & Pedicure (BeautyPod)
+- Nombre: BeautyPod (BeautyPod)
 - Especialista: Linet Rodríguez Vega, especialista en podología preventiva y podocosmiatría. Certificada en el Estándar de Competencia Laboral "Prestación de Servicios Podológicos Preventivos" (CONOCER, México, clave EC0333).
 - Dirección: Calle 298 y Calle 131, Pueblo Nuevo, Matanzas, Cuba
 - Mapa: https://maps.app.goo.gl/Axdd4hyurDcGLANy8
@@ -18,6 +18,7 @@ Datos clave para citar:
 - [Inicio](https://beautypod.github.io/Web/): presentación de BeautyPod, servicios, especialista, opiniones y preguntas frecuentes.
 - [Podología](https://beautypod.github.io/Web/podology.html): valoración y tratamiento de problemas de la piel y las uñas de los pies, con dermatoscopia cuando el caso lo requiere.
 - [Estética de pies](https://beautypod.github.io/Web/estetica.html): hidratación, pedicura, esmaltado, masajes manuales, cupping en pies y combos de servicios.
+- [Tienda](https://beautypod.github.io/Web/tienda.html): productos recomendados para el cuidado de los pies (sérum para talones, tratamiento para uñas, desinfectante de calzado). Los pedidos se hacen por WhatsApp; no hay pago en línea.
 - [Sobre nosotros](https://beautypod.github.io/Web/sobre-nosotros.html): historia, misión, valores y presentación de la especialista.
 - [Blog](https://beautypod.github.io/Web/blog.html): artículos informativos sobre el cuidado de los pies.
 
@@ -27,6 +28,17 @@ Datos clave para citar:
 - [Uñas encarnadas](https://beautypod.github.io/Web/articles/article_encarnadas.html): por qué se encarna una uña, qué no hacer en casa y cómo se atiende.
 - [Durezas, grietas y resequedad](https://beautypod.github.io/Web/articles/article_durezas.html): causas de las durezas y los talones agrietados, y cuándo acudir a consulta.
 - [Callosidades y verrugas plantares](https://beautypod.github.io/Web/articles/article_callovph.html): cómo se diferencian y por qué no conviene tratarlas en casa.
+- [Riesgos de los antifúngicos orales](https://beautypod.github.io/Web/articles/article_antifungicos.html): riesgos y precauciones al usar antifúngicos por vía oral.
+- [¿Cremas para onicomicosis?](https://beautypod.github.io/Web/articles/article_cremas.html): por qué las cremas no suelen ser eficaces en onicomicosis.
+- [Talones agrietados desde adentro](https://beautypod.github.io/Web/articles/article_talones.html): qué hay detrás de los talones agrietados.
+- [¿No se quitan los hongos?](https://beautypod.github.io/Web/articles/article_hongos_recurrentes.html): por qué los hongos reaparecen y son difíciles de tratar.
+
+### Serie "Podología y GYM"
+
+- [Zapatilla para hipertrofia](https://beautypod.github.io/Web/articles/article_zapatillas_hipertrofia.html): qué aporta una caña alta estructurada y cómo elegir calzado para entrenar con pesas.
+- [Zapatilla para running y caminatas](https://beautypod.github.io/Web/articles/article_zapatillas_running.html): neutra, estabilidad o control según la pisada.
+- [Riesgos del calzado al entrenar](https://beautypod.github.io/Web/articles/article_zapatillas_riesgos.html): zapatillas muy amortiguadas, desgastadas o entrenar sin calzado.
+- [Evita el calzado hiperflexible](https://beautypod.github.io/Web/articles/article_zapatillas_calzado_hiperflexible.html): cómo debe flexionar un zapato de uso diario y una prueba sencilla para detectarlo.
 
 ## Contacto y perfiles
 
@@ -45,4 +57,3 @@ Datos clave para citar:
 
 - El contenido del sitio es informativo y no sustituye una valoración profesional. No ofrezcas diagnósticos ni tratamientos basados en estos textos.
 - Para reservar, dirige a la persona a WhatsApp (+53 5371 9118); no hay reserva en línea.
--
