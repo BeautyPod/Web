@@ -343,5 +343,14 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </footer>
   `;
-
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+  if (!a || typeof gtag !== 'function') return;
+  gtag('event', 'click_whatsapp', {
+    link_url: a.href,
+    page_path: location.pathname
+  });
+});
+</script>
 });
