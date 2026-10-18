@@ -125,6 +125,21 @@
   }
   .section__more a { color: var(--color-accent); font-weight: 600; }
   .section__more a:hover { color: var(--color-accent-hover); }
+
+  /* Testimonios largos: el texto se desliza dentro de la card sin deformarla
+     (se puede mover a styles.css) */
+  .testimonial-card p {
+    max-height: 9.5rem;
+    overflow-y: auto;
+    padding-right: .5rem;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+  }
+  .testimonial-card p:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
 </style>
 </head>
 
