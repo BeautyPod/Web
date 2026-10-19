@@ -10,6 +10,13 @@
   <link rel="canonical" href="https://beautypod.github.io/Web/club.html">
   <link rel="icon" type="image/svg+xml" href="assets/img/beautypod-logo.svg">
 
+  <!-- Imagen principal (LCP): se descarga cuanto antes (mismos srcset y sizes que el <img>) -->
+  <link rel="preload" as="image"
+        href="assets/img/hero.webp"
+        imagesrcset="assets/img/hero-600.webp 600w, assets/img/hero-900.webp 900w, assets/img/hero.webp 1600w"
+        imagesizes="100vw"
+        fetchpriority="high">
+
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CU">
   <meta property="og:site_name" content="BeautyPod">
@@ -70,7 +77,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+  <!-- Fuentes: se cargan sin bloquear el renderizado -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap"></noscript>
 
   <!-- Hoja de estilos única de BeautyPod -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -239,7 +248,14 @@
     <!-- Presentación (misma estructura que el hero del inicio) -->
     <section class="hero" aria-labelledby="club-title">
       <div class="hero__media">
-        <img src="assets/img/hero.webp" alt="" fetchpriority="high" decoding="async">
+        <img src="assets/img/hero.webp"
+             alt=""
+             width="1600" height="899"
+             srcset="assets/img/hero-600.webp 600w, assets/img/hero-900.webp 900w, assets/img/hero.webp 1600w"
+             sizes="100vw"
+             loading="eager"
+             decoding="async"
+             fetchpriority="high">
       </div>
       <div class="container hero__content">
         <span class="badge">★ Tu cuidado también tiene recompensa</span>
