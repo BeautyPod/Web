@@ -36,11 +36,10 @@
 <meta name="twitter:image" content="https://beautypod.github.io/Web/assets/img/og/og-index.jpg">
 
 
-<!-- Fuentes: se cargan sin bloquear el renderizado -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;600;700&display=swap"></noscript>
+<!-- Fuentes locales: se precargan las dos que se ven al abrir la página.
+     (Se quitó Google Fonts: la página ya usa las fuentes de assets/fonts) -->
+<link rel="preload" href="assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cardo-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -311,7 +310,7 @@
                  width="905" height="1207"
                  loading="lazy"
                  decoding="async"
-                 srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet.webp 905w"
+                 srcset="assets/img/linet-400.webp 400w, assets/img/linet-600.webp 600w, assets/img/linet-800.webp 800w, assets/img/linet.webp 905w"
                  sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px">
           </div>
           <div class="professional-card__body">
@@ -335,7 +334,7 @@
                  width="768" height="1364"
                  loading="lazy"
                  decoding="async"
-                 srcset="assets/img/local-400.webp 400w, assets/img/local-600.webp 600w, assets/img/local.webp 768w"
+                 srcset="assets/img/local-400.webp 400w, assets/img/local-600.webp 600w, assets/img/local-700.webp 700w, assets/img/local.webp 768w"
                  sizes="(max-width: 600px) calc(100vw - 2rem), (max-width: 960px) 40vw, 240px">
           </div>
           <div class="professional-card__body">
