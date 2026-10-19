@@ -25,8 +25,18 @@
 <meta name="twitter:image" content="https://beautypod.github.io/Web/assets/img/og/og-tienda.jpg">
 
 
-<!-- Fuentes locales: se precargan las dos que se ven al abrir la página -->
+<!-- Imagen del primer producto (probable LCP): se descarga cuanto antes -->
+<link rel="preload" as="image"
+      href="assets/img/serum-antigrietas.webp"
+      imagesrcset="assets/img/serum-antigrietas-400.webp 400w, assets/img/serum-antigrietas-600.webp 600w, assets/img/serum-antigrietas.webp 912w"
+      imagesizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px"
+      fetchpriority="high">
+
+<!-- Fuentes locales: se precargan las que se ven al abrir la página
+     (cardo regular y inter 800 evitan el cambio de diseño al cargar) -->
 <link rel="preload" href="assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-v20-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cardo-v21-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/cardo-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -64,7 +74,8 @@
     border: 1px solid var(--color-border); border-radius: var(--radius-pill); font: inherit;
   }
   .search-field input::placeholder { color: var(--color-text-muted); }
-  .chips { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: center; }
+  /* min-height: reserva el espacio de los filtros para que la página no se mueva al cargarlos */
+  .chips { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: center; min-height: 40px; }
   .chip {
     min-height: 40px; padding: .4rem 1rem; cursor: pointer; font: inherit; font-size: var(--fs-small); font-weight: 700;
     color: var(--color-text); background: var(--color-surface-alt);
@@ -73,7 +84,7 @@
   .chip:hover { border-color: var(--color-accent); }
   .chip[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-on-accent); }
 
-  .shop-status { color: var(--color-text-muted); font-size: var(--fs-small); margin: 0 0 var(--space-3); }
+  .shop-status { color: var(--color-text-muted); font-size: var(--fs-small); margin: 0 0 var(--space-3); min-height: 1.5em; }
 
   .product-grid { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
   @media (min-width: 600px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -138,7 +149,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
           <input id="buscar" type="search" placeholder="Buscar: crema, talones, uñas…" autocomplete="off">
         </form>
-        <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría" hidden></div>
+        <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
       </div>
     </div>
   </section>
@@ -171,8 +182,8 @@
 </main>
 <footer><div id="site-footer"></div></footer>
 
-<script src="assets/js/components.js"></script>
-
+<!-- IMPORTANTE: este script va ANTES de components.js para que los productos
+     aparezcan en la primera pantalla y la página no se mueva al cargar. -->
 <script>
 /* =====================================================================
    CONFIGURACIÓN DE LA TIENDA — AQUÍ EDITAS TODO
@@ -299,6 +310,9 @@ const PRODUCTOS = [
   PRODUCTOS.forEach(function (p, i) {
     var href = p.link && p.link.trim() ? p.link : waLink(MENSAJE.replace('{producto}', p.nombre));
     var disp = p.stock !== false;
+    /* El primer producto es el que se ve al abrir la página (LCP): carga inmediata y con prioridad.
+       Los demás se cargan al hacer scroll. */
+    var carga = i === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
     var el = document.createElement('article');
     el.className = 'product';
     el.setAttribute('data-cat', norm(p.categoria || ''));
@@ -306,7 +320,7 @@ const PRODUCTOS = [
     el.innerHTML =
       '<div class="product__media">' +
         '<span class="product__placeholder" aria-hidden="true">' + esc((p.nombre || '?').charAt(0)) + '</span>' +
-        (p.imagen ? '<img src="' + esc(p.imagen) + '" srcset="' + esc(responsiveImageSet(p.imagen, p.imagenAncho)) + '" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px" alt="' + esc(p.nombre) + '" width="' + p.imagenAncho + '" height="' + p.imagenAlto + '" loading="lazy" decoding="async" style="position:absolute;inset:0">' : '') +
+        (p.imagen ? '<img src="' + esc(p.imagen) + '" srcset="' + esc(responsiveImageSet(p.imagen, p.imagenAncho)) + '" sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 400px" alt="' + esc(p.nombre) + '" width="' + p.imagenAncho + '" height="' + p.imagenAlto + '" ' + carga + ' decoding="async" style="position:absolute;inset:0">' : '') +
         (p.destacado ? '<span class="tag product__badge">Más pedido</span>' : '') +
       '</div>' +
       '<div class="product__body">' +
@@ -336,7 +350,6 @@ const PRODUCTOS = [
   PRODUCTOS.forEach(function (p) { if (p.categoria && cats.indexOf(p.categoria) < 0) cats.push(p.categoria); });
   var filtro = 'todos';
   if (cats.length > 1) {
-    chipsBox.hidden = false;
     var todos = [{ k: 'todos', t: 'Todos' }].concat(cats.map(function (c) { return { k: norm(c), t: c }; }));
     chipsBox.innerHTML = todos.map(function (c, i) {
       return '<button type="button" class="chip" data-filter="' + esc(c.k) + '" aria-pressed="' + (i === 0) + '">' + esc(c.t) + '</button>';
@@ -365,5 +378,7 @@ const PRODUCTOS = [
   aplicar();
 })();
 </script>
+
+<script src="assets/js/components.js"></script>
 </body>
 </html>
