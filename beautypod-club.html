@@ -4,27 +4,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Club BeautyPod | Fidelidad y recompensas en Matanzas</title>
-  <meta name="description" content="Únete al Club BeautyPod: cada visita que cumpla las condiciones del programa suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo.">
+  <meta name="description" content="Club de fidelidad BeautyPod en Matanzas: cada visita válida suma una estrella y con cinco consigues tu Servicio Preventivo Completo.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#272727">
   <link rel="canonical" href="https://beautypod.github.io/Web/club.html">
+  <link rel="icon" type="image/svg+xml" href="assets/img/beautypod-logo.svg">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CU">
   <meta property="og:site_name" content="BeautyPod">
   <meta property="og:title" content="Club BeautyPod | Fidelidad y recompensas en Matanzas">
-  <meta property="og:description" content="Cada visita válida suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo.">
+  <meta property="og:description" content="Cada visita válida suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo en BeautyPod, Matanzas.">
   <meta property="og:url" content="https://beautypod.github.io/Web/club.html">
   <meta property="og:image" content="https://beautypod.github.io/Web/assets/img/og/og-index.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BeautyPod: podología preventiva y pedicura en Matanzas">
 
-  <!-- Si tu sitio ya carga Cardo e Inter de otra forma, puedes quitar estas 3 líneas -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Club BeautyPod | Fidelidad y recompensas en Matanzas">
+  <meta name="twitter:description" content="Cada visita válida suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo en BeautyPod, Matanzas.">
+  <meta name="twitter:image" content="https://beautypod.github.io/Web/assets/img/og/og-index.jpg">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://beautypod.github.io/Web/club.html#webpage",
+      "url": "https://beautypod.github.io/Web/club.html",
+      "name": "Club BeautyPod | Fidelidad y recompensas en Matanzas",
+      "description": "Club de fidelidad BeautyPod en Matanzas: cada visita válida suma una estrella y con cinco consigues tu Servicio Preventivo Completo.",
+      "inLanguage": "es-CU",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BeautyPod",
+        "url": "https://beautypod.github.io/Web/"
+      },
+      "breadcrumb": {
+        "@id": "https://beautypod.github.io/Web/club.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://beautypod.github.io/Web/club.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://beautypod.github.io/Web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Club BeautyPod",
+          "item": "https://beautypod.github.io/Web/club.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
 
   <!-- Hoja de estilos única de BeautyPod -->
   <link rel="stylesheet" href="assets/css/styles.css">
-
   <style>
     /* =========================================================
        Club BeautyPod — solo lo que la hoja principal no tiene.
@@ -182,23 +231,29 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-<!-- Cabecera: la inyecta components.js -->
+  <!-- Cabecera: la inyecta components.js -->
   <header class="site-header" id="site-header"></header>
 
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
 
-    <!-- Presentación -->
-    <section class="page-hero" aria-labelledby="club-title">
-      <div class="container">
-        <div class="page-hero_content--center">
-          <span>Tu cuidado también tiene recompensa</span>
-          <h1 id="club-title">Club BeautyPod</h1>
-          <p>Cuidar tus pies es una inversión en tu bienestar. Con nuestro club de fidelidad, cada visita que cumpla las condiciones del programa te acerca a una recompensa especial.</p>
-          <div class="hero__actions" style="margin-inline:auto;">
-            <a class="btn btn--primary" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Club%20BeautyPod" target="_blank" rel="noopener">Preguntar por el club (WhatsApp)</a>
-            <a class="btn btn--outline" href="#como-funciona">Cómo funciona</a>
-          </div>
+    <!-- Presentación (misma estructura que el hero del inicio) -->
+    <section class="hero" aria-labelledby="club-title">
+      <div class="hero__media">
+        <img src="assets/img/hero.webp" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="container hero__content">
+        <span class="badge">★ Tu cuidado también tiene recompensa</span>
+        <h1 id="club-title">Club BeautyPod en Matanzas</h1>
+        <p class="hero__lead">Cuidar tus pies es una inversión en tu bienestar. Con nuestro club de fidelidad, cada visita que cumpla las condiciones del programa te acerca a una recompensa especial.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Club%20BeautyPod" target="_blank" rel="noopener noreferrer">Preguntar por el club<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
+          <a class="btn btn--outline" href="#como-funciona">Cómo funciona</a>
         </div>
+        <ul class="hero__trust">
+          <li>Una estrella por visita válida</li>
+          <li>Recompensa al completar cinco</li>
+          <li>Tarjeta digital, sin papel</li>
+        </ul>
       </div>
     </section>
 
@@ -363,7 +418,7 @@
         </div>
 
         <aside class="article-callout">
-          <h2>Servicio Preventivo Completo</h2>
+          <h3>Servicio Preventivo Completo</h3>
           <p>Al completar las cinco estrellas, podrás disfrutar del servicio de recompensa definido por BeautyPod. <strong>La recompensa tiene una validez de 30 días naturales desde su emisión.</strong></p>
           <!-- TODO: añade aquí en una línea qué incluye el Servicio Preventivo Completo y qué no -->
         </aside>
@@ -386,8 +441,7 @@
           </details>
           <details class="accordion__item">
             <summary>¿Cómo consulto cuántas estrellas tengo?</summary>
-            <p>Escríbenos por WhatsApp y te confirmamos el estado de tu tarjeta.</p>
-            <!-- TODO: ajusta esta respuesta al método real para ver la tarjeta -->
+            <p>Te enviamos por WhatsApp un enlace personal para que veas tu tarjeta cuando quieras. Si lo pierdes, escríbenos y te lo reenviamos.</p>
           </details>
         </div>
       </div>
@@ -402,7 +456,7 @@
             <h2 id="cierre-title" style="margin:0;">Tu bienestar merece continuidad</h2>
             <span>Cuida tus pies con regularidad y descubre cómo cada visita válida puede acercarte a una recompensa.</span>
           </div>
-          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Reservar cita por WhatsApp</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener noreferrer">Reservar cita<span class="sr-only"> por WhatsApp (se abre en una pestaña nueva)</span></a>
         </div>
         <p class="small-print">La tarjeta mostrada es ilustrativa. La concesión de estrellas, la emisión de recompensas y su vigencia se rigen por las condiciones del programa de fidelidad de BeautyPod.</p>
       </div>
@@ -410,10 +464,10 @@
 
   </main>
 
-<!-- Pie: lo inyecta components.js -->
+  <!-- Pie: lo inyecta components.js -->
   <footer class="site-footer" id="site-footer"></footer>
 
-  <!-- Header y footer compartidos del sitio (mismo script que usan las demás páginas) -->
+  <!-- Header y footer compartidos del sitio -->
   <script src="assets/js/components.js" defer></script>
 
 </body>
