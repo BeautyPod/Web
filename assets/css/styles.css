@@ -1111,3 +1111,12 @@ p { margin: 0 0 var(--space-2); }
 /* Listado del Blog (blog.html) */
 .post-card .card__media { aspect-ratio: 4 / 3; }
 .post-card__meta { color: var(--color-text-muted); font-size: var(--fs-small); margin-bottom: var(--space-1); }
+
+/* =========================================================
+   Rendimiento: reservar el espacio del header
+   (components.js lo inserta con JS; sin esto el contenido salta hacia abajo)
+   ========================================================= */
+#site-header { min-height: 128px; }
+@media (min-width: 960px) {
+  #site-header { min-height: 70px; }
+}
