@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club BeautyPod | Fidelidad y recompensas en Matanzas</title>
+  <meta name="description" content="Únete al Club BeautyPod: cada visita que cumpla las condiciones del programa suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#272727">
+  <link rel="canonical" href="https://beautypod.github.io/Web/club.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CU">
+  <meta property="og:site_name" content="BeautyPod">
+  <meta property="og:title" content="Club BeautyPod | Fidelidad y recompensas en Matanzas">
+  <meta property="og:description" content="Cada visita válida suma una estrella. Completa cinco y consigue tu Servicio Preventivo Completo.">
+  <meta property="og:url" content="https://beautypod.github.io/Web/club.html">
+  <meta property="og:image" content="https://beautypod.github.io/Web/assets/img/og/og-index.jpg">
+
+  <!-- Si tu sitio ya carga Cardo e Inter de otra forma, puedes quitar estas 3 líneas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&display=swap">
+
+  <!-- Hoja de estilos única de BeautyPod -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    /* =========================================================
+       Club BeautyPod — solo lo que la hoja principal no tiene.
+       Usa los mismos tokens (colores, fuentes, radios, sombras).
+       ========================================================= */
+    .icon {
+      width: 22px; height: 22px;
+      fill: none; stroke: currentColor;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    /* ---------- Tarjeta digital con brillitos ---------- */
+    .loyalty-wrap { max-width: 440px; margin-inline: auto; }
+
+    .loyalty-card {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding: var(--space-4);
+      background:
+        radial-gradient(120% 80% at 100% 0%, rgba(96,165,250,.18), transparent 55%),
+        linear-gradient(160deg, #2a3445 0%, #1f2733 60%, #1a2029 100%);
+      border: 1px solid rgba(147,197,253,.35);
+      border-radius: 20px;
+      box-shadow:
+        0 12px 40px rgba(0,0,0,.45),
+        0 0 36px rgba(96,165,250,.14),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    /* Reflejo que cruza la tarjeta */
+    .loyalty-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.13) 50%, transparent 60%);
+      transform: translateX(-120%);
+      animation: lc-shimmer 6s ease-in-out infinite;
+    }
+    .loyalty-card > *:not(.spark) { position: relative; z-index: 2; }
+
+    /* Brillitos */
+    .spark {
+      position: absolute;
+      z-index: 3;
+      left: var(--x); top: var(--y);
+      width: var(--s, 10px); height: var(--s, 10px);
+      background: var(--c, #fff);
+      clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+      opacity: 0;
+      pointer-events: none;
+      animation: lc-twinkle 3.4s ease-in-out infinite;
+      animation-delay: var(--d, 0s);
+    }
+
+    .loyalty-card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-3);
+      border-bottom: 1px solid rgba(147,197,253,.22);
+    }
+    .loyalty-card__brand { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; line-height: 1.1; margin: 0; }
+    .loyalty-card__sub { display: block; font-family: var(--font-body); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); font-weight: 600; margin-top: .25rem; }
+    .loyalty-card__shield { color: var(--color-accent); }
+    .loyalty-card__shield .icon { width: 26px; height: 26px; }
+
+    .loyalty-card__eyebrow { display: block; color: var(--color-accent); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: var(--space-1); }
+    .loyalty-card__title { font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-3); }
+
+    .lc-stars { display: flex; justify-content: space-between; gap: var(--space-1); margin-bottom: var(--space-4); }
+    .lc-star { display: flex; flex-direction: column; align-items: center; gap: .4rem; font-size: .75rem; color: var(--color-text-muted); }
+    .lc-star__dot {
+      width: clamp(42px, 12vw, 54px);
+      height: clamp(42px, 12vw, 54px);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+      color: #8b97a8;
+    }
+    .lc-star__dot .icon { width: 46%; height: 46%; }
+    .lc-star.is-earned .lc-star__dot {
+      background: radial-gradient(circle at 35% 30%, #bfdbfe, var(--color-accent) 70%);
+      border-color: var(--color-accent-hover);
+      color: var(--color-on-accent);
+      box-shadow: 0 0 0 0 rgba(147,197,253,.5), 0 0 16px rgba(96,165,250,.45);
+      animation: lc-glow 3s ease-in-out infinite;
+      animation-delay: var(--d, 0s);
+    }
+    .lc-star.is-earned .lc-star__dot .icon { fill: currentColor; }
+    .lc-star.is-earned { color: var(--color-text-soft); }
+
+    .lc-progress__row { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--fs-small); margin-bottom: .5rem; }
+    .lc-progress__row strong { font-size: 1.05rem; }
+    .lc-progress__track { height: 10px; border-radius: var(--radius-pill); background: rgba(255,255,255,.1); overflow: hidden; }
+    .lc-progress__fill {
+      width: 60%; height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover), var(--color-accent));
+      background-size: 200% 100%;
+      animation: lc-flow 4s linear infinite;
+    }
+
+    .lc-reward {
+      display: flex; gap: var(--space-2); align-items: flex-start;
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+    }
+    .lc-reward__icon { color: #f4d58d; }
+    .lc-reward h3 { font-size: 1rem; font-weight: 800; margin-bottom: .25rem; }
+    .lc-reward p { margin: 0; font-size: var(--fs-small); color: var(--color-text-soft); }
+
+    .loyalty-caption { text-align: center; margin: var(--space-3) 0 0; font-size: var(--fs-small); color: var(--color-text-muted); }
+
+    @keyframes lc-shimmer {
+      0%, 55% { transform: translateX(-120%); }
+      100%    { transform: translateX(120%); }
+    }
+    @keyframes lc-twinkle {
+      0%, 100% { opacity: 0; transform: scale(.2) rotate(0deg); }
+      50%      { opacity: .95; transform: scale(1) rotate(45deg); }
+    }
+    @keyframes lc-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(147,197,253,.45), 0 0 14px rgba(96,165,250,.4); }
+      50%      { box-shadow: 0 0 0 6px rgba(147,197,253,0),  0 0 24px rgba(147,197,253,.65); }
+    }
+    @keyframes lc-flow {
+      from { background-position: 0% 0; }
+      to   { background-position: 200% 0; }
+    }
+
+    /* Quien prefiere menos movimiento ve la tarjeta estática */
+    @media (prefers-reduced-motion: reduce) {
+      .loyalty-card::after, .lc-progress__fill, .lc-star.is-earned .lc-star__dot { animation: none !important; }
+      .spark { animation: none !important; opacity: .6; transform: none; }
+    }
+
+    /* ---------- Condiciones ---------- */
+    .conditions-list { display: flex; flex-direction: column; gap: .6rem; margin-top: var(--space-2); }
+    .conditions-list li { position: relative; padding-left: 1.4rem; color: var(--color-text-soft); font-size: var(--fs-small); }
+    .conditions-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
+
+    .small-print { text-align: center; margin: var(--space-4) auto 0; max-width: 60ch; font-size: .78rem; color: var(--color-text-muted); }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<!-- Cabecera: la inyecta components.js -->
+  <header class="site-header" id="site-header"></header>
+
+  <main id="contenido">
+
+    <!-- Presentación -->
+    <section class="page-hero" aria-labelledby="club-title">
+      <div class="container">
+        <div class="page-hero_content--center">
+          <span>Tu cuidado también tiene recompensa</span>
+          <h1 id="club-title">Club BeautyPod</h1>
+          <p>Cuidar tus pies es una inversión en tu bienestar. Con nuestro club de fidelidad, cada visita que cumpla las condiciones del programa te acerca a una recompensa especial.</p>
+          <div class="hero__actions" style="margin-inline:auto;">
+            <a class="btn btn--primary" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Club%20BeautyPod" target="_blank" rel="noopener">Preguntar por el club (WhatsApp)</a>
+            <a class="btn btn--outline" href="#como-funciona">Cómo funciona</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarjeta digital -->
+    <section class="section section--soft" aria-labelledby="tarjeta-title">
+      <div class="container">
+        <div class="section__heading">
+          <h2 id="tarjeta-title">Tu camino hacia la recompensa</h2>
+          <p>Cada estrella te acerca un paso más a completar tu ciclo.</p>
+        </div>
+
+        <div class="loyalty-wrap">
+          <div class="loyalty-card">
+
+            <!-- Brillitos (decorativos) -->
+            <i class="spark" style="--x:8%;  --y:14%; --s:9px;  --d:0s;"    aria-hidden="true"></i>
+            <i class="spark" style="--x:88%; --y:10%; --s:12px; --d:.8s;"   aria-hidden="true"></i>
+            <i class="spark" style="--x:72%; --y:38%; --s:8px;  --d:1.6s; --c:#bfdbfe;" aria-hidden="true"></i>
+            <i class="spark" style="--x:16%; --y:46%; --s:10px; --d:2.2s; --c:#bfdbfe;" aria-hidden="true"></i>
+            <i class="spark" style="--x:92%; --y:66%; --s:9px;  --d:1.1s;"  aria-hidden="true"></i>
+            <i class="spark" style="--x:34%; --y:84%; --s:12px; --d:2.8s;"  aria-hidden="true"></i>
+            <i class="spark" style="--x:62%; --y:92%; --s:8px;  --d:.4s; --c:#bfdbfe;" aria-hidden="true"></i>
+            <i class="spark" style="--x:5%;  --y:78%; --s:8px;  --d:1.9s;"  aria-hidden="true"></i>
+
+            <div class="loyalty-card__head">
+              <p class="loyalty-card__brand">BeautyPod
+                <span class="loyalty-card__sub">Rewards · Club de fidelidad</span>
+              </p>
+              <span class="loyalty-card__shield" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 L20 6 V11 C20 16 17 19 12 21 C7 19 4 16 4 11 V6 Z"/><path d="M8 12 L11 15 L16 9"/></svg>
+              </span>
+            </div>
+
+            <span class="loyalty-card__eyebrow">Tu tarjeta digital</span>
+            <h3 class="loyalty-card__title">Cada visita te acerca a tu recompensa.</h3>
+
+            <ol class="lc-stars" aria-label="Estrellas acumuladas: 3 de 5" style="list-style:none;padding:0;">
+              <li class="lc-star is-earned" style="--d:0s;"><span class="lc-star__dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>1</li>
+              <li class="lc-star is-earned" style="--d:.5s;"><span class="lc-star__dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>2</li>
+              <li class="lc-star is-earned" style="--d:1s;"><span class="lc-star__dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>3</li>
+              <li class="lc-star"><span class="lc-star__dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>4</li>
+              <li class="lc-star"><span class="lc-star__dot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>5</li>
+            </ol>
+
+            <div class="lc-progress">
+              <div class="lc-progress__row"><span>Progreso del ciclo</span><strong>3/5</strong></div>
+              <div class="lc-progress__track" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="3" aria-label="Progreso del ciclo">
+                <div class="lc-progress__fill"></div>
+              </div>
+            </div>
+
+            <div class="lc-reward">
+              <span class="lc-reward__icon" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 5 H22 V10 H2 Z"/><path d="M12 5 V21"/><path d="M12 5 C6 5 5 3 7 2 C10 1 12 5 12 5Z"/><path d="M12 5 C18 5 19 3 17 2 C14 1 12 5 12 5Z"/></svg>
+              </span>
+              <div>
+                <h3>Tu próxima recompensa</h3>
+                <p>Te faltan 2 estrellas para conseguir tu Servicio Preventivo Completo.</p>
+              </div>
+            </div>
+          </div>
+          <p class="loyalty-caption">Ejemplo ilustrativo: tres estrellas acumuladas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="section" aria-labelledby="beneficios-title">
+      <div class="container">
+        <div class="section__heading">
+          <h2 id="beneficios-title">¿Qué podrás disfrutar?</h2>
+          <p>Pensado para reconocer tu confianza y acompañarte en el cuidado continuado de tus pies.</p>
+        </div>
+
+        <div class="card-grid card-grid--4">
+          <article class="card card--plain card--icon-center">
+            <div class="card__body">
+              <div class="card__title">
+                <span class="card__icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg></span>
+                <h3>Acumula estrellas</h3>
+              </div>
+              <p>Cada visita que cumpla las condiciones del programa puede sumar una estrella a tu tarjeta de fidelidad.</p>
+            </div>
+          </article>
+
+          <article class="card card--plain card--icon-center">
+            <div class="card__body">
+              <div class="card__title">
+                <span class="card__icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2 V6 M16 2 V6 M3 9 H21"/><path d="M8 14 L11 17 L16 12"/></svg></span>
+                <h3>Da continuidad a tu cuidado</h3>
+              </div>
+              <p>Mantén un seguimiento organizado de tus visitas y descubre tu progreso dentro del programa.</p>
+            </div>
+          </article>
+
+          <article class="card card--plain card--icon-center">
+            <div class="card__body">
+              <div class="card__title">
+                <span class="card__icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 5 H22 V10 H2 Z"/><path d="M12 5 V21"/></svg></span>
+                <h3>Consigue una recompensa</h3>
+              </div>
+              <p>Completa las cinco estrellas del ciclo y accede a la recompensa prevista: nuestro Servicio Preventivo Completo.</p>
+            </div>
+          </article>
+
+          <article class="card card--plain card--icon-center">
+            <div class="card__body">
+              <div class="card__title">
+                <span class="card__icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18 H13"/></svg></span>
+                <h3>Una experiencia sencilla</h3>
+              </div>
+              <p>Tu tarjeta se gestiona desde BeautyPod. No necesitas escanear códigos QR ni llevar una tarjeta física.</p>
+            </div>
+          </article>
+        </div>
+
+        <aside class="article-callout" style="margin-top:var(--space-4);">
+          <p><strong>Nuestro propósito:</strong> reconocer tu confianza y fomentar el cuidado preventivo, para que mantengas tus pies atendidos de forma regular y organizada.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section section--soft" id="como-funciona" aria-labelledby="como-title">
+      <div class="container">
+        <div class="section__heading">
+          <h2 id="como-title">¿Cómo funciona?</h2>
+          <p>Tú disfrutas de tu servicio y BeautyPod se encarga de registrar tu progreso.</p>
+        </div>
+
+        <div class="card-grid card-grid--4">
+          <article class="card step-card">
+            <div class="step-card__number">1</div>
+            <h3>Disfruta tu visita</h3>
+            <p>Acude a tu cita y recibe el servicio correspondiente en BeautyPod.</p>
+          </article>
+          <article class="card step-card">
+            <div class="step-card__number">2</div>
+            <h3>Completa tu servicio</h3>
+            <p>Una vez finalizado y pagado el servicio, la visita podrá registrarse conforme a las condiciones del programa.</p>
+          </article>
+          <article class="card step-card">
+            <div class="step-card__number">3</div>
+            <h3>Suma una estrella</h3>
+            <p>BeautyPod actualiza tu tarjeta digital. Cada estrella representa una visita válida dentro del ciclo.</p>
+          </article>
+          <article class="card step-card">
+            <div class="step-card__number">4</div>
+            <h3>Completa las cinco estrellas</h3>
+            <p>Al completar el ciclo, podrás acceder a la recompensa establecida, de acuerdo con las condiciones del programa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recompensa y condiciones -->
+    <section class="section" aria-labelledby="recompensa-title">
+      <div class="container container--narrow">
+        <div class="section__heading">
+          <h2 id="recompensa-title">Tu recompensa</h2>
+          <p>Para que todo esté claro desde el primer día.</p>
+        </div>
+
+        <aside class="article-callout">
+          <h2>Servicio Preventivo Completo</h2>
+          <p>Al completar las cinco estrellas, podrás disfrutar del servicio de recompensa definido por BeautyPod. <strong>La recompensa tiene una validez de 30 días naturales desde su emisión.</strong></p>
+          <!-- TODO: añade aquí en una línea qué incluye el Servicio Preventivo Completo y qué no -->
+        </aside>
+
+        <div class="accordion">
+          <details class="accordion__item" open>
+            <summary>Condiciones del Club BeautyPod</summary>
+            <ul class="conditions-list">
+              <li>Las estrellas se conceden por visitas que cumplan las condiciones del programa.</li>
+              <li>El servicio debe haberse completado y pagado antes de registrar la estrella.</li>
+              <li>Cada visita válida se registra una sola vez.</li>
+              <li>Al completar cinco estrellas se alcanza el objetivo del ciclo de fidelidad.</li>
+              <li>La recompensa emitida tiene una validez de 30 días naturales.</li>
+              <li>El alcance concreto del Servicio Preventivo Completo y cualquier exclusión aplicable se comunican antes de utilizar la recompensa.</li>
+            </ul>
+          </details>
+          <details class="accordion__item">
+            <summary>¿Necesito una tarjeta física o un código QR?</summary>
+            <p>No. Tu tarjeta se gestiona desde BeautyPod y no necesitas escanear códigos ni llevar nada contigo.</p>
+          </details>
+          <details class="accordion__item">
+            <summary>¿Cómo consulto cuántas estrellas tengo?</summary>
+            <p>Escríbenos por WhatsApp y te confirmamos el estado de tu tarjeta.</p>
+            <!-- TODO: ajusta esta respuesta al método real para ver la tarjeta -->
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cierre -->
+    <section class="section section--soft" aria-labelledby="cierre-title">
+      <div class="container container--narrow">
+        <div class="whatsapp-strip whatsapp-strip--stacked">
+          <div class="whatsapp-strip__info">
+            <span class="whatsapp-strip__icon" aria-hidden="true">★</span>
+            <h2 id="cierre-title" style="margin:0;">Tu bienestar merece continuidad</h2>
+            <span>Cuida tus pies con regularidad y descubre cómo cada visita válida puede acercarte a una recompensa.</span>
+          </div>
+          <a class="btn btn--whatsapp" href="https://wa.me/5353719118?text=%5BPW%5D%20Hola%2C%20quiero%20reservar%20una%20cita" target="_blank" rel="noopener">Reservar cita por WhatsApp</a>
+        </div>
+        <p class="small-print">La tarjeta mostrada es ilustrativa. La concesión de estrellas, la emisión de recompensas y su vigencia se rigen por las condiciones del programa de fidelidad de BeautyPod.</p>
+      </div>
+    </section>
+
+  </main>
+
+<!-- Pie: lo inyecta components.js -->
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <!-- Header y footer compartidos del sitio (mismo script que usan las demás páginas) -->
+  <script src="assets/js/components.js" defer></script>
+
+</body>
+</html>
