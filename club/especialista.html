@@ -17,6 +17,7 @@
     .sp .minus { background: rgba(255,255,255,.08); color: inherit; border-color: var(--color-border); }
     .sp button:disabled { opacity: .35; cursor: not-allowed; }
     .sp .redeem { background: #f4d58d; color: #272727; font-weight: 700; min-height: 48px; }
+    .sp .del { border-color: #c0564f; color: #ff8d86; }
     .sp :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
     .sp-gate { display: flex; gap: .5rem; margin-top: var(--space-2); }
     .sp-add { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; margin: var(--space-2) 0; }
@@ -120,6 +121,7 @@
           '<td><div class="act">' +
           '<button class="plus minus" data-a="undo" data-t="' + c.token + '"' + (c.stars < 1 ? ' disabled' : '') + ' title="Quitar una estrella" aria-label="Quitar estrella a ' + esc(c.name) + '">−</button>' + main +
           '<button data-a="reset" data-t="' + c.token + '" title="Reiniciar a 0 estrellas" aria-label="Reiniciar estrellas de ' + esc(c.name) + '">⟲</button>' +
+          '<button class="del" data-a="del" data-t="' + c.token + '" title="Eliminar clienta" aria-label="Eliminar a ' + esc(c.name) + '">🗑</button>' +
           '<a class="btn-s" href="' + link(c) + '" target="_blank" rel="noopener noreferrer">Enviar enlace</a></div></td></tr>';
       }).join('') : '<tr><td colspan="3">No hay resultados. Añade a la clienta arriba.</td></tr>';
     }
@@ -137,12 +139,19 @@
       } else if (a === 'reset') {
         if (!confirm('¿Reiniciar la tarjeta de ' + c.name + ' a 0 estrellas?')) return;
         p = S.reset(t);
+      } else if (a === 'del') {
+        if (!confirm('¿Eliminar a ' + c.name + '?\nSe borrará su tarjeta y su enlace dejará de funcionar. No se puede deshacer.')) return;
+        p = S.remove(t);
       } else {
         if (!confirm('¿Canjear la recompensa de ' + c.name + '? Su tarjeta volverá a 0.')) return;
         p = S.redeem(t);
       }
       b.disabled = true;
-      p.then(function (r) { say(r.ok ? 'Listo: tarjeta de ' + c.name + ' actualizada.' : r.msg); });
+      p.then(function (r) {
+        if (a === 'del') { say(r.ok ? 'Clienta ' + c.name + ' eliminada.' : r.msg); }
+        else { say(r.ok ? 'Listo: tarjeta de ' + c.name + ' actualizada.' : r.msg); }
+        if (!r.ok) b.disabled = false;
+      });
     });
 
     $('add').addEventListener('submit', function (e) {
@@ -175,4 +184,3 @@
   </script>
 </body>
 </html>
-
