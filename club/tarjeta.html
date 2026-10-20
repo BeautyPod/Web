@@ -103,12 +103,17 @@
   <script src="../assets/js/club-store.js"></script>
   <script>
   (function () {
-    var S = window.ClubStore, G = S.GOAL;
+    var S = window.ClubStore, G = S && S.GOAL;
     var token = new URLSearchParams(location.search).get('t');
     var root = document.getElementById('card');
     var listBox = document.getElementById('clubList');
     var rows = [], me = null, hasCard = false;
     var WA = 'https://wa.me/5353719118?text=' + encodeURIComponent('[PW] Hola, necesito ayuda con mi tarjeta del Club BeautyPod');
+    // Aviso de problemas de conexión (sin internet, sin VPN, Firebase bloqueado o conexión colgada)
+    var WA_NET = 'https://wa.me/5353719118?text=' + encodeURIComponent('[PW] Hola, no puedo ver mi tarjeta de estrellas');
+    var NET = '<p class="loyalty-caption">No pudimos cargar tu tarjeta. Revisa tu conexión a internet, prueba usando una VPN o escríbenos por WhatsApp al <a href="' + WA_NET + '" target="_blank" rel="noopener noreferrer">53719118</a>.</p>';
+    if (!S) { root.innerHTML = NET; return; }
+
     var STAR = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L14.8 8.7 L21 9.6 L16.5 14 L17.6 20.3 L12 17.3 L6.4 20.3 L7.5 14 L3 9.6 L9.2 8.7 Z"/></svg>';
     var GIFT = '<svg class="icon" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="2"/><path d="M2 5 H22 V10 H2 Z"/><path d="M12 5 V21"/><path d="M12 5 C6 5 5 3 7 2 C10 1 12 5 12 5Z"/><path d="M12 5 C18 5 19 3 17 2 C14 1 12 5 12 5Z"/></svg>';
     var SHIELD = '<svg class="icon" viewBox="0 0 24 24"><path d="M12 3 L20 6 V11 C20 16 17 19 12 21 C7 19 4 16 4 11 V6 Z"/><path d="M8 12 L11 15 L16 9"/></svg>';
@@ -141,9 +146,11 @@
       listBox.hidden = false;
     }
 
-    function render(c) {
+    // c = tarjeta (o null); netErr = true si el problema es de conexión y no de enlace incorrecto
+    function render(c, netErr) {
       hasCard = !!c; renderList();
       if (!c) {
+        if (netErr) { root.innerHTML = NET; return; }
         root.innerHTML = '<p class="loyalty-caption">No encontramos tu tarjeta. Revisa que el enlace esté completo o <a href="' + WA + '" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.</p>' +
           (S.demo ? '<p class="loyalty-caption">Modo demostración: prueba con <a href="?t=blanca-demo">Blanca</a>, <a href="?t=maria-demo">María</a> o <a href="?t=ana-demo">Ana</a>.</p>' : '');
         return;
@@ -163,12 +170,15 @@
     }
 
     if (token) {
-      S.watchClient(token, render);
+      // Si la conexión se queda colgada 10 s sin respuesta, se avisa (y si luego llega, la tarjeta se carga sola)
+      var got = false;
+      setTimeout(function () { if (!got) render(null, true); }, 10000);
+      S.watchClient(token, function (c, e) { got = true; render(c, e); });
       if (S.watchLeague && S.myId) {
         S.myId(token).then(function (h) { me = h; renderList(); });
         S.watchLeague(function (r) { rows = r || []; renderList(); });
       }
-    } else render(null);
+    } else render(null, false);
   })();
   </script>
 </body>
