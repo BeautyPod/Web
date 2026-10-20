@@ -27,6 +27,9 @@
     .sp td small { display: block; color: var(--color-text-muted); font-size: .75rem; }
     .st { color: var(--color-accent); letter-spacing: .08em; white-space: nowrap; }
     .act { display: flex; gap: .4rem; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .sp-tpl { margin: var(--space-2) 0; font-size: var(--fs-small); }
+    .sp-tpl summary { cursor: pointer; padding: .4rem 0; }
+    .sp-tpl textarea { width: 100%; padding: .7rem .8rem; font: inherit; color: inherit; background: rgba(255,255,255,.06); border: 1px solid var(--color-border); border-radius: var(--radius); resize: vertical; }
     .sp-msg { min-height: 1.4rem; margin: .5rem 0 0; font-size: var(--fs-small); color: var(--color-text-soft); }
     .sp-note { font-size: .75rem; color: var(--color-text-muted); margin-top: var(--space-3); }
     @media (max-width: 480px) { .sp-add { grid-template-columns: 1fr; } }
@@ -52,9 +55,16 @@
 
       <form id="add" class="sp-add">
         <input id="n" placeholder="Nombre" required aria-label="Nombre de la clienta">
-        <input id="p" type="tel" inputmode="tel" placeholder="Teléfono" required aria-label="Teléfono de la clienta">
+        <input id="p" type="tel" inputmode="tel" placeholder="Teléfono (ej. 53719118)" required aria-label="Teléfono de la clienta">
         <button type="submit">Añadir clienta</button>
       </form>
+
+      <details class="sp-tpl">
+        <summary>Editar mensaje de WhatsApp</summary>
+        <label class="sr-only" for="tpl">Mensaje</label>
+        <textarea id="tpl" rows="4"></textarea>
+        <p class="sp-note" style="margin-top:.4rem;">Usa <b>{nombre}</b> para el nombre de la clienta y <b>{enlace}</b> para el enlace de su tarjeta. Se guarda en este móvil.</p>
+      </details>
 
       <p class="sp-msg" id="msg" role="status"></p>
 
@@ -80,10 +90,20 @@
     function fmt(ms) { return new Date(ms).toLocaleDateString('es-CU', { day: 'numeric', month: 'short', year: 'numeric' }); }
     function say(t) { $('msg').textContent = t || ''; }
 
+    var DEF = 'Bienvenida a BeautyPod Club, esta es tu tarjeta de ⭐⭐⭐⭐⭐ . Aquí verás tus avances:\n🔗 {enlace}';
+    function getTpl() { try { return localStorage.getItem('bp_tpl') || DEF; } catch (e) { return DEF; } }
+    $('tpl').value = getTpl();
+    $('tpl').addEventListener('input', function () { try { localStorage.setItem('bp_tpl', $('tpl').value); } catch (e) {} render(); });
+
+    // Deja el número listo para wa.me: solo dígitos y con prefijo de Cuba (53) si faltara
+    function waNumber(phone) {
+      var d = String(phone).replace(/\D/g, '').replace(/^00/, '');
+      return d.length === 8 ? '53' + d : d;
+    }
     function link(c) {
       var url = new URL('tarjeta.html?t=' + c.token, location.href).href;
-      var text = 'Hola ' + c.name + ', esta es tu tarjeta del Club BeautyPod. Aquí verás tus estrellas: ' + url;
-      return 'https://wa.me/' + c.phone.replace(/\D/g, '') + '?text=' + encodeURIComponent(text);
+      var text = (getTpl() || DEF).split('{nombre}').join(c.name.split(' ')[0]).split('{enlace}').join(url);
+      return 'https://wa.me/' + waNumber(c.phone) + '?text=' + encodeURIComponent(text);
     }
 
     function render() {
