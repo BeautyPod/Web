@@ -1,6 +1,7 @@
 /* Almacén del Club BeautyPod — conectado a Firebase (Firestore + Authentication).
    Requiere cargar antes los scripts "compat" de Firebase (app, auth, firestore). */
 (function () {
+  if (typeof firebase === 'undefined') return; // Firebase no cargó (sin internet/VPN)
   var firebaseConfig = {
     apiKey: "AIzaSyD9xC8u8nAWSa_d0V4DImOF50_UCpc-sUY",
     authDomain: "beautypod-club.firebaseapp.com",
@@ -58,9 +59,13 @@
     logout: function () { return auth.signOut(); },
     onAuth: function (fn) { return auth.onAuthStateChanged(fn); },
 
-    // Vista de la clienta: una sola lectura y se actualiza en vivo
+    // Vista de la clienta: una sola lectura y se actualiza en vivo.
+    // fn(tarjeta, errorDeRed): errorDeRed = true cuando no hay conexión con el servidor
     watchClient: function (t, fn) {
-      return ref(t).onSnapshot(function (s) { fn(s.exists ? pack(s) : null); }, function () { fn(null); });
+      return ref(t).onSnapshot({ includeMetadataChanges: true }, function (s) {
+        if (!s.exists && s.metadata.fromCache) { fn(null, true); return; } // sin servidor: no es "no existe"
+        fn(s.exists ? pack(s) : null, false);
+      }, function () { fn(null, true); });
     },
     // Tabla de la especialista
     watchAll: function (fn, onError) {
