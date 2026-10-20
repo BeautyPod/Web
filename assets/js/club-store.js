@@ -11,7 +11,7 @@
   };
   firebase.initializeApp(firebaseConfig);
   var db = firebase.firestore(), auth = firebase.auth();
-  var COL = 'clientas', GOAL = 5, DAY = 864e5;
+  var COL = 'clientas', LIGA = 'liga', GOAL = 5, DAY = 864e5;
 
   // La sesión queda abierta en este dispositivo hasta que se toque "Cerrar sesión"
   var persistReady = auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(function () {});
@@ -19,15 +19,32 @@
   function ref(t) { return db.collection(COL).doc(t); }
   function pack(s) { return Object.assign({ token: s.id }, s.data()); }
 
+  // ID público de la clienta en la liga: hash del token (no permite deducir el enlace)
+  function hid(t) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)).then(function (d) {
+      return Array.from(new Uint8Array(d).slice(0, 8), function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+    });
+  }
+  // Publica solo primer nombre y estrellas (sin teléfono ni token)
+  function publish(t, c) {
+    return hid(t).then(function (h) {
+      return db.collection(LIGA).doc(h).set({ n: String(c.name).split(' ')[0], s: c.stars, r: c.stars >= GOAL, ts: Date.now() });
+    });
+  }
+
   // Cada cambio se hace en una transacción: dos toques seguidos no duplican estrellas
   function act(t, fn) {
+    var last;
     return db.runTransaction(function (tx) {
       return tx.get(ref(t)).then(function (s) {
         if (!s.exists) return { ok: false, msg: 'Clienta no encontrada.' };
         var c = s.data(), r = fn(c);
-        if (r.ok) tx.set(ref(t), c);
+        if (r.ok) { tx.set(ref(t), c); last = c; }
         return r;
       });
+    }).then(function (r) {
+      if (r.ok && last) return publish(t, last).then(function () { return r; }, function () { return r; });
+      return r;
     }).catch(function () { return { ok: false, msg: 'No se pudo guardar. Revisa la conexión e inténtalo de nuevo.' }; });
   }
 
@@ -54,14 +71,31 @@
       }, onError);
     },
 
+    // Liga del Club (pública): ordenada por estrellas, de más a menos
+    myId: hid,
+    watchLeague: function (fn) {
+      return db.collection(LIGA).onSnapshot(function (q) {
+        var l = q.docs.map(function (d) { return Object.assign({ h: d.id }, d.data()); });
+        l.sort(function (a, b) { return (b.s - a.s) || a.n.localeCompare(b.n, 'es'); });
+        fn(l);
+      }, function () { fn([]); });
+    },
+    // Copia a la liga las clientas que ya existían
+    syncLeague: function (list) {
+      return Promise.all(list.map(function (c) { return publish(c.token, c); })).catch(function () {});
+    },
+
     add: function (name, phone) {
       var t = Array.from(crypto.getRandomValues(new Uint8Array(10)), function (b) { return (b % 36).toString(36); }).join('');
       return ref(t).set({ name: name, phone: phone, stars: 0, reward: null, last: null, redeemedAt: null, created: Date.now() })
+        .then(function () { return publish(t, { name: name, stars: 0 }); })
         .then(function () { return t; });
     },
-    // Elimina a una clienta (solo su tarjeta; no afecta la cuenta de la especialista)
+    // Elimina a una clienta (su tarjeta y su fila en la liga; no afecta la cuenta de la especialista)
     remove: function (t) {
-      return ref(t).delete()
+      return hid(t)
+        .then(function (h) { return db.collection(LIGA).doc(h).delete(); })
+        .then(function () { return ref(t).delete(); })
         .then(function () { return { ok: true }; },
               function () { return { ok: false, msg: 'No se pudo eliminar. Revisa la conexión o los permisos.' }; });
     },
