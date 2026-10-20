@@ -79,6 +79,9 @@
 
   <footer class="site-footer" id="site-footer"></footer>
   <script src="assets/js/components.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="assets/js/club-store.js"></script>
   <script>
   (function () {
@@ -107,8 +110,7 @@
         'Te ' + (n === 1 ? 'falta 1 estrella' : 'faltan ' + n + ' estrellas') + ' para conseguir tu Servicio Preventivo Completo.'];
     }
 
-    function render() {
-      var c = token && S.get(token);
+    function render(c) {
       if (!c) {
         root.innerHTML = '<p class="loyalty-caption">No encontramos tu tarjeta. Revisa que el enlace esté completo o <a href="' + WA + '" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.</p>' +
           (S.demo ? '<p class="loyalty-caption">Modo demostración: prueba con <a href="?t=blanca-demo">Blanca</a>, <a href="?t=maria-demo">María</a> o <a href="?t=ana-demo">Ana</a>.</p>' : '');
@@ -128,8 +130,7 @@
         '<p class="loyalty-caption">Las estrellas se suman al completar y pagar tu servicio.</p>';
     }
 
-    render();
-    S.watch(render);
+    if (token) S.watchClient(token, render); else render(null);
   })();
   </script>
 </body>
