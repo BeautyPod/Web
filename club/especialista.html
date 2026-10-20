@@ -19,8 +19,21 @@
     .sp .redeem { background: #f4d58d; color: #272727; font-weight: 700; min-height: 48px; }
     .sp .del { border-color: #c0564f; color: #ff8d86; }
     .sp :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
-    .sp-gate { display: flex; gap: .5rem; margin-top: var(--space-2); }
-    .sp-add { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; margin: var(--space-2) 0; }
+
+    /* Tarjetas separadas: autenticación / clientas */
+    .sp-card { padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius); background: rgba(255,255,255,.04); margin-bottom: var(--space-3); }
+    .sp-gate { display: flex; flex-direction: column; gap: .5rem; }
+    .sp-gate h2 { font-size: 1rem; margin: 0 0 .2rem; }
+
+    /* Buscador con lupa */
+    .sp-search { position: relative; margin-bottom: var(--space-3); }
+    .sp-search svg { position: absolute; left: .8rem; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; fill: none; stroke: var(--color-text-muted); stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+    .sp-search input { padding-left: 2.6rem; }
+
+    .sp-add { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; margin: 0; }
+    .sp .btn-add { background: #2563eb; border-color: #3b82f6; color: #fff; font-weight: 700; }
+    .sp .btn-add:hover { background: #1d4ed8; }
+
     .sp-wrap { overflow-x: auto; margin-top: var(--space-2); }
     .sp table { width: 100%; border-collapse: collapse; }
     .sp th { text-align: left; font-size: .75rem; color: var(--color-text-muted); padding: .4rem .5rem; }
@@ -28,10 +41,14 @@
     .sp td small { display: block; color: var(--color-text-muted); font-size: .75rem; }
     .st { color: var(--color-accent); letter-spacing: .08em; white-space: nowrap; }
     .act { display: flex; gap: .4rem; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
-    .sp-tpl { margin: var(--space-2) 0; font-size: var(--fs-small); }
-    .sp-tpl summary { cursor: pointer; padding: .4rem 0; }
-    .sp-tpl textarea { width: 100%; padding: .7rem .8rem; font: inherit; color: inherit; background: rgba(255,255,255,.06); border: 1px solid var(--color-border); border-radius: var(--radius); resize: vertical; }
-    .sp-msg { min-height: 1.4rem; margin: .5rem 0 0; font-size: var(--fs-small); color: var(--color-text-soft); }
+
+    /* Editor del mensaje de WhatsApp en verde */
+    .sp-tpl { margin: var(--space-3) 0 0; font-size: var(--fs-small); }
+    .sp-tpl summary { cursor: pointer; padding: .4rem 0; color: #25d366; font-weight: 700; }
+    .sp-tpl textarea { width: 100%; padding: .7rem .8rem; font: inherit; color: inherit; background: rgba(37,211,102,.08); border: 1px solid #25d366; border-radius: var(--radius); resize: vertical; }
+
+    /* Avisos: pequeños y en azul claro */
+    .sp-msg { min-height: 1.2rem; margin: .5rem 0 0; font-size: .75rem; color: #93c5fd; }
     .sp-note { font-size: .75rem; color: var(--color-text-muted); margin-top: var(--space-3); }
     @media (max-width: 480px) { .sp-add { grid-template-columns: 1fr; } }
   </style>
@@ -40,8 +57,9 @@
   <main class="sp">
     <h1>Club BeautyPod · Especialista</h1>
 
-    <!-- Entrada con PIN -->
-    <form id="gate" class="sp-gate" style="flex-direction:column;" autocomplete="on">
+    <!-- Autenticación -->
+    <form id="gate" class="sp-card sp-gate" autocomplete="on">
+      <h2>Iniciar sesión</h2>
       <label class="sr-only" for="em">Correo</label>
       <input id="em" type="email" autocomplete="username" placeholder="Correo de la especialista" required>
       <label class="sr-only" for="pw">Contraseña</label>
@@ -50,32 +68,39 @@
       <p class="sp-msg" id="gmsg" role="status"></p>
     </form>
 
+    <!-- Entrada de clientas -->
     <section id="panel" hidden>
-      <label class="sr-only" for="q">Buscar clienta</label>
-      <input id="q" type="search" placeholder="Buscar por nombre o teléfono">
+      <div class="sp-card">
+        <div class="sp-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input id="q" type="search" placeholder="Buscar por nombre o teléfono" aria-label="Buscar clienta">
+        </div>
 
-      <form id="add" class="sp-add">
-        <input id="n" placeholder="Nombre" required aria-label="Nombre de la clienta">
-        <input id="p" type="tel" inputmode="tel" placeholder="Teléfono (ej. 53719118)" required aria-label="Teléfono de la clienta">
-        <button type="submit">Añadir clienta</button>
-      </form>
+        <form id="add" class="sp-add">
+          <input id="n" placeholder="Nombre" required aria-label="Nombre de la clienta">
+          <input id="p" type="tel" inputmode="tel" placeholder="Teléfono (ej. 53719118)" required aria-label="Teléfono de la clienta">
+          <button type="submit" class="btn-add">Añadir clienta</button>
+        </form>
 
-      <details class="sp-tpl">
-        <summary>Editar mensaje de WhatsApp</summary>
-        <label class="sr-only" for="tpl">Mensaje</label>
-        <textarea id="tpl" rows="4"></textarea>
-        <p class="sp-note" style="margin-top:.4rem;">Usa <b>{nombre}</b> para el nombre de la clienta y <b>{enlace}</b> para el enlace de su tarjeta. Se guarda en este móvil.</p>
-      </details>
+        <details class="sp-tpl">
+          <summary>Editar mensaje de WhatsApp</summary>
+          <label class="sr-only" for="tpl">Mensaje</label>
+          <textarea id="tpl" rows="4"></textarea>
+          <p class="sp-note" style="margin-top:.4rem;">Usa <b>{nombre}</b> para el nombre de la clienta y <b>{enlace}</b> para el enlace de su tarjeta. Se guarda en este dispositivo.</p>
+        </details>
 
-      <p class="sp-msg" id="msg" role="status"></p>
-
-      <div class="sp-wrap">
-        <table>
-          <thead><tr><th>Clienta</th><th>Estrellas</th><th></th></tr></thead>
-          <tbody id="rows"></tbody>
-        </table>
+        <p class="sp-msg" id="msg" role="status"></p>
       </div>
-      <p class="sp-note">Los cambios se guardan en Firebase y se ven al instante en la tarjeta de la clienta. <button id="out" type="button" style="margin-left:.5rem;">Cerrar sesión</button></p>
+
+      <div class="sp-card">
+        <div class="sp-wrap" style="margin-top:0;">
+          <table>
+            <thead><tr><th>Clienta</th><th>Estrellas</th><th></th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="sp-note">Los cambios se guardan en Firebase y se ven al instante en la tarjeta de la clienta. <button id="out" type="button" style="margin-left:.5rem;">Cerrar sesión</button></p>
+      </div>
     </section>
   </main>
 
@@ -85,26 +110,43 @@
   <script src="../assets/js/club-store.js"></script>
   <script>
   (function () {
-    var S = window.ClubStore, G = S.GOAL, clients = [], unsub = null;
+    var S = window.ClubStore, G = S.GOAL, clients = [], unsub = null, synced = false;
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     var $ = function (id) { return document.getElementById(id); };
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
     function fmt(ms) { return new Date(ms).toLocaleDateString('es-CU', { day: 'numeric', month: 'short', year: 'numeric' }); }
     function say(t) { $('msg').textContent = t || ''; }
+
+    // Mensajes de error de autenticación (conexión, VPN, credenciales)
+    function authError(e) {
+      if (!navigator.onLine) return 'Sin conexión a internet. Conéctate a una red e inténtalo de nuevo.';
+      switch (e && e.code) {
+        case 'auth/network-request-failed': return 'No hay conexión con el servidor. Revisa tu internet, la cobertura o si tienes una VPN activa.';
+        case 'auth/too-many-requests': return 'Demasiados intentos. Espera unos minutos.';
+        case 'auth/invalid-credential': case 'auth/wrong-password':
+        case 'auth/user-not-found': case 'auth/invalid-email': return 'Correo o contraseña incorrectos.';
+        default: return 'No se pudo entrar (' + ((e && e.code) || 'error desconocido') + ').';
+      }
+    }
 
     var DEF = 'Bienvenida a BeautyPod Club, esta es tu tarjeta de ⭐⭐⭐⭐⭐ . Aquí verás tus avances:\n🔗 {enlace}';
     function getTpl() { try { return localStorage.getItem('bp_tpl') || DEF; } catch (e) { return DEF; } }
     $('tpl').value = getTpl();
     $('tpl').addEventListener('input', function () { try { localStorage.setItem('bp_tpl', $('tpl').value); } catch (e) {} render(); });
 
-    // Deja el número listo para wa.me: solo dígitos y con prefijo de Cuba (53) si faltara
+    // Deja el número listo para WhatsApp: solo dígitos y con prefijo de Cuba (53) si faltara
     function waNumber(phone) {
       var d = String(phone).replace(/\D/g, '').replace(/^00/, '');
       return d.length === 8 ? '53' + d : d;
     }
+    // Móvil: wa.me (normal). PC: whatsapp:// abre la aplicación instalada, no WhatsApp Web
     function link(c) {
       var url = new URL('tarjeta.html?t=' + c.token, location.href).href;
       var text = (getTpl() || DEF).split('{nombre}').join(c.name.split(' ')[0]).split('{enlace}').join(url);
-      return 'https://wa.me/' + waNumber(c.phone) + '?text=' + encodeURIComponent(text);
+      var q = encodeURIComponent(text);
+      return isMobile
+        ? 'https://wa.me/' + waNumber(c.phone) + '?text=' + q
+        : 'whatsapp://send?phone=' + waNumber(c.phone) + '&text=' + q;
     }
 
     function render() {
@@ -122,7 +164,7 @@
           '<button class="plus minus" data-a="undo" data-t="' + c.token + '"' + (c.stars < 1 ? ' disabled' : '') + ' title="Quitar una estrella" aria-label="Quitar estrella a ' + esc(c.name) + '">−</button>' + main +
           '<button data-a="reset" data-t="' + c.token + '" title="Reiniciar a 0 estrellas" aria-label="Reiniciar estrellas de ' + esc(c.name) + '">⟲</button>' +
           '<button class="del" data-a="del" data-t="' + c.token + '" title="Eliminar clienta" aria-label="Eliminar a ' + esc(c.name) + '">🗑</button>' +
-          '<a class="btn-s" href="' + link(c) + '" target="_blank" rel="noopener noreferrer">Enviar enlace</a></div></td></tr>';
+          '<a class="btn-s" href="' + link(c) + '"' + (isMobile ? ' target="_blank" rel="noopener noreferrer"' : '') + '>Enviar enlace</a></div></td></tr>';
       }).join('') : '<tr><td colspan="3">No hay resultados. Añade a la clienta arriba.</td></tr>';
     }
 
@@ -159,7 +201,7 @@
       S.add($('n').value.trim(), $('p').value.trim()).then(function () {
         say('Clienta añadida. Toca "Enviar enlace" para mandarle su tarjeta por WhatsApp.');
         $('add').reset();
-      }, function () { say('No se pudo añadir. Revisa la conexión e inténtalo de nuevo.'); });
+      }, function () { say(navigator.onLine ? 'No se pudo añadir. Revisa tu conexión o si tienes una VPN activa e inténtalo de nuevo.' : 'Sin conexión a internet. No se pudo añadir la clienta.'); });
     });
 
     $('q').addEventListener('input', render);
@@ -169,16 +211,18 @@
       e.preventDefault();
       $('gmsg').textContent = 'Entrando…';
       S.login($('em').value.trim(), $('pw').value).then(function () { $('pw').value = ''; $('gmsg').textContent = ''; },
-        function () { $('gmsg').textContent = 'Correo o contraseña incorrectos.'; });
+        function (err) { $('gmsg').textContent = authError(err); });
     });
 
     S.onAuth(function (user) {
       if (unsub) { unsub(); unsub = null; }
       $('gate').hidden = !!user; $('panel').hidden = !user;
       if (user) {
-        unsub = S.watchAll(function (list) { clients = list; render(); },
-          function () { say('Esta cuenta no tiene permiso para ver las clientas.'); });
-      } else { clients = []; }
+        unsub = S.watchAll(function (list) {
+          clients = list; render();
+          if (!synced) { synced = true; S.syncLeague(list); } // llena la liga con las clientas existentes
+        }, function () { say('Esta cuenta no tiene permiso para ver las clientas.'); });
+      } else { clients = []; synced = false; }
     });
   })();
   </script>
