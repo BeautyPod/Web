@@ -7,12 +7,15 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#272727">
   <link rel="icon" type="image/svg+xml" href="../assets/img/beautypod-logo.svg">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
   <link rel="preload" href="../assets/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/cardo-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
     .icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
     .loyalty-wrap { max-width: 440px; margin-inline: auto; }
+    #card { min-height: 28rem; } /* reserva espacio para que la página no salte al cargar la tarjeta */
     .loyalty-card { position: relative; overflow: hidden; isolation: isolate; padding: var(--space-4);
       background: radial-gradient(120% 80% at 100% 0%, rgba(96,165,250,.18), transparent 55%), linear-gradient(160deg, #2a3445 0%, #1f2733 60%, #1a2029 100%);
       border: 1px solid rgba(147,197,253,.35); border-radius: 20px;
@@ -97,12 +100,13 @@
 
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../assets/js/components.js" defer></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-  <script src="../assets/js/club-store.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script defer src="../assets/js/club-store.js"></script>
   <script>
-  (function () {
+  // Los scripts con defer se ejecutan antes de DOMContentLoaded, así que Firebase y ClubStore ya están listos
+  document.addEventListener('DOMContentLoaded', function () {
     var S = window.ClubStore, G = S && S.GOAL;
     var token = new URLSearchParams(location.search).get('t');
     var root = document.getElementById('card');
@@ -149,6 +153,7 @@
     // c = tarjeta (o null); netErr = true si el problema es de conexión y no de enlace incorrecto
     function render(c, netErr) {
       hasCard = !!c; renderList();
+      root.style.minHeight = c ? '' : '0'; // si no hay tarjeta, no se deja el hueco reservado
       if (!c) {
         if (netErr) { root.innerHTML = NET; return; }
         root.innerHTML = '<p class="loyalty-caption">No encontramos tu tarjeta. Revisa que el enlace esté completo o <a href="' + WA + '" target="_blank" rel="noopener noreferrer">escríbenos por WhatsApp</a>.</p>' +
@@ -179,7 +184,7 @@
         S.watchLeague(function (r) { rows = r || []; renderList(); });
       }
     } else render(null, false);
-  })();
+  });
   </script>
 </body>
 </html>
