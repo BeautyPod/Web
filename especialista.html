@@ -37,10 +37,13 @@
     <h1>Club BeautyPod · Especialista</h1>
 
     <!-- Entrada con PIN -->
-    <form id="gate" class="sp-gate" autocomplete="off">
-      <label class="sr-only" for="pin">PIN</label>
-      <input id="pin" type="password" inputmode="numeric" placeholder="PIN de la especialista" required>
+    <form id="gate" class="sp-gate" style="flex-direction:column;" autocomplete="on">
+      <label class="sr-only" for="em">Correo</label>
+      <input id="em" type="email" autocomplete="username" placeholder="Correo de la especialista" required>
+      <label class="sr-only" for="pw">Contraseña</label>
+      <input id="pw" type="password" autocomplete="current-password" placeholder="Contraseña" required>
       <button type="submit" class="plus" style="width:auto;font-size:1rem;padding:0 1rem;">Entrar</button>
+      <p class="sp-msg" id="gmsg" role="status"></p>
     </form>
 
     <section id="panel" hidden>
@@ -61,14 +64,17 @@
           <tbody id="rows"></tbody>
         </table>
       </div>
-      <p class="sp-note">Modo demostración: los datos se guardan solo en este navegador y el PIN de prueba es 1234. Al conectar Firebase, el PIN se sustituye por inicio de sesión.</p>
+      <p class="sp-note">Los cambios se guardan en Firebase y se ven al instante en la tarjeta de la clienta. <button id="out" type="button" style="margin-left:.5rem;">Cerrar sesión</button></p>
     </section>
   </main>
 
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
   <script src="assets/js/club-store.js"></script>
   <script>
   (function () {
-    var S = window.ClubStore, G = S.GOAL, PIN = '1234';
+    var S = window.ClubStore, G = S.GOAL, clients = [], unsub = null;
     var $ = function (id) { return document.getElementById(id); };
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
     function fmt(ms) { return new Date(ms).toLocaleDateString('es-CU', { day: 'numeric', month: 'short', year: 'numeric' }); }
@@ -82,7 +88,7 @@
 
     function render() {
       var q = $('q').value.trim().toLowerCase();
-      var list = S.all().filter(function (c) { return !q || c.name.toLowerCase().indexOf(q) > -1 || c.phone.indexOf(q) > -1; });
+      var list = clients.filter(function (c) { return !q || c.name.toLowerCase().indexOf(q) > -1 || c.phone.indexOf(q) > -1; });
       $('rows').innerHTML = list.length ? list.map(function (c) {
         var full = c.stars >= G, exp = full && c.reward && c.reward.expires < Date.now();
         var main = full
@@ -100,41 +106,51 @@
 
     $('rows').addEventListener('click', function (e) {
       var b = e.target.closest('button[data-a]'); if (!b) return;
-      var t = b.dataset.t, a = b.dataset.a, c = S.get(t), r;
+      var t = b.dataset.t, a = b.dataset.a, c = clients.filter(function (x) { return x.token === t; })[0], p;
+      if (!c) return;
       if (a === 'star') {
         if (!confirm('¿Servicio completado y pagado?\nSe sumará una estrella a ' + c.name + '.')) return;
-        r = S.star(t);
+        p = S.star(t);
       } else if (a === 'undo') {
         if (!confirm('¿Quitar una estrella a ' + c.name + '?')) return;
-        r = S.undo(t);
+        p = S.undo(t);
       } else if (a === 'reset') {
         if (!confirm('¿Reiniciar la tarjeta de ' + c.name + ' a 0 estrellas?')) return;
-        r = S.reset(t);
+        p = S.reset(t);
       } else {
         if (!confirm('¿Canjear la recompensa de ' + c.name + '? Su tarjeta volverá a 0.')) return;
-        r = S.redeem(t);
+        p = S.redeem(t);
       }
-      say(r.ok ? 'Listo: tarjeta de ' + c.name + ' actualizada.' : r.msg);
-      render();
+      b.disabled = true;
+      p.then(function (r) { say(r.ok ? 'Listo: tarjeta de ' + c.name + ' actualizada.' : r.msg); });
     });
 
     $('add').addEventListener('submit', function (e) {
       e.preventDefault();
-      S.add($('n').value.trim(), $('p').value.trim());
-      say('Clienta añadida. Toca "Enviar enlace" para mandarle su tarjeta por WhatsApp.');
-      $('add').reset(); render();
+      S.add($('n').value.trim(), $('p').value.trim()).then(function () {
+        say('Clienta añadida. Toca "Enviar enlace" para mandarle su tarjeta por WhatsApp.');
+        $('add').reset();
+      }, function () { say('No se pudo añadir. Revisa la conexión e inténtalo de nuevo.'); });
     });
 
     $('q').addEventListener('input', render);
+    $('out').addEventListener('click', function () { S.logout(); });
 
-    function open() { $('gate').hidden = true; $('panel').hidden = false; render(); }
     $('gate').addEventListener('submit', function (e) {
       e.preventDefault();
-      if ($('pin').value === PIN) { sessionStorage.setItem('bp_sp', '1'); open(); }
-      else { $('pin').value = ''; $('pin').placeholder = 'PIN incorrecto, inténtalo otra vez'; }
+      $('gmsg').textContent = 'Entrando…';
+      S.login($('em').value.trim(), $('pw').value).then(function () { $('pw').value = ''; $('gmsg').textContent = ''; },
+        function () { $('gmsg').textContent = 'Correo o contraseña incorrectos.'; });
     });
-    if (sessionStorage.getItem('bp_sp')) open();
-    S.watch(render);
+
+    S.onAuth(function (user) {
+      if (unsub) { unsub(); unsub = null; }
+      $('gate').hidden = !!user; $('panel').hidden = !user;
+      if (user) {
+        unsub = S.watchAll(function (list) { clients = list; render(); },
+          function () { say('Esta cuenta no tiene permiso para ver las clientas.'); });
+      } else { clients = []; }
+    });
   })();
   </script>
 </body>
