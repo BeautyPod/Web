@@ -1,45 +1,64 @@
-/* Almacén del Club BeautyPod — MODO DEMOSTRACIÓN (guarda en el navegador).
-   Para conectar Firebase solo se reemplaza este archivo; las dos páginas no cambian. */
+/* Almacén del Club BeautyPod — conectado a Firebase (Firestore + Authentication).
+   Requiere cargar antes los scripts "compat" de Firebase (app, auth, firestore). */
 (function () {
-  var KEY = 'bp_club_demo', GOAL = 5, DAY = 864e5;
+  var firebaseConfig = {
+    apiKey: "AIzaSyD9xC8u8nAWSa_d0V4DImOF50_UCpc-sUY",
+    authDomain: "beautypod-club.firebaseapp.com",
+    projectId: "beautypod-club",
+    storageBucket: "beautypod-club.firebasestorage.app",
+    messagingSenderId: "561396060916",
+    appId: "1:561396060916:web:5c2d1e8385cefeb02284a1"
+  };
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore(), auth = firebase.auth();
+  var COL = 'clientas', GOAL = 5, DAY = 864e5;
 
-  function save(d) { localStorage.setItem(KEY, JSON.stringify(d)); }
-  function load() {
-    try { var x = JSON.parse(localStorage.getItem(KEY)); if (x && x.clients) return x; } catch (e) {}
-    var d = { clients: {
-      'blanca-demo': { name: 'Blanca', phone: '53000001', stars: 3 },
-      'maria-demo':  { name: 'María',  phone: '53000002', stars: 1 },
-      'ana-demo':    { name: 'Ana',    phone: '53000003', stars: 5, reward: { issued: Date.now(), expires: Date.now() + 30 * DAY } }
-    } };
-    save(d); return d;
-  }
+  function ref(t) { return db.collection(COL).doc(t); }
+  function pack(s) { return Object.assign({ token: s.id }, s.data()); }
+
+  // Cada cambio se hace en una transacción: dos toques seguidos no duplican estrellas
   function act(t, fn) {
-    var d = load(), c = d.clients[t];
-    if (!c) return { ok: false, msg: 'Clienta no encontrada.' };
-    var r = fn(c);
-    if (r.ok) save(d);
-    return r;
+    return db.runTransaction(function (tx) {
+      return tx.get(ref(t)).then(function (s) {
+        if (!s.exists) return { ok: false, msg: 'Clienta no encontrada.' };
+        var c = s.data(), r = fn(c);
+        if (r.ok) tx.set(ref(t), c);
+        return r;
+      });
+    }).catch(function () { return { ok: false, msg: 'No se pudo guardar. Revisa la conexión e inténtalo de nuevo.' }; });
   }
 
   window.ClubStore = {
-    GOAL: GOAL, demo: true,
-    all: function () {
-      var c = load().clients;
-      return Object.keys(c).map(function (t) { return Object.assign({ token: t }, c[t]); });
+    GOAL: GOAL, demo: false,
+
+    // Sesión de la especialista
+    login: function (email, pass) { return auth.signInWithEmailAndPassword(email, pass); },
+    logout: function () { return auth.signOut(); },
+    onAuth: function (fn) { return auth.onAuthStateChanged(fn); },
+
+    // Vista de la clienta: una sola lectura y se actualiza en vivo
+    watchClient: function (t, fn) {
+      return ref(t).onSnapshot(function (s) { fn(s.exists ? pack(s) : null); }, function () { fn(null); });
     },
-    get: function (t) { var c = load().clients[t]; return c ? Object.assign({ token: t }, c) : null; },
+    // Tabla de la especialista
+    watchAll: function (fn, onError) {
+      return db.collection(COL).onSnapshot(function (q) {
+        var list = q.docs.map(pack);
+        list.sort(function (a, b) { return a.name.localeCompare(b.name, 'es'); });
+        fn(list);
+      }, onError);
+    },
+
     add: function (name, phone) {
-      var d = load(), t = Array.from(crypto.getRandomValues(new Uint8Array(10)), function (b) { return (b % 36).toString(36); }).join('');
-      d.clients[t] = { name: name, phone: phone, stars: 0 };
-      save(d); return t;
+      var t = Array.from(crypto.getRandomValues(new Uint8Array(10)), function (b) { return (b % 36).toString(36); }).join('');
+      return ref(t).set({ name: name, phone: phone, stars: 0, reward: null, last: null, redeemedAt: null, created: Date.now() })
+        .then(function () { return t; });
     },
-    // Regla: una estrella por visita válida, registrada una sola vez
     star: function (t) {
       return act(t, function (c) {
         if (c.stars >= GOAL) return { ok: false, msg: 'Ya tiene la recompensa. Canjéala primero.' };
         if (c.last && Date.now() - c.last < 60000) return { ok: false, msg: 'Ya se registró una estrella hace menos de 1 minuto.' };
         c.stars++; c.last = Date.now(); c.redeemedAt = null;
-        // Regla: al llegar a 5 se emite la recompensa, válida 30 días naturales
         if (c.stars === GOAL) c.reward = { issued: Date.now(), expires: Date.now() + 30 * DAY };
         return { ok: true };
       });
@@ -63,9 +82,6 @@
         c.stars = 0; c.reward = null; c.last = null; c.redeemedAt = Date.now();
         return { ok: true };
       });
-    },
-    watch: function (fn) {
-      window.addEventListener('storage', function (e) { if (e.key === KEY) fn(); });
     }
   };
 })();
