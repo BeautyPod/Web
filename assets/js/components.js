@@ -4,7 +4,8 @@
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const assetPrefix = window.location.pathname.includes("/articles/") ? "../" : "";
+  // Las páginas dentro de /articles/ y /club/ están una carpeta más abajo
+  const assetPrefix = /\/(articles|club)\//.test(window.location.pathname) ? "../" : "";
 
   // ==========================================================
   // HEADER (inyectamos el contenido dentro de #site-header, no un <header> adicional)
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <li><a href="${assetPrefix}podology.html">Podología</a></li>
               <li><a href="${assetPrefix}estetica.html">Estética</a></li>
               <li><a href="${assetPrefix}blog.html">Blog</a></li>
+              <li><a href="${assetPrefix}club/club.html">Club</a></li>
               <li><a href="${assetPrefix}tienda.html">Tienda</a></li>
               <li><a href="${assetPrefix}sobre-nosotros.html">Sobre nosotros</a></li>
 
@@ -65,10 +67,17 @@ document.addEventListener("DOMContentLoaded", () => {
         let path = window.location.pathname.split('/').pop();
         if (!path) path = 'index.html';
 
+        // Cualquier página dentro de /club/ (información o tarjeta) marca "Club"
+        const inClub = window.location.pathname.includes('/club/');
+
         links.forEach(a => {
           // Normaliza las rutas relativas (quita posible prefijo ../ en href)
           const href = a.getAttribute('href').replace(/^(\.\.\/)+/, '');
-          if (href === path || (href === 'index.html' && (path === '' || path === 'index.html'))) {
+          const isActive = href.startsWith('club/')
+            ? inClub
+            : (href === path || (href === 'index.html' && (path === '' || path === 'index.html')));
+
+          if (isActive) {
             a.setAttribute('aria-current', 'page');
           } else {
             a.removeAttribute('aria-current');
@@ -98,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="${assetPrefix}podology.html">Podología</a>
             <a href="${assetPrefix}estetica.html">Estética</a>
             <a href="${assetPrefix}blog.html">Blog</a>
+            <a href="${assetPrefix}club/club.html">Club</a>
             <a href="${assetPrefix}tienda.html">Tienda</a>
             <a href="${assetPrefix}sobre-nosotros.html">Sobre nosotros</a>
           </nav>
