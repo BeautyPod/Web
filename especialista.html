@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de especialista | Club BeautyPod</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#272727">
+  <link rel="icon" type="image/svg+xml" href="assets/img/beautypod-logo.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .sp { max-width: 720px; margin: 0 auto; padding: var(--space-3); }
+    .sp h1 { font-size: 1.5rem; margin-bottom: var(--space-2); }
+    .sp input { width: 100%; padding: .7rem .8rem; font: inherit; color: inherit; background: rgba(255,255,255,.06); border: 1px solid var(--color-border); border-radius: var(--radius); }
+    .sp button, .sp .btn-s { font: inherit; cursor: pointer; border-radius: var(--radius); border: 1px solid var(--color-border); background: rgba(255,255,255,.06); color: inherit; padding: .5rem .7rem; text-decoration: none; font-size: .85rem; }
+    .sp .plus { width: 48px; height: 48px; font-size: 1.6rem; line-height: 1; font-weight: 700; background: var(--color-accent); color: var(--color-on-accent); border-color: var(--color-accent-hover); }
+    .sp .minus { background: rgba(255,255,255,.08); color: inherit; border-color: var(--color-border); }
+    .sp button:disabled { opacity: .35; cursor: not-allowed; }
+    .sp .redeem { background: #f4d58d; color: #272727; font-weight: 700; min-height: 48px; }
+    .sp :focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+    .sp-gate { display: flex; gap: .5rem; margin-top: var(--space-2); }
+    .sp-add { display: grid; grid-template-columns: 1fr 1fr auto; gap: .5rem; margin: var(--space-2) 0; }
+    .sp-wrap { overflow-x: auto; margin-top: var(--space-2); }
+    .sp table { width: 100%; border-collapse: collapse; }
+    .sp th { text-align: left; font-size: .75rem; color: var(--color-text-muted); padding: .4rem .5rem; }
+    .sp td { padding: .6rem .5rem; border-top: 1px solid var(--color-border); vertical-align: middle; }
+    .sp td small { display: block; color: var(--color-text-muted); font-size: .75rem; }
+    .st { color: var(--color-accent); letter-spacing: .08em; white-space: nowrap; }
+    .act { display: flex; gap: .4rem; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .sp-msg { min-height: 1.4rem; margin: .5rem 0 0; font-size: var(--fs-small); color: var(--color-text-soft); }
+    .sp-note { font-size: .75rem; color: var(--color-text-muted); margin-top: var(--space-3); }
+    @media (max-width: 480px) { .sp-add { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="sp">
+    <h1>Club BeautyPod · Especialista</h1>
+
+    <!-- Entrada con PIN -->
+    <form id="gate" class="sp-gate" autocomplete="off">
+      <label class="sr-only" for="pin">PIN</label>
+      <input id="pin" type="password" inputmode="numeric" placeholder="PIN de la especialista" required>
+      <button type="submit" class="plus" style="width:auto;font-size:1rem;padding:0 1rem;">Entrar</button>
+    </form>
+
+    <section id="panel" hidden>
+      <label class="sr-only" for="q">Buscar clienta</label>
+      <input id="q" type="search" placeholder="Buscar por nombre o teléfono">
+
+      <form id="add" class="sp-add">
+        <input id="n" placeholder="Nombre" required aria-label="Nombre de la clienta">
+        <input id="p" type="tel" inputmode="tel" placeholder="Teléfono" required aria-label="Teléfono de la clienta">
+        <button type="submit">Añadir clienta</button>
+      </form>
+
+      <p class="sp-msg" id="msg" role="status"></p>
+
+      <div class="sp-wrap">
+        <table>
+          <thead><tr><th>Clienta</th><th>Estrellas</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p class="sp-note">Modo demostración: los datos se guardan solo en este navegador y el PIN de prueba es 1234. Al conectar Firebase, el PIN se sustituye por inicio de sesión.</p>
+    </section>
+  </main>
+
+  <script src="assets/js/club-store.js"></script>
+  <script>
+  (function () {
+    var S = window.ClubStore, G = S.GOAL, PIN = '1234';
+    var $ = function (id) { return document.getElementById(id); };
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function fmt(ms) { return new Date(ms).toLocaleDateString('es-CU', { day: 'numeric', month: 'short', year: 'numeric' }); }
+    function say(t) { $('msg').textContent = t || ''; }
+
+    function link(c) {
+      var url = new URL('tarjeta.html?t=' + c.token, location.href).href;
+      var text = 'Hola ' + c.name + ', esta es tu tarjeta del Club BeautyPod. Aquí verás tus estrellas: ' + url;
+      return 'https://wa.me/' + c.phone.replace(/\D/g, '') + '?text=' + encodeURIComponent(text);
+    }
+
+    function render() {
+      var q = $('q').value.trim().toLowerCase();
+      var list = S.all().filter(function (c) { return !q || c.name.toLowerCase().indexOf(q) > -1 || c.phone.indexOf(q) > -1; });
+      $('rows').innerHTML = list.length ? list.map(function (c) {
+        var full = c.stars >= G, exp = full && c.reward && c.reward.expires < Date.now();
+        var main = full
+          ? '<button class="redeem" data-a="redeem" data-t="' + c.token + '">' + (exp ? 'Reiniciar' : 'Canjear') + '</button>'
+          : '<button class="plus" data-a="star" data-t="' + c.token + '" aria-label="Sumar estrella a ' + esc(c.name) + '">+</button>';
+        return '<tr><td>' + esc(c.name) + '<small>' + esc(c.phone) + '</small></td>' +
+          '<td><span class="st" aria-hidden="true">' + '★'.repeat(c.stars) + '☆'.repeat(G - c.stars) + '</span> ' + c.stars + '/' + G +
+          (full && c.reward ? '<small>' + (exp ? 'Vencida el ' : 'Vence el ') + fmt(c.reward.expires) + '</small>' : '') + '</td>' +
+          '<td><div class="act">' +
+          '<button class="plus minus" data-a="undo" data-t="' + c.token + '"' + (c.stars < 1 ? ' disabled' : '') + ' title="Quitar una estrella" aria-label="Quitar estrella a ' + esc(c.name) + '">−</button>' + main +
+          '<button data-a="reset" data-t="' + c.token + '" title="Reiniciar a 0 estrellas" aria-label="Reiniciar estrellas de ' + esc(c.name) + '">⟲</button>' +
+          '<a class="btn-s" href="' + link(c) + '" target="_blank" rel="noopener noreferrer">Enviar enlace</a></div></td></tr>';
+      }).join('') : '<tr><td colspan="3">No hay resultados. Añade a la clienta arriba.</td></tr>';
+    }
+
+    $('rows').addEventListener('click', function (e) {
+      var b = e.target.closest('button[data-a]'); if (!b) return;
+      var t = b.dataset.t, a = b.dataset.a, c = S.get(t), r;
+      if (a === 'star') {
+        if (!confirm('¿Servicio completado y pagado?\nSe sumará una estrella a ' + c.name + '.')) return;
+        r = S.star(t);
+      } else if (a === 'undo') {
+        if (!confirm('¿Quitar una estrella a ' + c.name + '?')) return;
+        r = S.undo(t);
+      } else if (a === 'reset') {
+        if (!confirm('¿Reiniciar la tarjeta de ' + c.name + ' a 0 estrellas?')) return;
+        r = S.reset(t);
+      } else {
+        if (!confirm('¿Canjear la recompensa de ' + c.name + '? Su tarjeta volverá a 0.')) return;
+        r = S.redeem(t);
+      }
+      say(r.ok ? 'Listo: tarjeta de ' + c.name + ' actualizada.' : r.msg);
+      render();
+    });
+
+    $('add').addEventListener('submit', function (e) {
+      e.preventDefault();
+      S.add($('n').value.trim(), $('p').value.trim());
+      say('Clienta añadida. Toca "Enviar enlace" para mandarle su tarjeta por WhatsApp.');
+      $('add').reset(); render();
+    });
+
+    $('q').addEventListener('input', render);
+
+    function open() { $('gate').hidden = true; $('panel').hidden = false; render(); }
+    $('gate').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if ($('pin').value === PIN) { sessionStorage.setItem('bp_sp', '1'); open(); }
+      else { $('pin').value = ''; $('pin').placeholder = 'PIN incorrecto, inténtalo otra vez'; }
+    });
+    if (sessionStorage.getItem('bp_sp')) open();
+    S.watch(render);
+  })();
+  </script>
+</body>
+</html>
