@@ -13,6 +13,9 @@
   var db = firebase.firestore(), auth = firebase.auth();
   var COL = 'clientas', GOAL = 5, DAY = 864e5;
 
+  // La sesión queda abierta en este dispositivo hasta que se toque "Cerrar sesión"
+  var persistReady = auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(function () {});
+
   function ref(t) { return db.collection(COL).doc(t); }
   function pack(s) { return Object.assign({ token: s.id }, s.data()); }
 
@@ -32,7 +35,9 @@
     GOAL: GOAL, demo: false,
 
     // Sesión de la especialista
-    login: function (email, pass) { return auth.signInWithEmailAndPassword(email, pass); },
+    login: function (email, pass) {
+      return persistReady.then(function () { return auth.signInWithEmailAndPassword(email, pass); });
+    },
     logout: function () { return auth.signOut(); },
     onAuth: function (fn) { return auth.onAuthStateChanged(fn); },
 
@@ -53,6 +58,12 @@
       var t = Array.from(crypto.getRandomValues(new Uint8Array(10)), function (b) { return (b % 36).toString(36); }).join('');
       return ref(t).set({ name: name, phone: phone, stars: 0, reward: null, last: null, redeemedAt: null, created: Date.now() })
         .then(function () { return t; });
+    },
+    // Elimina a una clienta (solo su tarjeta; no afecta la cuenta de la especialista)
+    remove: function (t) {
+      return ref(t).delete()
+        .then(function () { return { ok: true }; },
+              function () { return { ok: false, msg: 'No se pudo eliminar. Revisa la conexión o los permisos.' }; });
     },
     star: function (t) {
       return act(t, function (c) {
